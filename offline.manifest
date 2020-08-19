@@ -27,6 +27,8 @@ PAYLOADS\enabler.js
 PAYLOADS\fancontrol.js
 PAYLOADS\ftp.js
 PAYLOADS\hen213.js
+PAYLOADS\hen218.js
+PAYLOADS\hen219.js
 PAYLOADS\history.js
 PAYLOADS\kernelClock.js
 PAYLOADS\linux.js
@@ -37,8 +39,6 @@ PAYLOADS\rifs.js
 PAYLOADS\WebRTE.js
 PAYLOADS\xmbcache.html
 PAYLOADS\xmbinstaller.html
-PAYLOADS\hen218.js
-PAYLOADS\hen219.js
 PAYLOADS\binloader\c-code.js
-PAYLOADS\mirahen\mugiwaramirahen.js
 PAYLOADS\mirahen\c-code.js
+PAYLOADS\mirahen\mugiwaramirahen.js
