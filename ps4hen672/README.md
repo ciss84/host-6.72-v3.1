@@ -1,4 +1,4 @@
-# PS4HEN v2.1.3
+# PS4HEN v2.2
 
 ## Features
 - Homebrew Enabler
