@@ -16,6 +16,7 @@
 - UART Enabler
 - Never Disable Screenshot
 - Remote Play Enabler
+- Save data mount
 
 ## Contributors
 Massive credits to the following:
