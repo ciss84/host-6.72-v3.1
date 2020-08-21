@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/icons.css">
+<style>
+body {color:deepskyblue;}
+.BackButton {position:fixed;bottom:0px;right:0px;z-index:100;background-color:deepskyblue;border-radius: 5px;border:7px double black;box-shadow:0 0 0 1px black;padding:5px 15px 0 0px;margin:1px 1px;text-align:center;text-decoration:none;display:inline-block;font-family:sans-serif;font-size:28px;font-weight:bolder;letter-spacing:-1px;color:black;cursor:pointer;}
+.BackButton:hover {color:white;}
+.iconZ {-webkit-transform:scaleX(-1);color:inherit;font-size:50px;letter-spacing:0;padding:0 0 0 5px;margin:-5px 0 -1px 5px;vertical-align:middle;}
+</style>
+</head>
+<body>
+<script>
+document.body.style.backgroundImage = 'url(../wallpaper/'+parent.RC("BGimage")+')';
+document.body.style.backgroundSize = "cover";
+</script>
+<div id=details>
+<center><br>
+<font size ="7" color="white">X-PROJECT & X-PROJECT ESP CREATED BY:</font></p>
+<p><font size ="6" color="grey">DEFAULTDNB (AKA KIIWII) & LEEFUL</font></p>
+<font size ="7">Discord:</font>
+<p><font size ="5" color="grey">DEFAULTDNB#6513 / LEEFUL#0049</font></p>
+<font size ="7">Twitter:</font>
+<p><font size ="5" color="grey">@DefaultDNB / @Leeful74</font></p>
+<font size ="7">GBATemp:</font>
+<p><font size ="5" color="grey">KiiWii / Leeful</font></p>
+<font size ="7">Psxhax:</font>
+<p><font size ="5" color="grey">DefaultDNB / Leeful</font></p>
+<a href="javascript:back2Menu();" class="BackButton" id=BB><div class="material-icons iconZ">&#xe154;</div>BACK TO MENU</a>
+</center>
+</div>
+<script>
+document.getElementById("details").style.color = localStorage.xmbcolor;
+document.getElementById("BB").style.backgroundColor = localStorage.xmbcolor;
+function back2Menu(){parent.location.reload(true);}
+</script>
+</body>
+</html>

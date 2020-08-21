@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Menu Colour Changer</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+if (parent.RC("UserName") == "user" || parent.RC("UserName") == null){document.getElementById('user1').innerHTML = "";}
+else {document.getElementById('user1').innerHTML = parent.RC("UserName");}
+parent.document.getElementById("rgbcontainer").style.display = "block";
+var canvasEl2 = parent.document.getElementById('rgbCanvas');
+var canvasContext2 = canvasEl2.getContext('2d');
+var image2 = new Image();
+image2.onload = () => canvasContext2.drawImage(image2, 0, 0, 865, 93);
+image2.src = "./colorizer.jpg";
+canvasEl2.onmousemove = function (mouseEvent) {
+var all = parent.document.getElementsByClassName('cell'); for (var i = 0; i < all.length; i++) {all[i].style.transition = '0s';}
+  var imgData2 = canvasContext2.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+  var rgb = imgData2.data;
+  localStorage.xmbcolor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+  parent.CC('xmbcolor',localStorage.xmbcolor,365);
+var z = parent.document.querySelectorAll(".active, #user, #myip"); 
+var i; for (i = 0; i < z.length; i++) {z[i].style.color = localStorage.xmbcolor;}
+  parent.ColorChanger();
+}
+canvasEl2.onmouseup = function (mouseEvent) {
+var all = parent.document.getElementsByClassName('cell'); for (var i = 0; i < all.length; i++) {all[i].style.transition = '0.3s';}
+  var imgData2 = canvasContext2.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+  var rgb = imgData2.data;
+  localStorage.xmbcolor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+  parent.CC('xmbcolor',localStorage.xmbcolor,365);
+  parent.document.getElementById("rgbcontainer").style.display = 'none';
+  parent.ColorChanger();
+}
+</script>
+</body>
+</html>

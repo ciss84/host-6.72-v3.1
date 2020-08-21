@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+overflow:hidden;
+}
+.button {
+	background-color: deepskyblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: white;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+<center>
+<button class="button" onclick="myFunction()">OPEN MP4 PLAYER</button>
+</center>
+<script>
+setTint = localStorage.xmbcolor;
+document.getElementsByClassName("button")[0].style.backgroundColor = setTint;
+function myFunction() {
+    window.open("./player/player.html");
+}
+
+</script>
+</body>
+</html>

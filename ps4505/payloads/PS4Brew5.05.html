@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mira 5.05</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body style="margin:0;">
+<script>var SetHEN = 'yes';
+    window.didload = 0;
+    window.didpost = 0;
+
+    window.onload = function () {
+      window.didload = 1;
+      if (window.didpost == 1)
+        setTimeout(window.stage2, 1500);
+    }
+    window.postExpl = function () {
+      window.didpost = 1;
+      if (window.didload == 1)
+        setTimeout(window.stage2, 1500);
+    }
+
+    function allset() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("allset").style.display = "block";
+    }
+
+    function awaitpl() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("awaiting").style.display = "block";
+    }
+
+    function fail(info) {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("fail").style.display = "block";
+    }
+  </script>
+  
+    
+
+  <div id="loader" class="loader"></div>
+
+  <div id="awaiting" class="info" style="display:none;">
+    Awaiting Payload...
+  </div>
+
+  <div id="allset" class="info" style="display:none;">
+    You're all set!
+  </div>
+
+  <div id="fail" class="info" style="display:none;">
+    Something went wrong :(
+  </div>
+
+  <div id="badfw" class="info" style="display:none;">
+    Only firmware 5.05 is supported!
+  </div>
+
+  <div id="footer" class="credits">
+    <ul style="list-style: none;padding-left:0">
+      <li>Original Host By Al-Azif</li>
+      <li>Host Interface Modded By JgDuff</li>
+      <li><b>PS4 Hack 5.05 :</b></li>
+       <li><a href=#>Bugs from qwertyoruiopz</a></li>
+      <li><a href=#>Homebrew thanks to flatz, xvortex</a></li>
+      <li><a href=#>Implementation by specter</a></li>
+      <li><a href=#>OpenOrbis Team</a></li>
+    </ul>
+  </div>
+  <script src="./PS4Brew5.05/exploit.js"></script>
+  <pre id="console"></pre>
+
+
+</body></html>

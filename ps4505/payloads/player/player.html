@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MP4 PLAYER</title>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<style>
+h1 {
+color:white;
+}
+body {
+    background-color: gray;
+}
+div {
+color:white;
+}
+.form {
+colour:white;
+}
+.sbutton {
+    background-color: navy;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 1px 1px;
+    cursor: pointer;
+}
+.sbutton:hover {
+    background-color: white;
+    color: navy;
+}
+.button {
+    background-color: navy;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: white;
+    color: navy;
+}
+</style>
+<script>
+	var fileName = "../../media/movielist.txt";
+	var txtFile = new XMLHttpRequest();
+	txtFile.open("GET",fileName,false);
+	txtFile.send();
+	var txtDoc = txtFile.responseText;
+	var lines = txtDoc.split("\r\n"); // values in lines[0], lines[1]...
+	
+	//TO DO: make alert if nothing found	
+	//alert("MEDIA FOUND: \r\n\r\n" + txtDoc)
+	
+</script>
+</head>
+<body id="body">
+<center>
+<h1>MP4 MEDIA PLAYER</h1>
+<div>
+<select id="Media" onchange="vidsrc()">
+	<option id="L0" value="L0" selected="selected">SELECT MOVIE</option>
+	<option id="L1" value="L1">Loading..</option>
+	<option id="L2" value="L2">Loading..</option>
+	<option id="L3" value="L3">Loading..</option>
+	<option id="L4" value="L4">Loading..</option>
+	<option id="L5" value="L5">Loading..</option>
+	<option id="L6" value="L6">Loading..</option>
+	<option id="L7" value="L7">Loading..</option>
+	<option id="L8" value="L8">Loading..</option>
+	<option id="L9" value="L9">Loading..</option>
+	<option id="L10" value="L10">Loading..</option>
+	<option id="L11" value="L11">Loading..</option>
+	<option id="L12" value="L12">Loading..</option>
+	<option id="L13" value="L13">Loading..</option>
+	<option id="L14" value="L14">Loading..</option>
+	<option id="L15" value="L15">Loading..</option>
+	<option id="L16" value="L16">Loading..</option>
+	<option id="L17" value="L17">Loading..</option>
+	<option id="L18" value="L18">Loading..</option>
+	<option id="L19" value="L19">Loading..</option>
+	<option id="L20" value="L20">Loading..</option>
+	
+	<!--TODO: make this list dynamic-->
+</select>
+</div>
+<video id="player" width="720" poster="player.jpg" preload="metadata">
+<source id="vid_src" src="" type="video/mp4">
+<script>
+var x = document.getElementById("player");
+var m = document.getElementById("Media").value;
+x.src = "../../media/" + m;
+</script>
+<!-- http://www.ezshare.card/xproject/media/movie1.mp4 = absolute dir -->
+</video> 
+<br>
+<button class="sbutton" onclick="restart()">Restart</button>
+<button class="sbutton" onclick="back30()"><30s</button>
+<button class="sbutton" onclick="playPause()">&#9654;/||</button> 
+<button class="sbutton" onclick="stop()">&#9632;</button> 
+<button class="sbutton" onclick="skip30()">>30s</button>
+<button class="sbutton" onclick="normRez()">720</button>
+<button class="sbutton" onclick="bigRez()">1080</button>
+<button class="sbutton" onclick="full()">FULL</button>
+<button class="sbutton" onclick="night()">DARK</button>
+<button class="sbutton" onclick="mute()">MUTE</button>
+<button class="sbutton" onclick="info()">INFO</button>
+<br>
+<div id="run">SELECT A MOVIE ABOVE</div>
+<a href="javascript:window.open('','_self').close();" class="button">BACK TO XMB</a>
+
+<script>
+var x = document.getElementById("player");
+//Video source select based on dropdown
+function vidsrc() {
+var m = document.getElementById("Media").value;
+x.src = "../../media/" + m;
+x.play();
+x.pause();
+}
+var i = setInterval(function() {
+		//Set up opening text
+		document.getElementById("L0").text = "SELECT MOVIE";
+		document.getElementById('run').innerHTML = "SELECT MOVIE";
+		//Populate drop down list
+		document.getElementById("L1").text = (lines[0]);
+		document.getElementById("L1").value = (lines[0]);
+		document.getElementById("L2").text = (lines[1]);
+		document.getElementById("L2").value = (lines[1]);
+		document.getElementById("L3").text = (lines[2]);
+		document.getElementById("L3").value = (lines[2]);
+		document.getElementById("L4").text = (lines[3]);
+		document.getElementById("L4").value = (lines[3]);
+		document.getElementById("L5").text = (lines[4]);
+		document.getElementById("L5").value = (lines[4]);
+		document.getElementById("L6").text = (lines[5]);
+		document.getElementById("L6").value = (lines[5]);
+		document.getElementById("L7").text = (lines[6]);
+		document.getElementById("L7").value = (lines[6]);
+		document.getElementById("L8").text = (lines[7]);
+		document.getElementById("L8").value = (lines[7]);
+		document.getElementById("L9").text = (lines[8]);
+		document.getElementById("L9").value = (lines[8]);
+		document.getElementById("L10").text = (lines[9]);
+		document.getElementById("L10").value = (lines[9]);
+		document.getElementById("L11").text = (lines[10]);
+		document.getElementById("L11").value = (lines[10]);
+		document.getElementById("L12").text = (lines[11]);
+		document.getElementById("L12").value = (lines[11]);
+		document.getElementById("L13").text = (lines[12]);
+		document.getElementById("L13").value = (lines[12]);
+		document.getElementById("L14").text = (lines[13]);
+		document.getElementById("L14").value = (lines[13]);
+		document.getElementById("L15").text = (lines[14]);
+		document.getElementById("L15").value = (lines[14]);
+		document.getElementById("L16").text = (lines[15]);
+		document.getElementById("L16").value = (lines[15]);
+		document.getElementById("L17").text = (lines[16]);
+		document.getElementById("L17").value = (lines[16]);
+		document.getElementById("L18").text = (lines[17]);
+		document.getElementById("L18").value = (lines[17]);
+		document.getElementById("L19").text = (lines[18]);
+		document.getElementById("L19").value = (lines[18]);
+		document.getElementById("L20").text = (lines[19]);
+		document.getElementById("L20").value = (lines[19]);
+		
+	if(x.readyState > 0) {
+		var minutes = parseInt(x.duration / 60, 10);
+		var seconds = parseInt(x.duration % 60);
+		var runningm = parseInt(x.currentTime / 60, 10);
+		var runnings = parseInt(x.currentTime % 60);
+		document.getElementById('run').innerHTML = x.currentSrc + " time: "+ runningm + ":" + runnings + "/" + minutes + ":" + seconds;
+	}
+}, 10	);
+function full() {
+    x.webkitRequestFullscreen();
+}
+function restart() {
+  x.currentTime = 0
+  x.play();
+}
+function skip30() {
+  x.currentTime += 30
+}
+function back30() {
+  x.currentTime -= 30
+}
+function stop() {
+x.currentTime = 0
+x.pause();
+x.poster = "player.jpg";
+
+}
+function mute() {
+	if (x.volume === 1.0) {
+		x.volume = 0.0;
+	} else {
+		x.volume = 1.0;
+	}
+}
+function playPause() { 
+    if (x.paused)
+        x.play(); 
+    else 
+        x.pause(); 
+} 
+function bigRez() { 
+    x.width = 1080; 
+} 
+function normRez() { 
+    x.width = 720; 
+} 
+function night() {
+	if (document.body.style.backgroundColor === "black") {
+		document.body.style.backgroundColor = "gray";
+	} else {
+		document.body.style.backgroundColor = "black";
+	}
+}
+function info() {
+alert("Made by DEFAULTDNB 2018")
+}
+</script>
+</center>
+</body>
+</html>

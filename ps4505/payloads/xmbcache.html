@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>X-CACHE</title>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet prefetch" href="exploit.css">
+<style>.cache{
+color:deepskyblue;line-height:24px; font-size:28px; width:795px; height:65px; position:absolute; overflow:hidden; left:0px; right:0px; top:0px; bottom:0px; padding:30px 0px 0px 0px; max-width:100%; max-height:100%;}</style>
+<div id="status" class="cache"></div>
+<script>
+function DLProgress(e) {Percent = (Math.round(e.loaded / e.total * 100));changeText("<div class=cache>OFFLINE CACHE UPDATE " + Percent + "%</div>");}window.applicationCache.addEventListener("progress", DLProgress, false);
+function ondownloading(){changeText("<div class=cache>CACHING OFFLINE NOW PLEASE WAIT<br></div>");}
+function oncached(){changeText("<div class=cache style='margin:-6px'>X-PROJECT INSTALLED!<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>");window.parent.document.getElementById('Ttitle').innerHTML='X-PROJECT CACHED:';window.parent.document.getElementById('Tsubtitle').innerHTML='THANK YOU!'; window.parent.pop();}
+function onupdateready(){changeText("<div class=cache>CACHE UPDATED</div>");}
+function onnoupdate(){changeText("<div class=cache>NO UPDATES AVAILABLE</div>");}
+function onerror(){changeText("<div class=cache>ERROR CACHING!</div>");}
+function changeText(text){var display = document.getElementById('status'); display.innerHTML = ""; display.innerHTML = text;}
+</script>
+</head>
+<body>
+<iframe id="ifrm" src="xmbinstaller.html" style="border:none;"></iframe>
+</body>
+</html>

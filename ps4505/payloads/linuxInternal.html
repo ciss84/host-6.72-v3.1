@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INTERNAL LINUX</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id=loader class=loader><div class=ib2>INTERNAL LINUX</div><div class=ib2>&nbsp;L</div><div class=loaderO></div><div class=ib2>ADING...</div></div>
+<div id=done class=done style=display:none>INTERNAL LINUX LOADED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div id=fail class=info style=display:none>INTERNAL LINUX FAILED</div>
+<script>
+var bin="linuxInternal.bin";function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}function loadScript(){getScript("exploit.js",function(){setTimeout(exploit,1500);});}loadScript();
+</script>
+</body>
+</html>

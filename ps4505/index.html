@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+  <title>X-Project"5.05 Mod by 84ciss</title>
+  <link rel="stylesheet" href="css/anim.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" href="css/favicon.ico" type="image/x-icon">
+</head>
+<body onload="Populate();">
+<div id="Tpopup">
+<div id="Ticon"><img width="38" height="38" src="data:image/png;base64,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"></div>
+<div id="Ttitle">WELCOME TO X-PROJECT:</div>
+<div id="Tsubtitle"></div>
+<div id="Tbutton"><img width="28" height="25" src="data:image/png;base64,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"></div>
+</div>
+<div class="topmask"></div>
+<div id="contents" class="contents"><iframe id="content" name="content" class="content" src="payloads/blank.html"></iframe></div>
+<h2 class="top" id="top">By DEFAULTDNB AND LEEFUL</h2>
+<h2 class="clock" id="clock">X-PROJECT LOADING..</h2>
+<div id="xmb-contain">
+  <div id="xmb">
+    <ul>
+      <li class="column" v-for="column,index in columns" v-bind:class="{active:column.active}" v-bind:style="{left:column.position.x+'px'}">
+        <div class="cell" v-bind:class="{active:column.active}" v-on:click="highlightCell(column.index,0)">
+		<i class="material-icons xmb-icon">{{column.icon}}</i>
+        <label>{{column.title}}</label>
+        </div>
+        <ul>
+          <li class="cell submenu" v-for="item,itemIndex in column.items" v-bind:class="{active:item.active}" v-bind:style="{top:item.position.y+'px'}" v-on:click="highlightCell(column.index,itemIndex)"> 
+          <a v-bind:href="item.href = item.expage" target="content">
+            <div class="selected">
+              <div class="material-icons">{{item.icon}}</div>
+              <div class="titles">{{item.title}}{{column.txt1}}<div :id="item.button1"></div>{{column.txt2}}<div :id="item.button2"></div>{{column.txt3}}</div>
+			  <div class="desc">{{item.desc}}{{column.txt4}}<div :id="item.button3"></div>{{column.txt5}}<div :id="item.button4"></div>{{column.txt6}}{{column.txt4}}<div :id="item.button5"></div>{{column.txt5}}<div :id="item.button6"></div>{{column.txt7}}{{column.txt4}}<div :id="item.button7"></div>{{column.txt5}}<div :id="item.button8"></div>{{column.txt8}}{{item.txt9}}<div :id="item.button9"></div>{{item.txt10}}<div :id="item.button10"></div>{{item.txt11}}</div>
+			  
+			  <div class="subs">Version: {{item.version}}</div>
+            </div>
+          </a>
+		</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/lodash.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+<video id="trophy" width="0" height="0">
+<source src="trophy.mp4" type="video/mp4" preload>
+</video>
+<script>
+var xpver = "X-PROJECT Mod by 84ciss";
+var appCache = window.applicationCache;
+switch (appCache.status) {
+  case appCache.UNCACHED:
+	pop();
+	document.getElementById('Ttitle').innerHTML='INSTALLING X-PROJECT:';
+	document.getElementById('Tsubtitle').innerHTML='PLEASE WAIT!';
+    cachedxp = "false";
+    break;
+  default:
+	cachedxp = "true";
+    break;
+}
+var x = document.getElementsByTagName("UL")[0];
+var payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2);
+x.getElementsByTagName("LI")[payloadcount].style.display = "none";
+if (window.applicationCache.status == '0') {cachedxp = "false";} else {cachedxp = "true";}
+
+function DLProgress(e){
+	document.getElementById("ScrOverlay").style.display = "block";
+	Percent = (Math.round(e.loaded / e.total * 100));
+	document.getElementById('cacheUPDtxt').innerHTML = "NEW OFFLINE CACHE DETECTED<br>UPDATING " + Percent + "%";
+  } 
+function DebugMode() {
+    if (x.getElementsByTagName("LI")[payloadcount].style.display === "none") {
+	myNum = 15;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "block";
+	localStorage.setItem("Debug", "on");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED ON';
+    } else {
+	myNum = 14;
+    x.getElementsByTagName("LI")[payloadcount].style.display = "none";
+	localStorage.setItem("Debug", "off");
+	pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='DEBUG TOGGLED OFF';
+    }
+}
+function Populate() {
+	payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2);
+	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) > "5.07" ) {
+		truefw = localStorage.getItem("truefirm");
+	if (truefw == null) {
+		truefw = "spoofed";
+	}
+	} else {
+		localStorage.setItem("truefirm", Number(navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple"))));
+		truefw = localStorage.getItem("truefirm");
+	}
+	var txt = "";
+	txt += "HOST VER : " + "<span style='color:white;' onclick='hide()'>" + xpver + "</span>" + "<br><br>";
+	txt += "<div id=L1BUTTON></div>" + ": MiraHEN 2.1.4" + "<br>";
+	txt += "<div id=AutoHenInfo><div id=L2BUTTON></div>" + ": MiraHENLoader" + "<br>";
+	txt += "<div id=R1BUTTON></div>" + ": Hen 2.2 FTP" + "<br>";
+	txt += "<div id=R2BUTTON></div>" + ": MiraHEN 1.8 + VR" + "<br><br>";
+	txt += "USER NAME : "+"<input tabIndex='-1' type='input' id='user' value='Mugiwara' onmousemove='savename()'>"+"<br>";
+	txt += "PS4 FTP IP : "+"<input tabIndex='-1' type='myip' id='myip' value='192.168.1.34:1337' onmousemove='saveip()'>"+"<br><br>";
+	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("7.51")) {txt += "MiraHen Enabled : " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "MiraHen Enabled : " + "<span style='color:red'> false </span>" + "<br>";}
+  if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("7.51")) {txt += "Mira Kernel Logging : " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "Mira Kernel Logging : " + "<span style='color:red'> false </span>" + "<br>";}
+	if (truefw === "spoofed") { txt += "True Firmware : " + "<span style='color:red'>" + truefw + "</span>" + "<br>";} else { txt += "True Firmware : " + "<span style='color:lime'>" + truefw + "</span>" + "<br>";}
+	if (navigator.onLine == false) { txt += "Lan/WiFi Enabled : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Lan/WiFi Enabled : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (navigator.cookieEnabled === false) { txt += "Cookie Tracking : " + "<span style='color:red'> false </span>" + "<br>";} else { txt += "Cookie Tracking : " + "<span style='color:lime'> true </span>" + "<br>";}
+	if (cachedxp === "false") { txt += "Host Cached : " + "<span style='color:red'>" + cachedxp + "</span>" + "<br><br>";} else { txt += "Host Cached : " + "<span style='color:lime'>" + cachedxp + "</span>" + "<br><br>";}
+	txt += "Screen Size: " + "<span style='color:silver'>" + screen.width + "x" + screen.height + "</span>" + "<br>"; 
+	txt += "Color Depth: " + "<span style='color:silver'>" + screen.colorDepth+"-Bit" + "</span>" + "<br>";
+	txt += "Pixel Depth: " + "<span style='color:silver'>" + screen.pixelDepth+"-Bpp" + "</span>" + "<br><br>";
+	document.title = xpver;
+	document.body.style.backgroundImage = "url('js/font.gif')";
+	document.body.style.backgroundSize = "cover";
+	document.getElementById("xmb").getElementsByClassName("material-icons")[0].click();
+	document.getElementById('infoz').innerHTML = txt;
+	document.getElementById("xmb").getElementsByClassName("material-icons")[0].style.color = "firebrick";
+	document.getElementById("xmb").getElementsByClassName("material-icons")[payloadcount].style.color = "gold";
+	document.getElementById("xmb").getElementsByClassName("material-icons")[payloadcount-9].style.color = "lime";
+	document.getElementById("user").value = localStorage.getItem("username");
+	document.getElementById("myip").value = localStorage.getItem("userip");		
+
+	var fw = document.getElementById('ident');
+	fw.innerHTML = ("Firmware " + navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) + " detected") ;
+	if (fw.innerHTML.includes("7.51")) {
+	fw.innerHTML = ("7.51 Spoof detected");
+	fw.style.color = "yellow";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='OFW VERSION SPOOFED';};
+	} else if (fw.innerHTML.includes("Mozilla")) {
+	fw.innerHTML = ("No PS4 detected"); 
+	fw.style.color = "red";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NO PS4 DETECTED';};
+	} else if (fw.innerHTML.includes("Mac OS")) {
+	fw.innerHTML = ("No PS4 detected"); 
+	fw.style.color = "red";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NO PS4 DETECTED';};
+	} else if (fw.innerHTML.includes("1.76")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("3.5")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("4.05")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("4.55")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("4.74")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("5.00")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("5.01")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("5.03")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	} else if (fw.innerHTML.includes("5.05")) {
+	fw.style.color = "white";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='5.05 FTW';};
+	} else if (fw.innerHTML.includes("5.07")) {
+	fw.style.color = "orange";
+	fw.onclick = function(){pop();
+	document.getElementById('Ttitle').innerHTML='NOTIFICATION:';
+	document.getElementById('Tsubtitle').innerHTML='NOT SUPPORTED YET';};
+	}
+	if (localStorage.getItem("ipanel") === null) {
+	document.getElementById("infoz").style.display = "block";
+	} else if (localStorage.getItem("ipanel") === "on" ) {
+	document.getElementById("infoz").style.display = "block";
+	} else {
+	hideMe();
+	}	
+	if (localStorage.getItem("Debug") === "on") {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "block";
+	myNum = 15;
+	} else {
+	document.getElementsByTagName("UL")[0].getElementsByTagName("LI")[payloadcount].style.display = "none";
+	myNum = 14;
+	}
+	if (cachedxp === "true") {
+	} else {
+	xmbVue.handleKey('x', 12); //move to cache column (12)	
+	window.applicationCache.addEventListener("progress", DLProgress, false);
+	window.open("payloads/xmbcache.html", "content");
+	}
+	window.applicationCache.onupdateready = function (e){window.location.reload();
+	};
+	window.applicationCache.onerror = function (e) {document.getElementById('cacheUPDtxt').innerHTML = "ERROR UPDATING CACHE!!";
+	};
+	document.getElementById('clock').innerHTML = new Date();
+	document.getElementById('clock').innerHTML = document.getElementById('clock').innerHTML.slice(0,21);
+}		
+var i = setInterval(function() {
+	document.getElementById('clock').innerHTML = new Date();
+	document.getElementById('clock').innerHTML = document.getElementById('clock').innerHTML.slice(0,21);
+}, 60 * 1000);
+function savename() {
+	var sUser = document.getElementById("user").value;
+	localStorage.setItem("username", sUser);
+	document.getElementById("user").blur();
+}
+function saveip() {
+	var sIp = document.getElementById("myip").value;
+	localStorage.setItem("userip", sIp);
+	document.getElementById("myip").blur();
+}
+function hideMe() {
+  var y = document.getElementById("infoz");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+	localStorage.setItem("ipanel", "on");
+	document.getElementById("hide").innerHTML = "&nbsp;&nbsp;&nbsp;HIDE INFO";
+	document.getElementById("show").innerHTML = "";
+	document.getElementById("hide").style.fontSize = "15px";
+	} else {
+	localStorage.setItem("ipanel", "off");
+  	document.getElementById("hide").innerHTML = xpver;
+	document.getElementById("hide").style.fontSize = "27px";
+	document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;SHOW INFO";
+    y.style.display = "none";
+  }
+}
+if(LS.AutoHEN!='on'){LS.AutoHEN="off";AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = OFF");}if(LS.AutoHEN=='on'){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON");}
+function RunAutoHen(){SS.InfoBox=1;SS.ThisIsAutoHen = '1';var x = document.querySelectorAll(".box");var i;for(i = 0; i < x.length; i++){x[i].style.opacity="0";}InfoBox.style.display='block'; Title.style.display='none';
+IBT(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Title'));IBV(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Ver'));IBD(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Desc'));
+Loader.innerHTML='<object type="text/html" data="files/exploit.html" style="width:265px; height:56px;"></object>';}if (UA=="5.05"||UA=="5.07"){HasHenRun="no";}if (UA != "5.05" && UA != "5.07" && LS.AutoHEN == 'on'){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON - Hen Has Loaded");}
+function LoadAutoHen(){if(LS.IsItCached=="yes"&&HasHenRun=="no"&&LS.AutoHEN=="on"){RunAutoHen();}}window.onload = LoadAutoHen
+window.onkeyup=checkKeyUp;function checkKeyUp(e){e=e||window.event;if(e.keyCode=='117'&&SS.Loaded==null){HideInfo();}
+else if(e.keyCode=='118'&&LS.AutoHEN=="on"&&SS.ThisIsCredits!=1){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = OFF");LS.AutoHEN="off";}
+else if(e.keyCode=='118'&&LS.AutoHEN=="off"&&SS.ThisIsCredits!=1){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON");LS.AutoHEN="on";}}
+
+function pop() {
+	document.getElementById("trophy").play();
+	Tpopup.classList.remove('animation');
+	void Tpopup.offsetWidth;Tpopup.classList.add('animation');
+}
+function HideLoaderBox(){SS.Loaded='1';setTimeout(function(){var x=document.querySelectorAll(".SelectedItem");var i;for(i=0;i<x.length;i++){x[i].className="InfoIcon Icon";}},1500);}LS.CurrentTemp=RC('CurrentTemp');LS.KernEpochDiff=RC('KernEpochDiff');
+  if(LS.AutoHEN!='on'){LS.AutoHEN="off";AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = OFF");}if(LS.AutoHEN=='on'){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON");}
+  function RunAutoHen(){SS.InfoBox=1;SS.ThisIsAutoHen = '1';var x = document.querySelectorAll(".box");var i;for(i = 0; i < x.length; i++){x[i].style.opacity="0";}InfoBox.style.display='block'; Title.style.display='none';
+  IBT(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Title'));IBV(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Ver'));IBD(MainMenu.children[SS.ItemNum-1].getAttribute('PL-Desc'));
+  Loader.innerHTML='<object type="text/html" data="files/exploit.html" style="width:265px; height:56px;"></object>';}if (UA=="5.05"||UA=="5.07"){HasHenRun="no";}if (UA != "5.05" && UA != "5.07" && LS.AutoHEN == 'on'){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON - Hen Has Loaded");}
+  function LoadAutoHen(){if(LS.IsItCached=="yes"&&HasHenRun=="no"&&LS.AutoHEN=="on"){RunAutoHen();}}window.onload = LoadAutoHen
+  window.onkeyup=checkKeyUp;function checkKeyUp(e){e=e||window.event;if(e.keyCode=='117'&&SS.Loaded==null){HideInfo();}
+  else if(e.keyCode=='118'&&LS.AutoHEN=="on"&&SS.ThisIsCredits!=1){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = OFF");LS.AutoHEN="off";}
+  else if(e.keyCode=='118'&&LS.AutoHEN=="off"&&SS.ThisIsCredits!=1){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON");LS.AutoHEN="on";
+  }
+}
+
+function getEnvironmentInfo() {
+    var s = ' - ';
+    s += navigator.userAgent;
+
+    return s;
+}
+
+</script>
+<h3 class="infoz" id="infoz">X-PROJECT LOADING..</h3>
+<h6 class="hide" id="hide" onclick='hideMe()'>&nbsp;&nbsp;&nbsp;HIDE INFO</h6>
+<h6 class="hide" id="show" onclick='hideMe()'></h6>
+<h4 class="ident" id="ident">X-PROJECT LOADING..</h4>
+<h1 class="hide" id="hide"onclick="DebugMode()"><script>document.write(getEnvironmentInfo());
+</script></h1>
+</body>
+</html>

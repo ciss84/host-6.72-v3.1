@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Revert To Default Menu Colour</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id="info" class="info" style="color:deepskyblue">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+if (parent.RC("UserName") == "user" || parent.RC("UserName") == null){document.getElementById('user1').innerHTML = "";}
+else {document.getElementById('user1').innerHTML = parent.RC("UserName");}
+localStorage.setItem('xmbcolor','deepskyblue');
+var z = parent.document.querySelectorAll(".active, #user, #myip"); 
+var i; for (i = 0; i < z.length; i++) {z[i].style.color = localStorage.xmbcolor;}
+parent.CC('xmbcolor',localStorage.xmbcolor,365);
+parent.ColorChanger();	
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>REACTPSPLUS</title>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body>
+<div id=loader class=loader><div class=ib2>REACTPSPLUS</div><div class=ib2>&nbsp;L</div><div class=loaderO></div><div class=ib2>ADING...</div></div>
+<div id=done class=done style=display:none>REACTPSPLUS LOADED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div id=fail class=info style=display:none>REACTPSPLUS FAILED</div>
+<script>
+var bin="react.bin";function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}function loadScript(){getScript("exploit.js",function(){setTimeout(exploit,1500);});}loadScript();
+localStorage.KernEpoch = new Date().getTime() +- new Date(14861963*1000 + 1325376000000);parent.CC("KernEpoch",localStorage.KernEpoch,365);parent.CC('KernClock',"ON",365);localStorage.KernClock="ON";setTimeout(parent.ShowTimeAndDate,1800);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<link rel="stylesheet prefetch" href="exploit.css">
+</head>
+<body onload="resolve()">
+<div id="info" class="info">SELECT A PAYLOAD <span id="user1" style="text-transform:uppercase"></span></div>
+<script>
+function resolve() {
+if (localStorage.getItem("username") === "user"){
+    localStorage.removeItem("username");
+}
+if (window.parent.cachedxp === "false") {
+} else if (localStorage.getItem("username") !== null){
+    document.getElementById('user1').innerHTML = localStorage.getItem("username");
+    window.parent.document.getElementById('Ttitle').innerHTML='WELCOME BACK:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML=localStorage.getItem("username");
+    window.parent.pop();
+} else {
+    window.parent.document.getElementById('Ttitle').innerHTML='X-PROJECT TIP:';
+    window.parent.document.getElementById('Tsubtitle').innerHTML='Enter a Username';
+    window.parent.pop();
+}
+}
+</script>
+</body>
+</html>

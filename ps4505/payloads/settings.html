@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/icons.css">
+<link rel="stylesheet" href="exploit.css">
+<style>
+body {background:black;color:deepskyblue;font-size:18px;letter-spacing:2px;overflow:auto;}
+hr{width:97%;}
+.done {top:0px;padding:0 0 7px 0;}
+.done2 {top:0px;margin:-5px 0 0 0}
+button {display:inline-block;margin:6px;padding:2px 12px 3px 12px;z-index:99;}
+.ComboBox {width:275px;}
+#user {color:black;font-size:16px;padding:2px 0px 2px 6px;background-color:white;}
+#myip {color:black;font-size:16px;padding:2px 0px 2px 6px;background-color:white;}
+#bot{position:absolute;left:0;right:0;bottom:3px;letter-spacing:2px;color:white;font-size:14px;font-weight:bold;text-align:center;z-index:-2;}
+.ToggleBox {color:black;font-size:16px;padding:2px 0px 2px 0px;background-color:white;width:44px;text-align:center}
+.C {border:0px solid yellow;position:relative;left:0;right:0;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:99%;}
+.CT {border:0px solid red;position:relative;left:0;right:0;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:100%;height:35px;z-index:1;}
+.C1 {border:0px solid yellow;position:absolute;left:0px;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:37%;height:150px;display:inline-block;z-index:10;}
+.C2 {border:0px solid yellow;position:absolute;left:0;right:0;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:26%;height:150px;display:inline-block;}
+.C3 {border:0px solid yellow;position:absolute;right:0;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:37%;height:150px;display:inline-block;z-index:10;}
+.ItemlLeft {position:absolute;width:100%;text-align:right;z-index:10;}
+.Item1Button {margin-top:56px;}
+.Item2Buttons {margin-top:28px;}
+.ItemRight {border:0px solid yellow;position:absolute;left:0;right:0;max-width:100%;max-height:100%;margin:auto;overflow:hidden;width:500px;height:80px;min-height:60px}
+.BackButton {position:fixed;bottom:0px;right:0px;z-index:100;background-color:deepskyblue;border-radius: 5px;border:7px double black;box-shadow:0 0 20px 20px black;padding:5px 15px 0 0px;margin:1px 1px;text-align:center;text-decoration:none;display:inline-block;font-family:sans-serif;font-size:28px;font-weight:bolder;letter-spacing:-1px;color:black;cursor:pointer;}
+.BackButton:hover {color:white;}
+.iconZ {-webkit-transform:scaleX(-1);color:inherit;font-size:50px;letter-spacing:0;padding:0 0 0 5px;margin:-5px 0 -1px 5px;vertical-align:middle;}
+</style>
+</head>
+<body>
+<script>
+function BackToMenu(){parent.location.reload();}
+</script>
+<a href="javascript:BackToMenu();" class="BackButton" id=BB><div class="material-icons iconZ">&#xe154;</div>BACK TO MENU</a>
+
+<div id=settings style="margin-top:-6px;">
+<font size ="7" color="white">X-PROJECT MENU SETTINGS:</font><hr style="margin-top:3px;">
+
+<div class=C style=height:160px>
+<div class=CT><font size ="5">SET BUTTON COMBO'S:</font></div>
+<div class=C1 style="margin-top:-10px;">
+<div class=ItemlLeft>
+<div id=R1BUTTON></div>+ <div id=DLBUTTON></div>: <select id="Combo1" class=ComboBox>
+<optgroup label="HEN====================================================="><option value="01">HEN 2.1.3</option><option value="02">HEN 2.1 + VR</option><option value="03">HEN 2.0 + VR</option><option value="04">HEN 1.9</option><option value="05">HEN 1.8</option><option value="06">HEN 1.7</option><option value="07">HEN 1.6</option><option value="08">HEN 1.8 + VR</option><option value="09">HEN 1.7 + VR</option><option value="10">HEN + SCREENSHOT</option><option value="11">HEN (LITE)</option><option value="12">HEN + AUTH</option><option value="13">HEN 1.8 + VR + MIRA</option><option value="14">HEN 1.8 + MIRA</option><option value="15">HEN 1.7 + MIRA</option><option value="16">HEN 1.7 + MIRA + BINLOADER</option></optgroup>
+<optgroup label="BLOCK==================================================="><option value="17">UPDATE DISABLER</option><option value="18">UPDATE ENABLER</option><option value="19">BLOCKER+FTP</option><option value="20">UPDATE BLOCKER EXTREME</option><option value="21">UPDATE BLOCKER EXTREME UNDO</option></optgroup>
+<optgroup label="LINUX===================================================="><option value="22">INTERNAL LINUX LOADER</option><option value="23">VRAM1 PSXITARCH LINUX V2</option><option value="24">VRAM2 PSXITARCH LINUX V2</option><option value="25">VRAM3 PSXITARCH LINUX V2</option><option value="26">PSXITA NOEIDID LINUX V2</option><option value="27">LINUX LOADER - EEPLY</option><option value="28">LINUX LOADER - VULTRA</option></optgroup>
+<optgroup label="BACKUP=================================================="><option value="29">GAME DUMPER</option><option value="30">DISC DUMP</option><option value="31">PKG BACKUP</option><option value="32">DB SG BACKUP</option><option value="33">DB RESTORE</option><option value="34">DB RESTORE UNDO</option><option value="35">APPTOUSB</option><option value="36">APPTOUSB ALT</option><option value="37">USB FAKE PACKAGES</option></optgroup>
+<optgroup label="SYSTEM=================================================="><option value="38">FAN CONTROL</option><option value="39">FW SPOOFER</option><option value="40">AVATAR DUMPER</option><option value="41">AVATAR INJECTOR</option><option value="42">AUTH INFO DUMPER</option><option value="43">EVERSION KERNEL DUMPER</option><option value="44">KERNEL DUMPER</option><option value="45">FS DUMPER</option><option value="46">MIRA</option><option value="47">KERNEL LOGGER</option><option value="48">BINLOADER</option></optgroup>
+<optgroup label="TOOLS==================================================="><option value="481">INFINIX</option><option value="49">PUP DECRYPT</option><option value="50">SYSCALL 112</option><option value="51">RIF RENAMER</option><option value="52">PS4REN</option><option value="53">SAVEMOUNTER + FTP</option><option value="54">ORBISAFR</option><option value="55">SYSCALL 9</option><option value="56">VR ENABLER</option><option value="57">FTP SERVER</option><option value="58">FTP + FULL R/W</option><option value="59">REACTPSPLUS</option><option value="60">UN-REACTPSPLUS</option><option value="61">REACTPSPLUS-MOD</option></optgroup>
+<optgroup label="CHEATS=================================================="><option value="62">WEB-RTE PS4 TRAINER</option><option value="63">ORBISDBG</option><option value="64">MEMAPI</option><option value="65">IH-EDITOR PS4 RTM TOOL</option><option value="66">COMMUNITY TRAINER</option><option value="67">PS4 TRAINER</option><option value="68">DEATHRGH PS4 TOOLBOX</option><option value="69">PS4 CHEATER</option><option value="70">PS4API SERVER</option><option value="71">PS4API SERVER BISOON</option><option value="72">JKPATCH LOADER</option><option value="73">DEBUGWATCH</option><option value="74">PLAYENGINE</option></optgroup>
+<optgroup label="GTAV===================================================="><option value="75">GTAV LOTUS 127</option><option value="76">GTAV NOTYOURDOPES 127</option><option value="77">GTAV LTSMENU 127</option><option value="78">GTAV NOTANOTHERMENU</option><option value="79">GTAV NOTANOTHERMENU 127</option><option value="80">GTAV AP II INTENSE V2</option><option value="81">GTAV AP II INTENSE V2 127</option><option value="82">GTAV LAMANCE</option><option value="83">GTAV LAMANCE 127</option><option value="84">GTAV WILDEMODZ</option><option value="85">GTAV WILDEMODZ 127</option><option value="86">GTAV TEAM PSYCH0S</option><option value="87">GTAV ARABICGUY</option><option value="88">GTAV TRAINER</option></optgroup>
+<optgroup label="OTHER==================================================="><option value="89">THE LAST OF US MENU</option><option value="90">UNCHARTED 4 MENU</option><option value="91">UNCHARTED THE LOST LEGACY MENU</option><option value="92">NEED FOR SPEED PAYBACK CHEAT</option></optgroup>
+<optgroup label="LAN====================================================="><option value="93">BO3 COD:ONLINE</option></optgroup>
+<optgroup label="MEDIA==================================================="><option value="94">MP4 PLAYER</option></optgroup>
+<optgroup label="CACHE==================================================="><option value="95">X-PROJECT CACHE INSTALLER</option><option value="96">USB CACHE INSTALLER</option><option value="97">HISTORY BLOCKER</option></optgroup>
+<optgroup label="STYLE===================================================="><option value="98">MENU COLOUR CHANGER</option><option value="99">MENU AUTO STYLER</option><option value="100">MENU DEFAULT COLOUR</option></optgroup>
+<optgroup label="ABOUT==================================================="><option value="101">SETTINGS</option><option value="102">CREDITS</option><option value="103">DETAILS</option><option value="104">PAYLOAD STATISTICS</option><option value="105">CHANGELOG</option></optgroup>
+</select>
+<br>
+<div id=R1BUTTON></div>+ <div id=DRBUTTON></div>: <select id="Combo2" class=ComboBox><script>document.getElementById("Combo2").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+<div id=R1BUTTON></div>+ <div id=DDBUTTON></div>: <select id="Combo3" class=ComboBox><script>document.getElementById("Combo3").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+<div id=R1BUTTON></div>+ <div id=L2BUTTON></div>: <select id="Combo4" class=ComboBox><script>document.getElementById("Combo4").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+</div></div>
+<div class=C2>
+<div class=Item2Buttons><button onclick="setCombos();">SAVE NEW SETTINGS</button><br><button onclick="DefaultCombos();">RESTORE DEFAULT SETTINGS</button></div>
+</div>
+<div class=C3>
+<div class=ItemRight style=margin-top:9px>
+<div id=done0 class=done><div class=ib>SELECT A PAYLOAD TO LAUNCH WITH<br>THE CORRESPONDING BUTTON COMBO</div></div>
+<div id=done1 class=done style='display:none;padding:7px 0 7px 0;'>SETTINGS SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div id=done2 class=done style='display:none;padding:7px 0 7px 0;'>SETTINGS RESTORED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:160px>
+<div class=CT><font size ="5">SET QUICK MENU ITEMS:</font></div>
+<div class=C1 style="margin-top:-10px;">
+<div class=ItemlLeft>
+<font color="white">QUICK ITEM 1: </font><select id="Quick1" class=ComboBox><script>document.getElementById("Quick1").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+<font color="white">QUICK ITEM 2: </font><select id="Quick2" class=ComboBox><script>document.getElementById("Quick2").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+<font color="white">QUICK ITEM 3: </font><select id="Quick3" class=ComboBox><script>document.getElementById("Quick3").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+<font color="white">QUICK ITEM 4: </font><select id="Quick4" class=ComboBox><script>document.getElementById("Quick4").innerHTML = document.getElementById("Combo1").innerHTML;</script></select>
+<br>
+</div></div>
+<div class=C2>
+<div class=Item2Buttons><button onclick="setQuicks();">SAVE NEW SETTINGS</button><br><button onclick="DefaultQuicks();">RESTORE DEFAULT SETTINGS</button></div>
+</div>
+<div class=C3>
+<div class=ItemRight style=margin-top:9px>
+<div id=doneQ0 class=done><div class=ib>SELECT THE PAYLOADS THAT YOU<br>WANT TO APPEAR IN THE QUICK MENU</div></div>
+<div id=doneQ1 class=done style='display:none;padding:7px 0 7px 0;'>SETTINGS SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div id=doneQ2 class=done style='display:none;padding:7px 0 7px 0;'>SETTINGS RESTORED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:120px>
+<div class=CT><font size ="5">SET USERNAME AND FTP IP:</font></div>
+<div class=C1><div class=ItemlLeft style=margin-top:2px;>
+<font color="white">USERNAME :   </font><input id='user' type='input' value='user'>&nbsp;<br>
+<font color="white">PS4 FTP IP : </font><input id='myip' type='input' value='0.0.0.0:1337'>&nbsp;<br>
+</div></div>
+<div class=C2>
+<div class=Item1Button style=margin-top:20px;><button onclick="saveNAMEandFTP();">SAVE SETTINGS</button></div>
+</div>
+<div class=C3><div class=ItemRight style=margin-top:-13px>
+<div id=done3 class=done><div class=ib>ENTER A USERNAME.<br>ENTER YOUR PS4 IP ADDRESS</div></div>
+<div id=done4 class=done style='display:none;padding:7px 0 7px 0;'>SETTINGS SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:110px>
+<div class=CT><font size ="5">SHOW / HIDE KERNEL CLOCK:</font></div>
+<div class=C1><div class=ItemlLeft style=margin-top:5px;>
+<font color="white">KERNEL CLOCK DISPLAY IS : </font><input class=ToggleBox id='kernelclock' readonly="readonly">&nbsp;<br><br>
+</div></div>
+<div class=C2>
+<div class=Item1Button style=margin-top:16px;><button onclick="ToggleKernel();">TOGGLE ON/OFF</button></div>
+</div>
+<div class=C3 style="margin-top:-10px;"><div class=ItemRight style=margin-top:-8px>
+<div id=done5 class=done><div class=ib>TOGGLE THE KERNEL<br>CLOCK DISPLAY ON OR OFF</div></div>
+<div id=done6 class=done style='display:none;padding:7px 0 7px 0;'>SETTING CHANGED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:125px>
+<div class=CT><font size ="5">MENU COLOUR PICKER:</font></div>
+<div class=C1 style="margin-top:-16px;">
+<div id=done7 class="done done2" style='display:none;padding:25px 0 7px 30px;'>COLOUR SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div class=ItemlLeft style="margin-top:-7px;text-align:center;">
+<font size=3 color="white" id=ColMess>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLICK ON A COLOUR BELOW TO SAVE IT</font>
+<canvas id="rgbCanvas" class="rgbCanvas" width="865" height="90"></canvas>
+</div></div>
+<div class=C2>
+<div class=Item1Button style=margin-top:6px;><button onclick="RandomCol()">PICK RANDOM COLOUR</button><br><button onclick="DefaultCol()">RESTORE DEFAULT COLOUR</button></div>
+</div>
+<div class=C3><div class=ItemRight style=margin-top:-13px>
+<div id=done8 class=done><div class=ib>PICK A CUSTOM COLOUR FOR THE<br>SELECTED ITEM IN THE MENU</div></div>
+<div id=done9 class=done style='display:none;padding:7px 0 7px 0;'>COLOUR SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+<div id=done10 class=done style='display:none;padding:7px 0 7px 0;'>COLOUR RESTORED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:120px>
+<div class=CT><font size ="5">SET BACKGROUND WALLPAPER:</font></div>
+<div class=C2 style="width:30%;">
+<div class=Item1Button style=margin-top:5px;><button onclick="SetBG1()">BACKGROUND 1</button><button onclick="SetBG2()">BACKGROUND 2</button><button onclick="SetBG3()">BACKGROUND 3</button><br><button onclick="SetBG4()">BACKGROUND 4</button><button onclick="SetBG5()">BACKGROUND 5</button><button onclick="SetBG6()">BACKGROUND 6</button></div>
+</div>
+<div class=C3><div class=ItemRight style=margin-top:-13px>
+<div id=done11 class=done><div class=ib>CHANGE THE<br>BACKGROUND IMAGE</div></div>
+<div id=done12 class=done style='display:none;padding:7px 0 7px 0;'>SETTING SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+
+<div class=C style=height:120px>
+<div class=CT><font size ="5">SHOW / HIDE WELCOME POPUP:</font></div>
+<div class=C1><div class=ItemlLeft style=margin-top:12px;>
+<font color="white">WELCOME POPUP IS : </font><input class=ToggleBox id='WelcomePopup' readonly="readonly">&nbsp;<br><br>
+</div></div>
+<div class=C2>
+<div class=Item1Button style=margin-top:16px;><button onclick="ToggleWelcomePop()">TOGGLE ON/OFF</button></div>
+</div>
+<div class=C3><div class=ItemRight style=margin-top:-13px>
+<div id=done13 class=done><div class=ib>ENABLE OR DISABLE THE WELCOME POPUP<br>MESSAGE WHEN X-PROJECT LOADS</div></div>
+<div id=done14 class=done style='display:none;padding:7px 0 7px 0;'>SETTING SAVED<br><div class=ib>PRESS</div><div id=PSBUTTON></div><div class=ib>TO EXIT</div></div>
+</div></div></div>
+<hr>
+<br><br><br>
+</div>
+<div id=bot>©2019 DEFAULTDNB & LEEFUL</div>
+<script>
+//Set Some Global Variables
+var RC = parent.readCookie; var CC = parent.createCookie; var LS = localStorage; var SS = sessionStorage;
+
+//Populate Existing Values ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')';
+document.body.style.backgroundSize = "cover";
+document.getElementById("settings").style.color = RC("xmbcolor");
+document.getElementById("BB").style.backgroundColor = RC("xmbcolor");
+
+document.getElementById("Quick1").value = RC("Quick1NUM");
+document.getElementById("Quick2").value = RC("Quick2NUM");
+document.getElementById("Quick3").value = RC("Quick3NUM");
+document.getElementById("Quick4").value = RC("Quick4NUM");
+
+document.getElementById("Combo1").value = RC("Combo1NUM");
+document.getElementById("Combo2").value = RC("Combo2NUM");
+document.getElementById("Combo3").value = RC("Combo3NUM");
+document.getElementById("Combo4").value = RC("Combo4NUM");
+document.getElementById("user").value = RC("UserName");
+document.getElementById("myip").value = RC("UserIP");
+document.getElementById("kernelclock").value = RC("KernClock");
+document.getElementById("WelcomePopup").value = RC("WelcomePop");
+parent.document.getElementById("bn").style.zIndex="800";
+
+//ALL Payload Variables //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Ex01a = "HEN v2.1.3";					    Ex01b = "Hen213.html";				Ex01c = "Inc: 7.02 PSVR spoof, Debug Trophies Support, Enable UART, Remote Play Enabler";					Ex01d = "2.1.3 by SiSTRo";							Ex01e = "0xe898";
+Ex02a = "HEN v2.1 + VR";					Ex02b = "Hen21.html";				Ex02c = "Inc: rest mode fix for phat/slim/pro + 9.00 PSVR spoof";											Ex02d = "2.1 by SiSTRo";							Ex02e = "0xe898";
+Ex03a = "HEN v2.0 + VR";					Ex03b = "Hen20.html";				Ex03c = "Inc: rest mode fix for phat/slim/pro + 9.00 PSVR spoof";											Ex03d = "2.0 by SiSTRo";							Ex03e = "0xe898";
+Ex04a = "HEN v1.9";							Ex04b = "Hen19.html";				Ex04c = "WARNING! Incompatable with some games. Added PKG install from internal HDD support";				Ex04d = "1.9 by LightningMods";						Ex04e = "0xe898";
+Ex05a = "HEN v1.8";							Ex05b = "Hen18.html";				Ex05c = "Inc: self spawn & usermode printf to klog patches";												Ex05d = "1.8 by Zecoxao";							Ex05e = "0xe898";
+Ex06a = "HEN v1.7"; 						Ex06b = "Hen17.html";				Ex06c = "Runs fake signed content from internal & external storage";										Ex06d = "1.7 by xVortex";							Ex06e = "0xe898";
+Ex07a = "HEN v1.6"; 						Ex07b = "Hen16.html";				Ex07c = "Runs fake signed content (out dated)";																Ex07d = "1.6 by xVortex";							Ex07e = "0xe898";
+Ex08a = "HEN v1.8 + VR"; 					Ex08b = "Hen18_VR.html";			Ex08c = "Enables HEN 1.8 and spoofs 9.00";																	Ex08d = "1.8 by Zecoxao/Stooged";					Ex08e = "0xe8ab";
+Ex09a = "HEN v1.7 + VR"; 					Ex09b = "Hen17_VR.html";			Ex09c = "Enable VTX HEN 1.7 and VR all in one";																Ex09d = "1.7 by xVortex/Stooged";					Ex09e = "0xe8ab";
+Ex10a = "HEN + SCREENSHOT";					Ex10b = "screenshot.html";			Ex10c = "Enable VTX HEN 1.7 with no in app screenshot limitations";											Ex10d = "1.7 mod by BIORN";							Ex10e = "0xe8d8";
+Ex11a = "HEN (LITE)";						Ex11b = "Hen17_c0d3mod.html";		Ex11c = "Enable VTX HEN 1.7 without the update blocker";													Ex11d = "1.7 mod by C0d3m4st4";						Ex11e = "loupe";
+Ex12a = "HEN + AUTH";						Ex12b = "henauth.html";				Ex12c = "Enables VTX HEN 1.7 with AUTH patches";															Ex12d = "1.7 mod by Björn";							Ex12e = "0xe402";
+Ex13a = "HEN 1.8 + VR + MIRA";				Ex13b = "miraHen18vr.html";			Ex13c = "AIO: PSVR homebrew with klog";																		Ex13d = "1.8 by Zecoxao/Stooged/OpenOrbisTeam";		Ex13e = "0xe84d";
+Ex14a = "HEN 1.8 + MIRA";					Ex14b = "miraHen18.html";			EX14c = "Run fake signed content. Inc: debug settings, Kernel logging (port 9999/9998)";					Ex14d = "1.8 by Zecoxao/OpenOrbisTeam";				Ex14e = "0xe5c3";
+Ex15a = "HEN 1.7 + MIRA";					Ex15b = "miraHen17.html";			Ex15c = "Run fake signed content. Inc: debug settings, Kernel logging (port 9999/9998)";					Ex15d = "1.7 by xVortex/OpenOrbisTeam";				Ex15e = "0xe5c3";
+Ex16a = "HEN 1.7 + MIRA + BINLOADER";		Ex16b = "miraHen17Bin.html";		Ex16c = "Enable MIRA HEN 1.7 with BINLOADER";																Ex16d = "1.7 by xVortex/OpenOrbisTeam/Specter";		Ex16e = "0xe890";
+
+Ex17a = "UPDATE DISABLER";					Ex17b = "blocker.html";				Ex17c = "Run once to disable updates permanently";															Ex17d = "1.0 by Al-Azif";							Ex17e = "0xe14c";
+Ex18a = "UPDATE ENABLER";					Ex18b = "unblock.html";				Ex18c = "Re-allow updates to download/install";																Ex18d = "1.0 by Al-Azif";							Ex18e = "0xe166";
+Ex19a = "BLOCKER + FTP";					Ex19b = "blockftp.html";			Ex19c = "Run to block updates permanently, and start FTP server";											Ex19d = "1.3 by Lightningmods & CelesteBlue";		Ex19e = "0xe14b";
+Ex20a = "UPDATE BLOCKER EXTREME";			Ex20b = "blockEX.html";				Ex20c = "Blocks every possibly update location permanently";												Ex20d = "1.0 by Lightningmods";						Ex20e = "0xe894";
+Ex21a = "UPDATE BLOCKER EXTREME UNDO";		Ex21b = "unblockEX.html";			Ex21c = "Re-allow updates to download/install";																Ex21d = "1.0 by Lightningmods";						Ex21e = "0xe627";
+
+Ex22a = "INTERNAL LINUX LOADER";			Ex22b = "linuxInternal.html";		Ex22c = "Run Linux from the PS4's internal HDD. (Requires Linux files be copied to the PS4 HDD first!)";	Ex22d = "1.0 by Cedsaill";							Ex22e = "0xe2c8";
+Ex23a = "VRAM1 PSXITARCH LINUX V2";			Ex23b = "linux1GB.html";			Ex23c = "1GB VRAM + 7GB RAM Linux kernel loader (Requires USB Drive)";										Ex23d = "1.0 by PSXITA";							Ex23e = "0xe3d0";
+Ex24a = "VRAM2 PSXITARCH LINUX V2";			Ex24b = "linux2GB.html";			Ex24c = "2GB VRAM + 6GB RAM Linux kernel loader (Requires USB Drive)";										Ex24d = "1.0 by PSXITA";							Ex24e = "0xe3d1";
+Ex25a = "VRAM3 PSXITARCH LINUX V2";			Ex25b = "linux3GB.html";			Ex25c = "3GB VRAM + 5GB RAM Linux kernel loader (Requires USB Drive)";										Ex25d = "1.0 by PSXITA";							Ex25e = "0xe3d2";
+Ex26a = "PSXITA NOEIDID LINUX V2";			Ex26b = "linuxNOedid.html";			Ex26c = "Set video out to 1080p + unplug PSVR before use (Requires USB Drive)";								Ex26d = "1.0 by PSXITA";							Ex26e = "0xe051";
+Ex27a = "LINUX LOADER - EEPLY";				Ex27b = "linuxEeply.html";			Ex27c = "Lightweight Linux kernel loader (Requires USB Drive)";												Ex27d = "1.0 by EEPLY";								Ex27e = "0xe3af";
+Ex28a = "LINUX LOADER - VULTRA";			Ex28b = "linuxVul.html";			Ex28c = "Boots linux kernel from USB - Wait 85 sconds for reboot (Requires USB Drive)";						Ex28d = "1.0 by Vultra";							Ex28e = "0xe312";
+
+Ex29a = "GAME DUMPER";						Ex29b = "vtxdump.html";				Ex29c = "Dump disc/PSN games to USB: with/without patches, merged/unmerged";								Ex29d = "1.8 by xVortex";							Ex29e = "0xe149";
+Ex30a = "DISC DUMP";						Ex30b = "discdump.html";			Ex30c = "Copy content from disc to USB";																	Ex30d = "1.0 by Stooged";							Ex30e = "0xe8fb";
+Ex31a = "PKG BACKUP";						Ex31b = "pkgbackup.html";			Ex31c = "Copy PKG files back to USB easily";																Ex31d = "2.0 by Stooged";							Ex31e = "0xe15a";
+Ex32a = "DB SG BACKUP";						Ex32b = "dbsg.html";				Ex32c = "Back up your game saves and important databases";													Ex32d = "3.0 by Stooged";							Ex32e = "0xe161";
+Ex33a = "DB RESTORE";						Ex33b = "dbrestore1.html";			Ex33c = "Restore your backed up databases";																	Ex33d = "2.0 by Stooged";							Ex33e = "0xe255";
+Ex34a = "DB RESTORE UNDO";					Ex34b = "dbrestoreUNDO1.html";		Ex34c = "Undo an accidental DB restoration";																Ex34d = "2.0 by Leeful";							Ex34e = "0xe872";
+Ex35a = "APPTOUSB";							Ex35b = "apptousb.html";			Ex35c = "Specify mount point and move games to external EXFAT USB for extra storage";						Ex35d = "5.0 by Stooged";							Ex35e = "0xe1db";
+Ex36a = "APPTOUSB ALT";						Ex36b = "apptousb1alt.html";		Ex36c = "Like AppToUsb but purely for USB1";																Ex36d = "1.0 mod by Jakkal";						Ex36e = "0xe875";
+Ex37a = "USB FAKE PACKAGES";				Ex37b = "usbfpkgs.html";			Ex37c = "An alternative based on pkg2usb by SiSTRO and AppToUsb by Stooged";								Ex37d = "1.11 by Specialfood";						Ex37e = "0xe1e0";
+
+Ex38a = "FAN CONTROL";						Ex38b = "fancontrol.html";			Ex38c = "Set the temperature at which the PS4 fans will kick in (79 = PS4 default value)";					Ex38d = "3.0 by Leeful";							Ex38e = "0xe332";
+Ex39a = "FW SPOOFER";						Ex39b = "fwspoof.html";				Ex39c = "Spoof the PS4's Firmware version to anything between 0.00 and 99.99";								Ex39d = "1.0 by Leeful";							Ex39e = "0xe436";
+Ex40a = "AVATAR DUMPER";					Ex40b = "avadump.html";				Ex40c = "Dumps avatar files from user profile. Requires exFAT formatted USB";								Ex40d = "1.0 by Red-J";								Ex40e = "0xe0ba";
+Ex41a = "AVATAR INJECTOR";					Ex41b = "avainject.html";			Ex41c = "Injects avatar files to user profile. Requires files on exFAT formatted USB";						Ex41d = "1.0 by Red-J";								Ex41e = "0xe416";
+Ex42a = "AUTH INFO DUMPER";					Ex42b = "authdump.html";			Ex42c = "Dumps auth_info.log. Requires exFAT formatted USB";												Ex42d = "1.0 by Stooged";							Ex42e = "0xe3c8";
+Ex43a = "EVERSION KERNEL DUMPER";			Ex43b = "everkdump.html";			Ex43c = "Dumps kernel to USB. Works on 4.05/4.55/4.74/5.01/5.05 OFW";										Ex43d = "1.4 by CelesteBlue";						Ex43e = "0xe322";
+Ex44a = "KERNEL DUMPER";					Ex44b = "kdumper.html";				Ex44c = "Dumps your kernel to USB";																			Ex44d = "2.0 by Stooged";							Ex44e = "0xe8f9";
+Ex45a = "FS DUMPER";						Ex45b = "fsdumper.html";			Ex45c = "Dumps your consoles file system to USB";															Ex45d = "1.0 by Stooged";							Ex45e = "0xe8a0";
+Ex46a = "MIRA";								Ex46b = "mira.html";				Ex46c = "RPC Server Port: 9999 KLog Server Port: 9998";														Ex46d = "1.0 by OpenOrbisTeam";						Ex46e = "0xe1bb";
+Ex47a = "KERNEL LOGGER";					Ex47b = "klogserver.html";			Ex47c = "KLog Server Port: 5656";																			Ex47d = "1.0 by ChendoChap";						Ex47e = "0xe3f8";
+Ex48a = "BINLOADER";						Ex48b = "binloader.html";			Ex48c = "Send bin format payload to port:9020";																Ex48d = "1.0 by Specter";							Ex48e = "0xe163";
+
+	Ex481a = "INFINIX";							Ex481b = "Infinix.html";			Ex481c = "Package Installer including HEN";																	Ex481d = "1.0 by LightningMods";					Ex481e = "0xe884";
+Ex49a = "PUP DECRYPT";						Ex49b = "pupdec.html";				Ex49c = "Decrypt updates from USB root (safe.PS4UPDATE.pup)";												Ex49d = "1.0 by LOLHAX & SocraticBliss";			Ex49e = "0xe0b6";
+Ex50a = "SYSCALL 112";						Ex50b = "syscall112.html";			Ex50c = "Allow homebrew apps to get root permission by using syscall 112";									Ex50d = "1.0 by Zecoxao";							Ex50e = "0xe898";
+Ex51a = "RIF RENAMER";						Ex51b = "rifrenamer.html";			Ex51c = "Converts licences from MIRA to HEN compatible";													Ex51d = "1.0 by ALAZIF";							Ex51e = "0xe335";
+Ex52a = "PS4REN";							Ex52b = "PS4ren.html";				Ex52c = "Remote Play Enabler";															Ex52d = "2.0 by SiSTRO";							Ex52e = "0xe32f";
+Ex53a = "SAVEMOUNTER + FTP";				Ex53b = "savemounter.html";			Ex53c = "No need for save wizard! Loads Save Mounter and FTP in one";										Ex53d = "1.5 by Chendochap";						Ex53e = "0xe2c7";
+Ex54a = "ORBISAFR";							Ex54b = "orbisafr.html";			Ex54c = "Application file redirector for game modding";														Ex54d = "1.0 by TheoryWrong";						Ex54e = "0xe53b";
+Ex55a = "SYSCALL 9";						Ex55b = "syscall9.html";			Ex55c = "Unjail with UART";																					Ex55d = "1.0 by Lightningmods";						Ex55e = "0xe899";
+Ex56a = "VR ENABLER";						Ex56b = "vrEnable.html";			Ex56c = "Enables VR headset even after HEN has been run";													Ex56d = "1.0 by Stooged";							Ex56e = "0xe8f4";
+Ex57a = "FTP SERVER";						Ex57b = "ftp.html";					Ex57c = "Start an ftp server and connect your PC to your PS4";											Ex57d = "1.3 by xVortex";							Ex57e = "0xe63e";
+Ex58a = "FTP + FULL R/W";					Ex58b = "ftprw.html";				Ex58c = "Starts an ftp server with full R/W on all 16 partitions of your PS4";								Ex58d = "1.0 by Lightningmods";						Ex58e = "0xe002";
+Ex59a = "REACTPSPLUS";						Ex59b = "react.html";				Ex59c = "Turn your consoles internal kernel clock back to Jun 2012 to play expired PSPLUS games";			Ex59d = "v1.0 by Zer0xFF";							Ex59e = "0xe8b3";
+Ex60a = "UN-REACTPSPLUS";					Ex60b = "unreact.html";				Ex60c = "Turn your consoles internal kernel clock back to today's date & time";								Ex60d = "v1.0 by Al-Azif  / Mod by Leeful";			Ex60e = "0xe923";
+Ex61a = "REACTPSPLUS-MOD";					Ex61b = "reactmod.html";			Ex61c = "Change your consoles internal kernel clock to whatever date & time you want";						Ex61d = "1.0 by Zer0xFF / Mod by Leeful";			Ex61e = "0xe422";
+
+Ex62a = "WEB-RTE PS4 TRAINER";				Ex62b = "WebRTE.html";				Ex62c = "Use http://ps4trainer.com/trainer + enter your PS4 IP";											Ex62d = "1.00 by TylerMods";						Ex62e = "0xe80e";
+Ex63a = "ORBISDBG";							Ex63b = "orbdbg.html";				Ex63c = "Memory/process debugger. (Use: ORBISDBGUI)";														Ex63d = "1.00 by Skiffaw";							Ex63e = "0xe3e9";
+Ex64a = "MEMAPI";							Ex64b = "memapi.html";				Ex64c = "Server, debugger and library tools";																Ex64d = "1.00 by McCaulay";							Ex64e = "0xe8d2";
+Ex65a = "IH-EDITOR PS4 RTM TOOL";			Ex65b = "ihrtm.html";				Ex65c = "Cheat tool with RTM functions";																	Ex65d = "1.0.2 by Intention Hackers";				Ex65e = "0xe1b2";
+Ex66a = "COMMUNITY TRAINER";				Ex66b = "community.html";			Ex66c = "Community driven cheat tool";																		Ex66d = "2.1.0.0 by DeathRGH";						Ex66e = "0xe0b9";
+Ex67a = "PS4 TRAINER";						Ex67b = "tylermods.html";			Ex67c = "Game trainer tool for cheating";																	Ex67d = "1.5.129.127 by TylerMods";					Ex67e = "0xe86f";
+Ex68a = "DEATHRGH PS4 TOOLBOX";				Ex68b = "deathrgh.html";			Ex68c = "Cheat toolbox with peek/poke and notifications";													Ex68d = "1.6.0.0 by DeathRGH";						Ex68e = "0xe2bc";
+Ex69a = "PS4 CHEATER";						Ex69b = "cheater.html";				Ex69c = "Tool to help find and implement cheats";															Ex69d = "1.4.7 by ChendoChap";						Ex69e = "0xe150";
+Ex70a = "PS4API SERVER";					Ex70b = "ps4api.html";				Ex70c = "Allows control of game memory for RTE/RTM tools";													Ex70d = "1.2 by Helloitu";							Ex70e = "0xe153";
+Ex71a = "PS4API SERVER BISOON";				Ex71b = "ps4apiBisoon.html";		Ex71c = "Allows control of game memory for RTE/RTM tools";													Ex71d = "1.1 by Bisoon";							Ex71e = "0xe428";
+Ex72a = "JKPATCH LOADER";					Ex72b = "jkpatch.html";				Ex72c = "RPC server for finding cheats";																	Ex72d = "2.0 by GOLDEN";							Ex72e = "0xe922";
+Ex73a = "DEBUGWATCH";						Ex73b = "DebugWatch.html";			Ex73c = "Full featured debugging utility";																	Ex73d = "1.0.0.0 by Golden";						Ex73e = "0xe334";
+Ex74a = "PLAYENGINE";						Ex74b = "PlayEngine.html";			Ex74c = "Scan & edit PS4 process memory";																	Ex74d = "2.0 Berkay2578/EpicFail78";				Ex74e = "0xe565";
+
+Ex75a = "GTAV LOTUS 127";					Ex75b = "GTA_Lotus127.html";		Ex75c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.27";									Ex75d = "1.03 by 0x199";							Ex75e = "0xeb4c";
+Ex76a = "GTAV NOTYOURDOPES 127";			Ex76b = "GTA_NotYourDopes127.html";	Ex76c = "[ R1+DPad-Down ] GTAV mod menu for EU/US game version 1.27";										Ex76d = "1.0 by Vicodin10";							Ex76e = "0xeb40";
+Ex77a = "GTAV LTSMENU 127";					Ex77b = "GTA_LTS127.html";			Ex77c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.27";									Ex77d = "1.0 by CMTFrosty (LastTeamStanding)";		Ex77e = "0xe7ef";
+Ex78a = "GTAV NOTANOTHERMENU";				Ex78b = "GTA_NotAnother.html";		Ex78c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.00";									Ex78d = "0.1 by David1337hax";						Ex78e = "0xe8b1";
+Ex79a = "GTAV NOTANOTHERMENU 127";			Ex79b = "GTA_NotAnother127.html";	Ex79c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.27";									Ex79d = "0.2 by David1337hax";						Ex79e = "0xe8b1";
+Ex80a = "GTAV AP II INTENSE V2";			Ex80b = "GTA_Intense.html";			Ex80c = "[ R1+Square ] GTAV mod menu for EU/US game version 1.00";											Ex80d = "1.1 by EROOTIIK";							Ex80e = "0xe87b";
+Ex81a = "GTAV AP II INTENSE V2 127";		Ex81b = "GTA_Intense127.html";		Ex81c = "[ R1+Square ] GTAV mod menu for EU/US game version 1.27";											Ex81d = "1.5 by EROOTIIK";							Ex81e = "0xe87b";
+Ex82a = "GTAV LAMANCE";						Ex82b = "GTA_Lamance.html";			Ex82c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.00";									Ex82d = "0.8 by David1337hax";						Ex82e = "0xe8d0";
+Ex83a = "GTAV LAMANCE 127";					Ex83b = "GTA_Lamance127.html";		Ex83c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.27";									Ex83d = "0.8 by David1337hax";						Ex83e = "0xe8d0";
+Ex84a = "GTAV WILDEMODZ";					Ex84b = "GTA_WildeModz.html";		Ex84c = "[ DPad-Left+Square ] GTAV mod menu for EU/US game version 1.00";									Ex84d = "1.1 by Wildemodz";							Ex84e = "0xe84e";
+Ex85a = "GTAV WILDEMODZ 127";				Ex85b = "GTA_WildeModz127.html";	Ex85c = "[ DPad-Left+Square ] GTAV mod menu for EU/US game version 1.27";									Ex85d = "1.2 by Wildemodz";							Ex85e = "0xe84e";
+Ex86a = "GTAV TEAM PSYCH0S";				Ex86b = "GTA_Psych0s.html";			Ex86c = "[ DPad-Left+Square ] GTAV mod menu for EU/US game version 1.00";									Ex86d = "1.0 by AlFaMoDz";							Ex86e = "0xe869";
+Ex87a = "GTAV ARABICGUY";					Ex87b = "GTA_ArabicGuy.html";		Ex87c = "[ L1+R1 ] GTAV mod menu for EU/US game version 1.00";												Ex87d = "1.1 by RF0oDxM0Dz";						Ex87e = "0xe87c";
+Ex88a = "GTAV TRAINER";						Ex88b = "GTA_Trainer.html";			Ex88c = "[ DPad-Right+Square ] GTAV mod menu for EU/US game version 1.00";									Ex88d = "1.0 by David1337hax";						Ex88e = "0xe8c9";
+
+Ex89a = "THE LAST OF US MENU";				Ex89b = "TLOUR.html";				Ex89c = "[ L3+TouchPad-Left ]=QuickMenu,   [ L3+TouchPad-Right ]=Dev Menu,   [ L3+R3 ]=Fly Mode";			Ex89d = "2.0 by Vicodin10";							Ex89e = "0xe84e";
+Ex90a = "UNCHARTED 4 MENU";					Ex90b = "UC4.html";					Ex90c = "[ L3+TouchPad-Left ]=QuickMenu,   [ L3+TouchPad-Right ]=Dev Menu,   [ L3+R3 ]=Fly Mode";			Ex90d = "2.0 by Vicodin10";							Ex90e = "0xe3ca";
+Ex91a = "UNCHARTED THE LOST LEGACY MENU";	Ex91b = "UCTLL.html";				Ex91c = "[ L3+TouchPad-Left ]=QuickMenu,   [ L3+TouchPad-Right ]=Dev Menu,   [ L3+R3 ]=Fly Mode";			Ex91d = "2.0 by Vicodin10";							Ex91e = "0xe91b";
+Ex92a = "NEED FOR SPEED PAYBACK CHEAT";		Ex92b = "NFSP.html";				Ex92c = "Unlimited nitrous cheat";																			Ex92d = "1.0 by x3shakir";							Ex92e = "0xe56d";
+
+Ex93a = "BO3 COD:ONLINE";					Ex93b = "BO3.html";					Ex93c = "Play BO3 LAN games online in private servers";														Ex93d = "1.0 by TheoryWrong";						Ex93e = "0xe894";
+
+Ex94a = "MP4 PLAYER";						Ex94b = "playerloader.html";		Ex94c = "Media player for MP4 movies over network";															Ex94d = "1.0 by DEFAULTDNB";						Ex94e = "0xe055";
+
+Ex95a = "X-PROJECT CACHE INSTALLER";		Ex95b = "xmbcache.html";			Ex95c = "Cache X-Project to your web browser for offline use";												Ex95d = "1.0 by Al-Azif / Mod By Leeful";			Ex95e = "0xeb3d";
+Ex96a = "USB CACHE INSTALLER";				Ex96b = "usbcacheinstall.html";		Ex96c = "Installs an ApplicationCache.db from USB for offline use";											Ex96d = "10.0 by Stooged";							Ex96e = "0xe52d";
+Ex97a = "HISTORY BLOCKER";					Ex97b = "history.html";				Ex97c = "Toggle auto loading the last page used in webbrowser";												Ex97d = "2.0 by Stooged";							Ex97e = "0xe866";
+
+Ex98a = "MENU COLOUR CHANGER";				Ex98b = "ColPicker.html";			Ex98c = "Change the colour of X-Project's menu items and icons";											Ex98d = "1.2 by DEFAULTDNB & Leeful";				Ex98e = "0xe3b8";
+Ex99a = "MENU AUTO STYLER";					Ex99b = "ColRandom.html";			Ex99c = "Click to randomly change the colour of X-Project's menu items and icons";							Ex99d = "1.2 by DEFAULTDNB & Leeful";				Ex99e = "0xe891";
+Ex100a = "MENU DEFAULT COLOUR";				Ex100b = "ColDefault.html";			Ex100c = "Changes the colour of X-Project's menu items back to the default colour";							Ex100d = "1.2 by DEFAULTDNB & Leeful";				Ex100e = "0xe0c4";
+
+Ex101a = "SETTINGS";						Ex101b = "settingsloader.html";		Ex101c = "Customize various X-Project Settings";															Ex101d = "2.0 by Leeful";							Ex101e = "0xe8b9";
+Ex102a = "CREDITS";							Ex102b = "creditsloader.html";		Ex102c = "Without these people none of this would be possible";												Ex102d = "1.5 by DEFAULTDNB";						Ex102e = "0xe90d";
+Ex103a = "DETAILS";							Ex103b = "detailsloader.html";		Ex103c = "Tell us your suggestions & issues";																Ex103d = "1.0 by DEFAULTDNB";						Ex103e = "0xe0c6";
+Ex104a = "PAYLOAD STATISTICS";				Ex104b = "statsloader.html";		Ex104c = "Logs how many times a payload has been loaded. (VTX HEN/DUMP/FTP only)";							Ex104d = "1.0 by DEFAULTDNB";						Ex104e = "0xe616";
+Ex105a = "CHANGELOG";						Ex105b = "changelogloader.html";	Ex105c = "Changes since previous version";																	Ex105d = "1.0 by DEFAULTDNB";						Ex105e = "0xe88e";
+
+
+//Set Button Combo Payloads //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function setCombos() {
+LS.Combo1NUM = document.getElementById("Combo1").value;
+LS.Combo2NUM = document.getElementById("Combo2").value;
+LS.Combo3NUM = document.getElementById("Combo3").value;
+LS.Combo4NUM = document.getElementById("Combo4").value;
+
+LS.Combo1A=eval('Ex'+LS.Combo1NUM+'a'); LS.Combo1B=eval('Ex'+LS.Combo1NUM+'b');
+LS.Combo2A=eval('Ex'+LS.Combo2NUM+'a'); LS.Combo2B=eval('Ex'+LS.Combo2NUM+'b');
+LS.Combo3A=eval('Ex'+LS.Combo3NUM+'a'); LS.Combo3B=eval('Ex'+LS.Combo3NUM+'b');
+LS.Combo4A=eval('Ex'+LS.Combo4NUM+'a'); LS.Combo4B=eval('Ex'+LS.Combo4NUM+'b');
+
+CC("Combo1NUM",LS.Combo1NUM,365); CC("Combo1A",LS.Combo1A,365); CC("Combo1B",LS.Combo1B,365);
+CC("Combo2NUM",LS.Combo2NUM,365); CC("Combo2A",LS.Combo2A,365); CC("Combo2B",LS.Combo2B,365);
+CC("Combo3NUM",LS.Combo3NUM,365); CC("Combo3A",LS.Combo3A,365); CC("Combo3B",LS.Combo3B,365);
+CC("Combo4NUM",LS.Combo4NUM,365); CC("Combo4A",LS.Combo4A,365); CC("Combo4B",LS.Combo4B,365);
+
+document.getElementById("done0").style.display = "none";
+document.getElementById("done1").style.display = "block";
+document.getElementById("done2").style.display = "none";
+}
+
+//Restore Default Settings For Combos ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function DefaultCombos() {
+LS.Combo1NUM='01'; LS.Combo1A = "HEN v2.1.3"; LS.Combo1B = "Hen213.html";
+LS.Combo2NUM='58'; LS.Combo2A = "FTP + FULL R/W"; LS.Combo2B = "ftprw.html";
+LS.Combo3NUM='39'; LS.Combo3A = "FW SPOOFER"; LS.Combo3B = "fwspoof.html";
+LS.Combo4NUM='61'; LS.Combo4A = "REACTPSPLUS-MOD"; LS.Combo4B = "reactmod.html";
+
+CC("Combo1A",LS.Combo1A,365); CC("Combo1B",LS.Combo1B,365);
+CC("Combo2A",LS.Combo2A,365); CC("Combo2B",LS.Combo2B,365);
+CC("Combo3A",LS.Combo3A,365); CC("Combo3B",LS.Combo3B,365);
+CC("Combo4A",LS.Combo4A,365); CC("Combo4B",LS.Combo4B,365);
+
+document.getElementById("Combo1").value = LS.Combo1NUM;
+document.getElementById("Combo2").value = LS.Combo2NUM;
+document.getElementById("Combo3").value = LS.Combo3NUM;
+document.getElementById("Combo4").value = LS.Combo4NUM;
+
+document.getElementById("done0").style.display="none";
+document.getElementById("done1").style.display="none";
+document.getElementById("done2").style.display="block";
+}
+
+//Set Quick Menu Item Payloads ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function setQuicks() {
+LS.Quick1NUM = document.getElementById("Quick1").value;
+LS.Quick2NUM = document.getElementById("Quick2").value;
+LS.Quick3NUM = document.getElementById("Quick3").value;
+LS.Quick4NUM = document.getElementById("Quick4").value;
+
+LS.Quick1A=eval('Ex'+LS.Quick1NUM+'a'); LS.Quick1B=eval('Ex'+LS.Quick1NUM+'b'); LS.Quick1C=eval('Ex'+LS.Quick1NUM+'c'); LS.Quick1D=eval('Ex'+LS.Quick1NUM+'d'); LS.Quick1E=eval('Ex'+LS.Quick1NUM+'e');
+LS.Quick2A=eval('Ex'+LS.Quick2NUM+'a'); LS.Quick2B=eval('Ex'+LS.Quick2NUM+'b'); LS.Quick2C=eval('Ex'+LS.Quick2NUM+'c'); LS.Quick2D=eval('Ex'+LS.Quick2NUM+'d'); LS.Quick2E=eval('Ex'+LS.Quick2NUM+'e');
+LS.Quick3A=eval('Ex'+LS.Quick3NUM+'a'); LS.Quick3B=eval('Ex'+LS.Quick3NUM+'b'); LS.Quick3C=eval('Ex'+LS.Quick3NUM+'c'); LS.Quick3D=eval('Ex'+LS.Quick3NUM+'d'); LS.Quick3E=eval('Ex'+LS.Quick3NUM+'e');
+LS.Quick4A=eval('Ex'+LS.Quick4NUM+'a'); LS.Quick4B=eval('Ex'+LS.Quick4NUM+'b'); LS.Quick4C=eval('Ex'+LS.Quick4NUM+'c'); LS.Quick4D=eval('Ex'+LS.Quick4NUM+'d'); LS.Quick4E=eval('Ex'+LS.Quick4NUM+'e');
+
+CC("Quick1NUM",LS.Quick1NUM,365); CC("Quick1A",LS.Quick1A,365); CC("Quick1B",LS.Quick1B,365); CC("Quick1C",LS.Quick1C,365); CC("Quick1D",LS.Quick1D,365); CC("Quick1E",LS.Quick1E,365);
+CC("Quick2NUM",LS.Quick2NUM,365); CC("Quick2A",LS.Quick2A,365); CC("Quick2B",LS.Quick2B,365); CC("Quick2C",LS.Quick2C,365); CC("Quick2D",LS.Quick2D,365); CC("Quick2E",LS.Quick2E,365);
+CC("Quick3NUM",LS.Quick3NUM,365); CC("Quick3A",LS.Quick3A,365); CC("Quick3B",LS.Quick3B,365); CC("Quick3C",LS.Quick3C,365); CC("Quick3D",LS.Quick3D,365); CC("Quick3E",LS.Quick3E,365);
+CC("Quick4NUM",LS.Quick4NUM,365); CC("Quick4A",LS.Quick4A,365); CC("Quick4B",LS.Quick4B,365); CC("Quick4C",LS.Quick4C,365); CC("Quick4D",LS.Quick4D,365); CC("Quick4E",LS.Quick4E,365);
+
+document.getElementById("doneQ0").style.display = "none";
+document.getElementById("doneQ1").style.display = "block";
+document.getElementById("doneQ2").style.display = "none";
+}
+
+//Restore Default Settings For Quick Menu /////////////////////////////////////////////////////////////////////////////////////////////////////////
+function DefaultQuicks() {
+
+LS.Quick1NUM='01'; LS.Quick1A='HEN v2.1.3'; LS.Quick1B='Hen213.html'; LS.Quick1C='Inc: 7.02 PSVR spoof, Debug Trophies Support, Enable UART, Remote Play Enabler'; LS.Quick1D='2.1.3 by SiSTRo'; LS.Quick1E='0xe898';
+LS.Quick2NUM='48'; LS.Quick2A='BINLOADER'; LS.Quick2B='binloader.html'; LS.Quick2C='Send bin format payload to port:9020'; LS.Quick2D='1.0 by Specter'; LS.Quick2E='0xe163';
+LS.Quick3NUM='57'; LS.Quick3A='FTP SERVER'; LS.Quick3B='ftp.html'; LS.Quick3C='Start an ftp server and connect to your PC to your PS4'; LS.Quick3D='1.3 by xVortex'; LS.Quick3E='0xe63e';
+LS.Quick4NUM='29'; LS.Quick4A='DUMPER'; LS.Quick4B='vtxdump.html'; LS.Quick4C='Dump disc/PSN games to USB: with/without patches, merged/unmerged'; LS.Quick4D='1.8 by xVortex'; LS.Quick4E='0xe149';
+
+CC('Quick1NUM',LS.Quick1NUM,365); CC('Quick1A',LS.Quick1A,365); CC('Quick1B',LS.Quick1B,365); CC('Quick1C',LS.Quick1C,365); CC('Quick1D',LS.Quick1D,365); CC('Quick1E',LS.Quick1E,365);
+CC('Quick2NUM',LS.Quick2NUM,365); CC('Quick2A',LS.Quick2A,365); CC('Quick2B',LS.Quick2B,365); CC('Quick2C',LS.Quick2C,365); CC('Quick2D',LS.Quick2D,365); CC('Quick2E',LS.Quick2E,365);
+CC('Quick3NUM',LS.Quick3NUM,365); CC('Quick3A',LS.Quick3A,365); CC('Quick3B',LS.Quick3B,365); CC('Quick3C',LS.Quick3C,365); CC('Quick3D',LS.Quick3D,365); CC('Quick3E',LS.Quick3E,365);
+CC('Quick4NUM',LS.Quick4NUM,365); CC('Quick4A',LS.Quick4A,365); CC('Quick4B',LS.Quick4B,365); CC('Quick4C',LS.Quick4C,365); CC('Quick4D',LS.Quick4D,365); CC('Quick4E',LS.Quick4E,365);
+
+document.getElementById("Quick1").value = LS.Quick1NUM;
+document.getElementById("Quick2").value = LS.Quick2NUM;
+document.getElementById("Quick3").value = LS.Quick3NUM;
+document.getElementById("Quick4").value = LS.Quick4NUM;
+
+document.getElementById("doneQ0").style.display="none";
+document.getElementById("doneQ1").style.display="none";
+document.getElementById("doneQ2").style.display="block";
+}
+
+// Set UserName an IP ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function saveNAMEandFTP() {
+LS.UserName=document.getElementById("user").value;
+CC("UserName",LS.UserName,365);
+document.getElementById("user").blur(); 
+
+LS.UserIP=document.getElementById("myip").value;
+CC("UserIP",LS.UserIP,365);
+document.getElementById("myip").blur();
+
+document.getElementById("done3").style.display = "none";
+document.getElementById("done4").style.display = "block";
+}
+
+// Toggle Kernel Clock Display ON / OFF //////////////////////////////////////////////////////////////////////////////////////////////////////////
+function ToggleKernel() {
+var x = document.getElementById("kernelclock");
+if (x.value == "ON") {LS.KernClock = "OFF"; x.value = LS.KernClock; CC("KernClock","OFF",365);} 
+else {LS.KernClock = "ON"; x.value = LS.KernClock; CC("KernClock","ON",365);}
+document.getElementById("done5").style.display = "none";
+document.getElementById("done6").style.display = "block";
+} 
+
+// Colour Picker Code ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var canvasEl2 = document.getElementById('rgbCanvas');
+var canvasContext2 = canvasEl2.getContext('2d');
+var image2 = new Image();
+image2.onload = () => canvasContext2.drawImage(image2, 55, 1, 500, 80);
+image2.src = "./colorizer.jpg";
+canvasEl2.onmousemove = function (mouseEvent) {
+  var imgData2 = canvasContext2.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+  var rgb = imgData2.data;
+  LS.ColTEMP = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+  var z = document.querySelectorAll("#settings"); var zz = document.querySelectorAll("#BB"); 
+  var i; for (i = 0; i < z.length; i++) {z[i].style.color = LS.ColTEMP; zz[i].style.backgroundColor = LS.ColTEMP;}
+}
+canvasEl2.onmouseup = function (mouseEvent) {
+  var imgData2 = canvasContext2.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+  var rgb = imgData2.data;
+  LS.xmbcolor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+  CC('xmbcolor',LS.xmbcolor,365);
+  document.getElementById('rgbCanvas').style.display = 'none';
+  document.getElementById('ColMess').style.display = 'none';
+  document.getElementById("done7").style.display = "block";
+  parent.ColorChanger();
+}
+canvasEl2.onmouseleave = function (mouseEvent) {
+  var z = document.querySelectorAll("#settings"); var zz = document.querySelectorAll("#BB"); 
+  var i; for (i = 0; i < z.length; i++) {z[i].style.color = LS.xmbcolor; zz[i].style.backgroundColor = LS.xmbcolor;}
+}
+function RandomCol(){
+randcol = "#" + Math.floor((1 + Math.random()) * 4096).toString(16).substr(1);
+CC('xmbcolor',randcol,365);LS.xmbcolor = RC('xmbcolor');
+var z = document.querySelectorAll("#settings"); var zz = document.querySelectorAll("#BB");
+var i; for (i = 0; i < z.length; i++) {z[i].style.color = randcol; zz[i].style.backgroundColor = randcol;}
+document.getElementById("done8").style.display = "none";
+document.getElementById("done10").style.display = "none";
+document.getElementById("done9").style.display = "block";
+document.getElementById("done9").style.zIndex = "101";
+parent.ColorChanger();
+}
+function DefaultCol(){
+LS.xmbcolor='deepskyblue';
+var z = document.querySelectorAll("#settings"); var zz = document.querySelectorAll("#BB"); 
+var i; for (i = 0; i < z.length; i++) {z[i].style.color = LS.xmbcolor; zz[i].style.backgroundColor = LS.xmbcolor;}
+CC('xmbcolor',LS.xmbcolor,365);
+document.getElementById("done8").style.display = "none";
+document.getElementById("done9").style.display = "none";
+document.getElementById("done10").style.display = "block";
+document.getElementById("done10").style.zIndex = "101";
+parent.ColorChanger();	
+}
+
+// Set Background Image ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function SetBG1() {
+LS.BGimage='wallpaper1.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+function SetBG2() {
+LS.BGimage='wallpaper2.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+function SetBG3() {
+LS.BGimage='wallpaper3.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+function SetBG4() {
+LS.BGimage='wallpaper4.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+function SetBG5() {
+LS.BGimage='wallpaper5.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+function SetBG6() {
+LS.BGimage='wallpaper6.jpg'; CC('BGimage',LS.BGimage,365); document.body.style.backgroundImage = 'url(../wallpaper/'+RC("BGimage")+')'; document.getElementById("done11").style.display = "none"; document.getElementById("done12").style.display = "block";
+}
+
+// Toggle Welcome Popup Display ON / OFF //////////////////////////////////////////////////////////////////////////////////////////////////////////
+function ToggleWelcomePop() {
+var x = document.getElementById("WelcomePopup");
+if (x.value == "ON") {LS.WelcomePop = "OFF"; x.value = LS.WelcomePop; CC("WelcomePop","OFF",365);} 
+else {LS.WelcomePop = "ON"; x.value = LS.WelcomePop; CC("WelcomePop","ON",365);}
+document.getElementById("done13").style.display = "none";
+document.getElementById("done14").style.display = "block";
+} 
+</script>
+</body>
+</html>

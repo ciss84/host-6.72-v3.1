@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DB Restore UNDO</title>
+<style>
+.info2{
+text-align: center;
+width: 795px;
+height: 65px;
+position: absolute;
+left: 0px;
+right: 0px;
+top: 15px;
+bottom: 0px;
+margin: auto;
+max-width: 100%;
+max-height: 100%;
+overflow: hidden;
+line-height:28px;
+font-family: sans-serif;
+font-size:22px;
+font-weight: bold;
+}
+button {
+color: black;
+padding: 2px 10px 2px 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 0px 10px;
+cursor: pointer;
+}
+button:hover {
+background-color: grey;
+color: white;
+}
+</style>
+</head>
+<body>
+<div class=info2>Warning!! This will overwrite your game database files. Continue?<br>
+<button onclick="YESrestore()"> YES </button> <button onclick="NOrestore()"> NO </button>
+</div>
+<script>
+function YESrestore() {
+    window.open("dbrestoreUNDO2.html","_self");
+}
+function NOrestore() {
+    window.open("../index.html","_parent");
+}
+</script>
+</body>
+</html>
