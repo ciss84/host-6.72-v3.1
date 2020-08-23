@@ -2,6 +2,7 @@
 <head>
   <meta charset="utf-8" />
   <title>PS4HostCS V2.0.4 par Logic-68 C.S Mod By Mugiwara</title>
+  <link rel="stylesheet" href="assets/css/anim.css">
   <link rel="stylesheet" href="assets/css/icons.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/custom.css"> 
@@ -44,10 +45,10 @@
       var alertfirmware = true;
     }
   </script>
-  <script src="assets/js/functions.js"></script>   
-  <script>function print() { }</script> 
   <script src="common/exploit.js"></script>
   <script src="jb/jb.js"></script>  
+  <script src="assets/js/functions.js"></script>   
+  <script>function print() { }</script> 
   <header id="header">
     <div class="content-title">
       <center><h2 id="title">Fw 6.72 Host</h2></center>
@@ -62,10 +63,11 @@
           <!--<li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+HEN</a></li>-->
           <li><a href="#" id="mirausb" class="submenua" onclick="inject_payload('mirausb'); return false">MiraElf Loader Usb</a></li>          
           <li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+hen</a></li>
-          <li><a href="#" id="hen213" onclick="inject_payload('hen213'); return false">Hen 2.1.3</a></li>           
-          <li><a href="#" id="hen218" onclick="inject_payload('hen218'); return false">Hen 2.1.8</a></li>
-          <li><a href="#" id="hen219" onclick="inject_payload('hen219'); return false">Hen 2.1.9</a></li>                                        
-          <li><a href="#" id="hen22" onclick="inject_payload('hen22'); return false">Hen 2.2</a></li>                     
+          <li><a href="#" id="hen213" onclick="inject_payload('hen213'); return false">Hen2.1.3</a></li>          
+          <li><a href="#" id="hen218" onclick="inject_payload('hen218'); return false">Hen2.1.8</a></li>
+          <li><a href="#" id="hen219" onclick="inject_payload('hen219'); return false">Hen2.1.9</a></li>                                        
+          <li><a href="#" id="hen221" onclick="inject_payload('hen221'); return false">Hen2.2.1+Todex</a></li>
+          <li><a href="#" id="hen222" onclick="inject_payload('hen222'); return false">Hen2.2.2</a></li>                                         
         </ul>
       </li>
       <li id="li3"><a href="#" class="deroulant" id="deroulant2">App</a>
@@ -85,9 +87,7 @@
           <li><a href="#" id="dumper2" onclick="inject_payload('dumper2'); return false">Dumper Gamesv1.8</a></li>
           <li><a href="#" id="dumper1" onclick="inject_payload('dumper1'); return false">Dumper Gamesv1.9</a></li>                
           <li><a href="#" id="dumperkernel" onclick="inject_payload('dumperKernel'); return false">Dumper kernel</a></li>
-          <li><a href="#" id="kernelclock" onclick="inject_payload('kernelClock'); return false">Dumper Clock kernel</a></li>
-          <li><a href="#" id="dbbackup" onclick="inject_payload('dbbackup'); return false">Backup Save Data</a></li>
-          <li><a href="#" id="dbrestore" onclick="inject_payload('dbrestore'); return false">Restore Save Data</a></li>                                                            
+          <li><a href="#" id="kernelclock" onclick="inject_payload('kernelClock'); return false">Dumper Clock kernel</a></li>                                                  
         </ul>
       </li>
       <li id="li5"><a href="#" class="deroulant" id="deroulant4">Blocker</a>
@@ -100,7 +100,7 @@
         <ul class="submenu" id="submenu5">
         <li><a href="#" id="ftp" onclick="inject_payload('ftp'); return false">FTP VTX</a></li>         
         <li><a href="#" id="history" onclick="inject_payload('history'); return false">Activate History</a></li>
-        <li><a href="#" id="browser" onclick="inject_payload('browser'); return false">Activate WebBrowser</a></li>                                 
+        <li><a href="#" id="browser" onclick="inject_payload('browser'); return false">Activate WebBrowser</a></li>                                   
         </ul>  
       </li>      
     </ul>
@@ -138,6 +138,9 @@
     </ul>
   </div>
 </div>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/lodash.min.js"></script>
+<script src="assets/js/zepto.min.js"></script>
 <video id="trophy" width="0" height="0">
 <source src="trophy.mp4" type="video/mp4" preload>
 </video> 
@@ -173,7 +176,7 @@ switch (appCache.status) {
 }
 function Populate() {
 	payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2);
-	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) > "7.51" ) {
+	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) > "6.72" ) {
 		truefw = localStorage.getItem("truefirm");
 	if (truefw == null) {
 		truefw = "spoofed";
@@ -183,6 +186,9 @@ function Populate() {
 		truefw = localStorage.getItem("truefirm");
 	}
 	var txt = "";
+	txt += "HOST Mod By Mugiwara" + "<span style='color:white;' onclick='hide()'>" + xpver + "</span>" + "<br><br>";
+	txt += "USER NAME : "+"<input tabIndex='-1' type='input' id='user' value='Mugiwara' onmousemove='savename()'>"+"<br>";
+	txt += "PS4 FTP IP : "+"<input tabIndex='-1' type='myip' id='myip' value='0.0.0.0:1337' onmousemove='saveip()'>"+"<br><br>";
 	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("8.00")) {txt += "Hen Enabled : " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "Hen Enabled : " + "<span style='color:red'> false </span>" + "<br>";}
   if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("8.00")) {txt += "Spoof 8.00 Enabled: " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "Spoof 8.00 Enabled : " + "<span style='color:red'> false </span>" + "<br>";}
 	if (truefw === "spoofed") { txt += "True Firmware : " + "<span style='color:red'>" + truefw + "</span>" + "<br>";} else { txt += "True Firmware : " + "<span style='color:lime'>" + truefw + "</span>" + "<br>";}

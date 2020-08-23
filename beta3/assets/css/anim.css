@@ -1,0 +1,58 @@
+#Tpopup {
+	z-index: 500; 
+	background-color: black; 
+	color: white; 
+	font-family: Arial, sans-serif; 
+	font-weight: bold; 
+	text-align: center; 
+	/*width: 33%;*/
+	width: 425px;
+	border:3px solid dimgrey; 
+	border-style: solid; 
+	position: absolute; 
+	height: 75px; 
+	top:10px; 
+	/*left:-34%;*/
+	left: -600px;
+}
+#Tpopup.animation {
+	animation-name: trophynotif;
+	animation-duration: 5s;
+	animation-delay: 0s;
+}
+@keyframes trophynotif {
+	0%   {left:-600px; top:10px; opacity:1;}
+	10%  {left:0px; top:10px; opacity:1;}
+	50%  {left:0px; top:10px; opacity:1;}
+	90%   {left:0px; top:10px; opacity:1;}
+	100%   {left:-600px; top:10px; opacity:1;}
+}
+#Ticon {
+	position:absolute; 
+	left:20px; 
+	top:50%; 
+	transform: translateY(-50%);
+}
+#Ttitle {
+	color:white; 
+	padding:8px 0 6px 0; 
+	margin-left: 37px; 
+	margin-right: 37px; 
+	font-size: 21px;
+}
+#Tsubtitle {
+	color:grey; 
+	padding:0 0 8px 0; 
+	margin-left: 37px; 
+	margin-right: 37px; 
+	font-size: 19px;
+}
+#Tbutton {
+	position:absolute; 
+	right: 20px; 
+	top:50%; 
+	transform: translateY(-50%); 
+	border: 1px blue; 
+	border-radius: 50px; 
+	box-shadow:0px 0px 10px deepskyblue;
+}

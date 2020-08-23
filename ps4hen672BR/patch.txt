@@ -1,0 +1,40 @@
+
+#define sdk_version_patch10              0x096B3EC
+#define sdk_version_patch11              0x0987153
+#define sdk_version_patch12              0x09C577C
+#define sdk_version_patch13              0x09ECD0C
+#define sdk_version_patch14              0x0A6122B
+#define sdk_version_patch15              0x0A74D97
+#define sdk_version_patch16              0x0A845F3
+#define sdk_version_patch17              0x16D67E1
+#define sdk_version_patch18              0x2258825
+
+
+	*(uint32_t *)(kernel_base + sdk_version_patch10) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch11) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch12) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch13) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch14) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch15) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch16) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch17) = FAKE_FW_VERSION_SDK;
+	*(uint32_t *)(kernel_base + sdk_version_patch18) = FAKE_FW_VERSION_SDK;
+	
+	
+	#define FAKE_FW_VERSION_SDK 0x800008
+	
+	
+	
+	if (key == 19) {// Load to - dex
+       msgs.innerHTML = "<div> Loading TO - DEX mode Please wait ... </div>";
+       LoadedMSG = "To - DEX Mode Loaded Successfully ";
+       var script = document.createElement('script');script.src = "p/pl_ToDEX.js";document.getElementsByTagName('head')[0].appendChild (script);
+       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild (script);
+       
+       
+      if (key == 19) {//Carga to-dex
+       msgs.innerHTML = "<div> Carregando TO - DEX Por favor, espere ... </div>";
+       LoadedMSG = "To-DEX Carregado com sucesso ";
+       var script = document.createElement ('script'); script.src = "p/pl_ToDEX.js"; document.getElementsByTagName ('head') [0] .appendChild (script);
+       var script = document.createElement ('script'); script.src = "p/exp_loader.js"; document.getElementsByTagName ('head') [0] .appendChild (script); 
+       
