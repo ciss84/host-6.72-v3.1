@@ -1,68 +1,117 @@
-<html manifest="offline.manifest"> <head><meta charset="utf-8" /><title>PS4HostCS V2.0.4 par Logic-68 C.S Mod By Mugiwara</title><link rel="stylesheet" href="assets/css/icons.css"><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/default.css"> </head> <body>
-  <script>	document.body.style.backgroundImage = "url('assets/img/0.gif')";document.cookie = "exploit=null";document.cookie = "fan=55";document.cookie = "levelTemp=55";var ua = navigator.userAgent;var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));if (fwVersion === "0; Win64; x64" || fwVersion === "6.72" || fwVersion === "7.51"|| fwVersion === "8.00") {var i = 0;var msg = "Toutes nos félicitations! Nous avons détecté que votre PlayStation 4 fonctionne sous FW " + fwVersion + ", qui est compatible avec PS4HostCS";window.applicationCache.ondownloading = function () {document.getElementById("alertfw").innerHTML = '<div class="green">' + msg + "</div>";};window.applicationCache.onprogress = function (a) {document.getElementById("cache-overlay").style.display = "block";document.getElementById("progress").innerHTML = '<div align="center" id="myBar"></div>'; i = Math.round(100 * (a.loaded / a.total));document.getElementById("myBar").style.width = i + "%";if (i == 0) { document.getElementById("myBar").innerHTML = ""; } else { document.getElementById("myBar").innerHTML = i + "%"; }};window.applicationCache.oncached = function () {document.getElementById("cache-overlay").style.display = "none";document.getElementById("alertfw").innerHTML = "";document.getElementById("message").innerHTML = '<div align="center" style="color:green">Mise en cache réussi</div>';setTimeout(function () {  document.getElementById("message").innerHTML = '<div align="center" style="color:white">Fermez votre Navigateur, couper l\'Internet, puis ouvrez a nouveau votre Navigateur</div>';  setTimeout(function () {document.getElementById("message").innerHTML = "";  }, 6000);}, 2000);};} else {var alertfirmware = true;}</script><script src="assets/js/functions.js"></script><script>function print() { }</script><script src="common/exploit.js"></script><script src="jb/jb.js"></script>  
+<html manifest="offline.manifest">
+<head>
+  <meta charset="utf-8" />
+  <title>PS4HostCS V2.0.4 par Logic-68 C.S Mod By Mugiwara</title>
+  <link rel="stylesheet" href="assets/css/anim.css">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/custom.css"> 
+  <link rel="stylesheet" href="assets/css/default.css">
+</head>
+<body>
+  <script>
+  	document.body.style.backgroundImage = "url('assets/img/0.gif')";
+    document.cookie = "exploit=null";
+    document.cookie = "fan=55";
+    document.cookie = "levelTemp=55";
+    var ua = navigator.userAgent;
+    var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
+    if (fwVersion === "0; Win64; x64" || fwVersion === "6.72" || fwVersion === "7.51"|| fwVersion === "8.00") {
+      var i = 0;
+      var msg = "Toutes nos félicitations! Nous avons détecté que votre PlayStation 4 fonctionne sous FW " + fwVersion + ", qui est compatible avec PS4HostCS";
+      window.applicationCache.ondownloading = function () {
+        document.getElementById("alertfw").innerHTML = '<div class="green">' + msg + "</div>";
+      };
+      window.applicationCache.onprogress = function (a) {
+        document.getElementById("cache-overlay").style.display = "block";
+        document.getElementById("progress").innerHTML = '<div align="center" id="myBar"></div>';
+
+        i = Math.round(100 * (a.loaded / a.total));
+        document.getElementById("myBar").style.width = i + "%";
+        if (i == 0) { document.getElementById("myBar").innerHTML = ""; } else { document.getElementById("myBar").innerHTML = i + "%"; }
+      };
+      window.applicationCache.oncached = function () {
+        document.getElementById("cache-overlay").style.display = "none";
+        document.getElementById("alertfw").innerHTML = "";
+        document.getElementById("message").innerHTML = '<div align="center" style="color:green">Mise en cache réussi</div>';
+        setTimeout(function () {
+          document.getElementById("message").innerHTML = '<div align="center" style="color:white">Fermez votre Navigateur, couper l\'Internet, puis ouvrez a nouveau votre Navigateur</div>';
+          setTimeout(function () {
+            document.getElementById("message").innerHTML = "";
+          }, 6000);
+        }, 2000);
+      };
+    } else {
+      var alertfirmware = true;
+    }
+  </script>
+  <script src="common/exploit.js"></script>
+  <script src="jb/jb.js"></script>  
+  <script src="assets/js/functions.js"></script>   
+  <script>function print() { }</script> 
   <header id="header">
-<div class="content-title">
-<center><h2 id="title">Host Fw 6.72 By Mugiwara</h2></center>
-<li><a href="credits.html" id="credits">Credits</a></li> 
-<hr>
-</div>
+    <div class="content-title">
+      <center><h2 id="title">Fw 6.72 Host</h2></center>
+      <li><a href="credits.html" id="credits">Credits</a></li> 
+      <hr>
+    </div>
   </header> 
   <div id="menulist" class="container">
-<ul id="menu">
-<li id="li1"><a href="#" class="deroulant" id="deroulant0">Mira & hen</a>
-<ul class="submenu" id="submenu0">
- <!--<li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+HEN</a></li>-->
- <li><a href="#" id="mirausb" class="submenua" onclick="inject_payload('mirausb'); return false">MiraElf Loader Usb</a></li> 
- <li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+hen</a></li>
- <li><a href="#" id="hen213" onclick="inject_payload('hen213'); return false">Hen 2.1.3</a></li>  
- <li><a href="#" id="hen218" onclick="inject_payload('hen218'); return false">Hen 2.1.8</a></li>
- <li><a href="#" id="hen219" onclick="inject_payload('hen219'); return false">Hen 2.1.9</a></li>
- <li><a href="#" id="hen22" onclick="inject_payload('hen22'); return false">Hen 2.2</a></li>
-</ul>
-</li>
-<li id="li3"><a href="#" class="deroulant" id="deroulant2">App</a>
-<ul class="submenu" id="submenu2">
- <li><a href="http://ps4trainer.com/Trainer/index.html" id="ps4trainer">PS4 Trainer</a></li>
- <li><a href="#" id="WebRTE" onclick="inject_payload('WebRTE'); return false">loader WebRTE</a></li>
- <li><a href="#" id="app2usb" onclick="inject_payload('app2usb'); return false">App To Usb</a></li>
- <li><a href="#" id="rifs" onclick="inject_payload('rifs'); return false">Rename RIF</a></li>
- <li><a href="#" id="ps4debug" onclick="inject_payload('ps4debug'); return false">Activate Acount Ps4</a></li>
- <li><a href="#" id="linux" onclick="inject_payload('linux'); return false">loader Linux</a></li>  
- <li><a href="#" id="binloader" class="submenua" onclick="load_binloader(); return false">Binloader</a></li>
-</ul>
-</li>
-<li id="li4"><a href="#" class="deroulant" id="deroulant3">Dumper</a>
-<ul class="submenu" id="submenu3">
- <li><a href="#" id="dumper" onclick="inject_payload('dumper'); return false">Dumper Games</a></li> 
- <li><a href="#" id="dumper2" onclick="inject_payload('dumper2'); return false">Dumper Gamesv1.8</a></li>
- <li><a href="#" id="dumper1" onclick="inject_payload('dumper1'); return false">Dumper Gamesv1.9</a></li>
- <li><a href="#" id="dumperkernel" onclick="inject_payload('dumperKernel'); return false">Dumper kernel</a></li>
- <li><a href="#" id="kernelclock" onclick="inject_payload('kernelClock'); return false">Dumper Clock kernel</a></li>
- <li><a href="#" id="dbbackup" onclick="inject_payload('dbbackup'); return false">Backup Save Data</a></li>
- <li><a href="#" id="dbrestore" onclick="inject_payload('dbrestore'); return false">Restore Save Data</a></li>
-</ul>
-</li>
-<li id="li5"><a href="#" class="deroulant" id="deroulant4">Blocker</a>
-<ul class="submenu" id="submenu4">
- <li><a href="#" id="enabler" onclick="inject_payload('desabler'); return false">Activate Update</a></li>
- <li><a href="#" id="desabler" onclick="inject_payload('enabler'); return false">Désactivate Update</a></li>
-
-</ul>
-<li id="li5"><a href="#" class="deroulant" id="deroulant5">WebBrowser & FTP</a>
-<ul class="submenu" id="submenu5">
-<li><a href="#" id="ftp" onclick="inject_payload('ftp'); return false">FTP VTX</a></li>
-<li><a href="#" id="history" onclick="inject_payload('history'); return false">Activate History</a></li>
-<li><a href="#" id="browser" onclick="inject_payload('browser'); return false">Activate WebBrowser</a></li>
-</ul>  
-</li>
-</ul>
+    <ul id="menu">
+      <li id="li1"><a href="#" class="deroulant" id="deroulant0">Mira & hen</a>
+        <ul class="submenu" id="submenu0">
+          <!--<li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+HEN</a></li>-->
+          <li><a href="#" id="mirausb" class="submenua" onclick="inject_payload('mirausb'); return false">MiraElf Loader Usb</a></li>                  
+          <li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+hen</a></li>
+          <li><a href="#" id="hen213" onclick="inject_payload('hen213'); return false">Hen 2.1.3</a></li>           
+          <li><a href="#" id="hen218" onclick="inject_payload('hen218'); return false">Hen 2.1.8</a></li>
+          <li><a href="#" id="hen22" onclick="inject_payload('hen22'); return false">Hen 2.2</a></li>                                        
+          <li><a href="#" id="hen221" onclick="inject_payload('hen221'); return false">Hen 2.2.1</a></li>                              
+        </ul>
+      </li>
+      <li id="li3"><a href="#" class="deroulant" id="deroulant2">App</a>
+        <ul class="submenu" id="submenu2">
+          <li><a href="http://ps4trainer.com/Trainer/index.html" id="ps4trainer">PS4 Trainer</a></li>
+          <li><a href="#" id="WebRTE" onclick="inject_payload('WebRTE'); return false">loader WebRTE</a></li>                          
+          <li><a href="#" id="app2usb" onclick="inject_payload('app2usb'); return false">App To Usb</a></li>
+          <li><a href="#" id="rifs" onclick="inject_payload('rifs'); return false">Rename RIF</a></li>         
+          <li><a href="#" id="ps4debug" onclick="inject_payload('ps4debug'); return false">Activate Acount Ps4</a></li>
+          <li><a href="#" id="linux" onclick="inject_payload('linux'); return false">loader Linux</a></li>           
+          <li><a href="#" id="binloader" class="submenua" onclick="load_binloader(); return false">Binloader</a></li>                                       
+        </ul>
+      </li>
+      <li id="li4"><a href="#" class="deroulant" id="deroulant3">Dumper</a>
+        <ul class="submenu" id="submenu3">
+          <li><a href="#" id="dumper" onclick="inject_payload('dumper'); return false">Dumper Games</a></li>          
+          <li><a href="#" id="dumper2" onclick="inject_payload('dumper2'); return false">Dumper Gamesv1.8</a></li>
+          <li><a href="#" id="dumper1" onclick="inject_payload('dumper1'); return false">Dumper Gamesv1.9</a></li>                
+          <li><a href="#" id="dumperkernel" onclick="inject_payload('dumperKernel'); return false">Dumper kernel</a></li>
+          <li><a href="#" id="kernelclock" onclick="inject_payload('kernelClock'); return false">Dumper Clock kernel</a></li>
+          <li><a href="#" id="backupDTB" onclick="inject_payload('backupDTB'); return false">Backup DTB</a></li>
+          <li><a href="#" id="restoreDTB" onclick="inject_payload('restoreDTB'); return false">Restore DTB</a></li>                                                           
+        </ul>
+      </li>
+      <li id="li5"><a href="#" class="deroulant" id="deroulant4">Blocker</a>
+        <ul class="submenu" id="submenu4">         
+          <li><a href="#" id="enabler" onclick="inject_payload('desabler'); return false">Activate Update</a></li>
+          <li><a href="#" id="desabler" onclick="inject_payload('enabler'); return false">Désactivate Update</a></li>
+        
+        </ul>
+        <li id="li5"><a href="#" class="deroulant" id="deroulant5">WebBrowser & FTP</a>
+        <ul class="submenu" id="submenu5">
+        <li><a href="#" id="ftp" onclick="inject_payload('ftp'); return false">FTP VTX</a></li>         
+        <li><a href="#" id="history" onclick="inject_payload('history'); return false">Activate History</a></li>
+        <li><a href="#" id="browser" onclick="inject_payload('browser'); return false">Activate WebBrowser</a></li>                                   
+        </ul>  
+      </li>      
+    </ul>
   </div>
   <div id="message" class="message"></div>
   <hr>
   <div id="firmware"></div>
   <div class="overlay" id="cache-overlay">
-<div id="progress">
-<body onload="Populate();">
+    <div id="progress">
+                     <body onload="Populate();">
 <div id="Tpopup">
 <div id="Ticon"><img width="38" height="38" src="data:image/png;base64,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"></div>
 <div id="Ttitle">WELCOME TO X-PROJECT:</div>
@@ -74,21 +123,72 @@
 <h2 class="top" id="top">By Mugiwara</h2>
 <div id="xmb-contain">
   <div id="xmb">
-<li class="column" v-for="column,index in columns" v-bind:class="{active:column.active}" v-bind:style="{left:column.position.x+'px'}">
-<div class="cell" v-bind:class="{active:column.active}" v-on:click="highlightCell(column.index,0)">
+      <li class="column" v-for="column,index in columns" v-bind:class="{active:column.active}" v-bind:style="{left:column.position.x+'px'}">
+        <div class="cell" v-bind:class="{active:column.active}" v-on:click="highlightCell(column.index,0)">
 
-<ul>
- <li class="cell submenu" v-for="item,itemIndex in column.items" v-bind:class="{active:item.active}" v-bind:style="{top:item.position.y+'px'}" v-on:click="highlightCell(column.index,itemIndex)"> 
-  <div class="selected">
-<div class="material-icons">{{item.icon}}</div>
-<div class="titles">{{item.title}}{{column.txt1}}<div :id="item.button1"></div>{{column.txt2}}<div :id="item.button2"></div>{{column.txt3}}</div>
+        <ul>
+          <li class="cell submenu" v-for="item,itemIndex in column.items" v-bind:class="{active:item.active}" v-bind:style="{top:item.position.y+'px'}" v-on:click="highlightCell(column.index,itemIndex)"> 
+           <div class="selected">
+              <div class="material-icons">{{item.icon}}</div>
+              <div class="titles">{{item.title}}{{column.txt1}}<div :id="item.button1"></div>{{column.txt2}}<div :id="item.button2"></div>{{column.txt3}}</div>
+            </div>
+          </a>
+		</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
- </a>
-		</li></ul></li></ul></div> </div> <video id="trophy" width="0" height="0"> <source src="trophy.mp4" type="video/mp4" preload> </video><div align="center" id="myBar"></div></div></div><footer><div id="fanprogress" class="fanprogress"></div><div id="alertfw"></div><div id="cs-loader" class="cs-loader"><div class="cs-loader-inner"><label></label><label></label><label></label><label></label><label></label><label></label></div></div></footer>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/lodash.min.js"></script>
+<script src="assets/js/zepto.min.js"></script>
+<video id="trophy" width="0" height="0">
+<source src="trophy.mp4" type="video/mp4" preload>
+</video> 
+      <div align="center" id="myBar"></div>
+    </div>
+  </div>
+  <footer>
+    <div id="fanprogress" class="fanprogress">
+    </div>
+    <div id="alertfw"></div>
+    <div id="cs-loader" class="cs-loader">
+      <div class="cs-loader-inner">
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+      </div>
+    </div>
+   </footer>   
   <script>
-var xpver = ""; var appCache = window.applicationCache; switch (appCache.status) {case appCache.UNCACHED:cachedxp = "false";break;default: 	cachedxp = "true";break; }
-function Populate() { 	payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2); 	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) > "7.51" ) { 		truefw = localStorage.getItem("truefirm"); 	if (truefw == null) { 		truefw = "spoofed"; 	} 	} else { 		localStorage.setItem("truefirm", Number(navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")))); 		truefw = localStorage.getItem("truefirm"); 	}
+var xpver = "";
+var appCache = window.applicationCache;
+switch (appCache.status) {
+  case appCache.UNCACHED:
+
+    cachedxp = "false";
+    break;
+  default:
+	cachedxp = "true";
+    break;
+}
+function Populate() {
+	payloadcount = ((document.getElementById('xmb-contain').getElementsByTagName('li').length)- 2);
+	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")) > "6.72" ) {
+		truefw = localStorage.getItem("truefirm");
+	if (truefw == null) {
+		truefw = "spoofed";
+	}
+	} else {
+		localStorage.setItem("truefirm", Number(navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple"))));
+		truefw = localStorage.getItem("truefirm");
+	}
 	var txt = "";
+	txt += "USER NAME : "+"<input tabIndex='-1' type='input' id='user' value='Mugiwara' onmousemove='savename()'>"+"<br>";
+	txt += "PS4 FTP IP : "+"<input tabIndex='-1' type='myip' id='myip' value='0.0.0.0:1337' onmousemove='saveip()'>"+"<br><br>";
 	if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("8.00")) {txt += "Hen Enabled : " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "Hen Enabled : " + "<span style='color:red'> false </span>" + "<br>";}
   if (navigator.userAgent.substring(navigator.userAgent.indexOf("5.0 (") + 19, navigator.userAgent.indexOf(") Apple")).includes("8.00")) {txt += "Spoof 8.00 Enabled: " + "<span style='color:lime'> true </span>" + "<br>";} else {txt += "Spoof 8.00 Enabled : " + "<span style='color:red'> false </span>" + "<br>";}
 	if (truefw === "spoofed") { txt += "True Firmware : " + "<span style='color:red'>" + truefw + "</span>" + "<br>";} else { txt += "True Firmware : " + "<span style='color:lime'>" + truefw + "</span>" + "<br>";}
@@ -151,11 +251,42 @@ function Populate() { 	payloadcount = ((document.getElementById('xmb-contain').g
 	document.getElementById('clock').innerHTML = new Date();
 	document.getElementById('clock').innerHTML = document.getElementById('clock').innerHTML.slice(0,21);
 }		
-var i = setInterval(function() { 	document.getElementById('clock').innerHTML = new Date(); 	document.getElementById('clock').innerHTML = document.getElementById('clock').innerHTML.slice(0,21); }, 60 * 1000);
-function savename() { 	var sUser = document.getElementById("user").value; 	localStorage.setItem("username", sUser); 	document.getElementById("user").blur(); }
-function saveip() { 	var sIp = document.getElementById("myip").value; 	localStorage.setItem("userip", sIp); 	document.getElementById("myip").blur(); }
-function hideMe() {var y = document.getElementById("infoz");if (y.style.display === "none") {y.style.display = "block"; 	localStorage.setItem("ipanel", "on"); 	document.getElementById("hide").innerHTML = "&nbsp;&nbsp;&nbsp;HIDE INFO"; 	document.getElementById("show").innerHTML = ""; 	document.getElementById("hide").style.fontSize = "15px"; 	} else { 	localStorage.setItem("ipanel", "off");	document.getElementById("hide").innerHTML = xpver; 	document.getElementById("hide").style.fontSize = "27px"; 	document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;SHOW INFO";y.style.display = "none";} }
-function pop() { 	document.getElementById("trophy").play(); 	Tpopup.classList.remove('animation'); 	void Tpopup.offsetWidth;Tpopup.classList.add('animation'); }
+var i = setInterval(function() {
+	document.getElementById('clock').innerHTML = new Date();
+	document.getElementById('clock').innerHTML = document.getElementById('clock').innerHTML.slice(0,21);
+}, 60 * 1000);
+function savename() {
+	var sUser = document.getElementById("user").value;
+	localStorage.setItem("username", sUser);
+	document.getElementById("user").blur();
+}
+function saveip() {
+	var sIp = document.getElementById("myip").value;
+	localStorage.setItem("userip", sIp);
+	document.getElementById("myip").blur();
+}
+function hideMe() {
+  var y = document.getElementById("infoz");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+	localStorage.setItem("ipanel", "on");
+	document.getElementById("hide").innerHTML = "&nbsp;&nbsp;&nbsp;HIDE INFO";
+	document.getElementById("show").innerHTML = "";
+	document.getElementById("hide").style.fontSize = "15px";
+	} else {
+	localStorage.setItem("ipanel", "off");
+  	document.getElementById("hide").innerHTML = xpver;
+	document.getElementById("hide").style.fontSize = "27px";
+	document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;SHOW INFO";
+    y.style.display = "none";
+  }
+}
+
+function pop() {
+	document.getElementById("trophy").play();
+	Tpopup.classList.remove('animation');
+	void Tpopup.offsetWidth;Tpopup.classList.add('animation');
+}
 function HideLoaderBox(){SS.Loaded='1';setTimeout(function(){var x=document.querySelectorAll(".SelectedItem");var i;for(i=0;i<x.length;i++){x[i].className="InfoIcon Icon";}},1500);}LS.CurrentTemp=RC('CurrentTemp');LS.KernEpochDiff=RC('KernEpochDiff');
   if(LS.AutoHEN!='on'){LS.AutoHEN="off";AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = OFF");}if(LS.AutoHEN=='on'){AutoHenInfo.innerHTML=("<div id=L2BUTTON></div>"+"- AutoHen = ON");}
   function RunAutoHen(){SS.InfoBox=1;SS.ThisIsAutoHen = '1';var x = document.querySelectorAll(".box");var i;for(i = 0; i < x.length; i++){x[i].style.opacity="0";}InfoBox.style.display='block'; Title.style.display='none';
