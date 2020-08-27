@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+   <title>CRONO_ DREAMBOX PS4 V7.5</title>
+    <meta charset="UTF-8" />
+ <link rel="stylesheet" href="css/icon.css">
+ <link rel="stylesheet" href="css/materialize.css">
+ <link rel="stylesheet" href="css/main.css">
+
+ <script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Instalando Cash Offline AGUARDE!!!: " + Percent + "%";}
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Cache Instalado com Sucesso !";},1000);setTimeout(function(){window.msgs.innerHTML="AGORA! Saia, Desligue a Internet e Abra o Navegador Novamente para executar os EXPLOITS!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
+</head>
+<body id="body"  >
+<img class="icon" src="img/icon.png"/>
+ <div id="app" ><!-- app start -->
+ 
+ <nav class="transparent" ><!-- navbar start -->
+  <div class="nav-wrapper">
+    <a class="brand-logo left">CRONO_ DREAMBOX PS4 V7.5</a>
+   <ul id="nav-mobile" class="right"><!-- navbar links -->
+
+        <!-- TEMAS DESABILITADOS PARA TESTE -->
+
+  <!--   <li class="waves-effect waves-light" v-if="!is4kThemeShow" @click="show4kTheme"><a> Trocar Tema 4K</a></li>
+    <li class="waves-effect waves-light" v-if="!isPayloadShow" @click="showMain"><a> Voltar </a></li>
+    <li class="waves-effect waves-light" v-if="!isThemesShow" @click="showTheme"><a> Trocar Tema </a></li> -->
+    <li class="waves-effect waves-light" v-if="!isAboutUsShow" @click="showAboutUs"><a> Sobre Nós </a></li>
+    
+   </ul>
+  </div>
+ </nav><!-- navbar end -->
+  
+  <div class="loader" v-if="isLoaderShow">
+   <span id="date" ></span>
+    <span id="msgs"> SELECIONE O EXPLOIT DESEJADO </span>
+   <span id="temp" >
+    <input type="range" id="tempC" min="40" @change="temp=tempC.value" value="60" step="1" max="79" />
+    <span class="tempVal" >{{temp+"&#176;C"}}</span>
+    <button @click="setTemp()">Selecionar</button>
+   </span>
+   <span id="clock" ></span>
+  </div>
+
+  <div class="payloads" v-show="isPayloadShow"><!-- payloads list start -->
+   <div v-for="payload,key in payloads" @click="loadPlayload(key)" @mouseover="hover(key)" @mouseleave="hover()" class="tile">
+    <img :src="'img/'+payload.icon" >
+    <p class="white-text" >{{payload.name}}</p>
+   </div>   
+  </div><!-- payloads list end -->
+   
+  <div class="detail" v-show="isDetailShow" ><!-- tozihat-->
+   <span id="detail" ></span>
+  </div>
+  
+  <div class="theme" v-show="isThemesShow"><!-- themes start -->
+    
+    <div class="card" v-for="theme,key in themes" @click="changeTheme(key,'normal')">
+     <div class="card-image">
+      <img :src="'img/'+theme.url">
+     </div>
+     <div class="card-action waves-effect waves-light" style="width:100%" >
+      <div class="center" :class="{ 'green-text': theme.selected, 'white-text': !theme.selected}">{{theme.selected? 'Tema Atual': 'Usar Esse!'}}</div>
+     </div>
+    </div>
+
+  </div><!-- 4k themes end -->
+
+<div class="theme" v-show="is4kThemeShow"><!-- themes start -->
+  
+  <div class="card" v-for="theme,key in themes4k" @click="changeTheme(key,'4k')">
+   <div class="card-image">
+    <img :src="'img/4k/'+theme.url">
+   </div>
+   <div class="card-action waves-effect waves-light" style="width:100%" >
+    <div class="center" :class="{ 'green-text': theme.selected, 'white-text': !theme.selected}">{{theme.selected? 'Tema Atual': 'Usar Esse!'}}</div>
+   </div>
+  </div>
+
+</div><!-- 4k themes end -->
+  
+   <div class="aboutUs"  v-show="isAboutUsShow"><!-- about us start -->
+    <h4><b>Sobre Nós</b></h4>
+    <p>CRONO_ DREAMBOX</p>
+    <p> É um projeto BASEADO no <b>Rei da Noite do SALT</b> meu amigo Persa ✔</p>
+    <p>✔ Um Agradecimento Especial para : Salt seu telegram(@Salt753194) ✔</p>
+    <p>✔ Karo Sharifi - AmirHossein Kianfard - Alireza - Alazif - Leeful - crono_  - Mugiwara(@84Ciss) ✔ </p>
+    <p> OBRIGADO! </p>
+    <br>
+    <h4><b>About Us</b></h4>
+    <p>CRONO_ DREAMBOX</p>
+    <p>It's a project based on the <b>SALT Night King</b> my friend Persian ✔</p>
+    <p>✔ Special thanks to: Salt your telegram (@ Salt753194) ✔ </p>
+    <p>✔ Karo Sharifi - AmirHossein Kianfard - Alireza - Alazif - Leeful - crono_ - Mugiwara(@84Ciss) ✔ </p>
+    <p> THANK YOU! </p>
+    <p></p>
+   </div><!-- about us end -->
+   
+   
+  </div><!-- app end -->
+  
+  
+  <!-- js section  -->
+ <script src="p/exp_common.js"></script>
+ <script src="p/exp_jailbreak.js"></script>  
+ <script src="js/materialize.js"></script>
+ <script type="text/javascript">
+ if(localStorage.getItem("theme")==null){
+  localStorage.setItem("theme",0)
+ }
+ if(localStorage.getItem("themeType")==null){
+  localStorage.setItem("themeType","normal")
+ }
+ </script>
+ <script src="js/vue.js"></script>
+ <script type="text/javascript">
+  var app = new Vue({
+   el: '#app',
+   data: {
+    isLoaderShow:true,
+    isPayloadShow:true,
+    isThemesShow:false,
+    isAboutUsShow:false,
+    isDetailShow:false,
+    is4kThemeShow:false,
+    selectedTheme:localStorage.getItem("theme"),
+    selectedThemeType:localStorage.getItem("themeType"),
+    payloads:[
+      {name:"1º - JAILBREAK",icon:"hen.png",detail:"1º - JAILBREAK - ATIVAÇÃO MANUAL:<br> Altamente Necessário para começar qualquer processo de Injeção de arquivos payloads e ou rodar jogos FPKG<br> CASO ATIVE ESSE EM SEGUIDA ATIVE O:<br> 2º -  MIRA"},
+
+      {name:"2º -  MIRA",icon:"hen.png",detail:"2º - MIRA - ATIVAÇÃO MANUAL:<br> Ativa a capacidade de executar payloads e jogos FPKG<br> PARA USAR ESSE MODO ATIVE ANTES O: <br> 1º - JAILBREAK"},
+
+      {name:"MIRA SEM HB",icon:"hen.png",detail:"JAILBREAK + MIRA SEM HB -  ATIVAÇÃO AUTOMATICA: <br>Ativa a capacidade de executar payloads e jogos FPKG<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br>  JAILBREAK + O MIRA SEM HB"},
+
+      {name:"HEN 2.2.1",icon:"HenEnable.png",detail:"JailBreak + HEN 2.2.1 com funções TO - DEX - ATIVAÇÃO AUTOMATICA: <br>Feito por Team SGK, MUGIWARA e  Crono_<br>Funções de dessa Versão:<br> Debug Settings - Funções (TO - DEX JA ATIVADA) - Instalação de FPKG - Instalação de FPKG Remoto - Copiar saves Para dispositivo Externo USB<br>UART -  Suporte VR - Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2.1 COM AS FUNÇÕES DO TO - DEX!"},
+
+
+      {name:"HEN 2.2",icon:"HenEnable.png",detail:"JailBreak + HEN 2.2 - ATIVAÇÃO AUTOMATICA: <br>Feito por MUGIWARA e Crono_<br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - Copiar saves Para dispositivo Externo USB -  UART -  Suporte VR<br>Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2"},
+
+      {name:"HEN 2.1.8",icon:"HenEnable.png",detail:"JailBreak + HEN 2.1.8 - ATIVAÇÃO AUTOMATICA: <br>Feito por MUGIWARA e Crono_<br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.8"},
+
+      {name:"HEN 2.1.3",icon:"HenEnable.png",detail:"JailBreak + HEN 2.1.3 - ATIVAÇÃO AUTOMATICA: <br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Spoofer para firmware 7.51 - Suporte para Trofeus em Debug - Remote Play - SUPORTE AO TO - DEX - <br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.3"},
+
+      {name:"BIN LOADER",icon:"binloader.png",detail:" BIN LOADER: <br>Após Ativo  Favor Enviar o arquivo .BIN desejado para a porta 9021"},
+
+      {name:"FTP",icon:"ftp.png",detail:"FTP:<br>Traduzido por CRONO_<br>Habilita as ferramentas necessária para conseguir conectar seu computador ao PS4 para gerenciar arquivos <br> USAR O FILEZILLA!"},
+
+      {name:"APP - TO - USB",icon:"app2usb.png",detail:"APP - TO - USB:<br>Traduzido por CRONO_<br>Transfira jogos instalados no console para um hd externo<br> PRECISA ESTAR EM EXFAT!"},
+
+      {name:"CONTROLE DE FAN",icon:"FanControl.png",detail:"CONTROLE DE VENTOINHA (FAN) DO PS4<br>Traduzido por CRONO_<br>Aplica uma Velocidade Escolhida Pelo Usuario ao FAN do PS4"},
+
+      {name:"DESABILITAR UPDATES",icon:"disableupdate.png",detail:"DESABILITAR UPDATES:<br>Traduzido por CRONO_<br>Desativa as atualizações automáticas de firmware do console"},
+
+      {name:"HABABILITAR UPDATES",icon:"enableupdate.png",detail:"HABILITAR UPDATES: <br>Traduzido por CRONO_<br>Reativa as atualizações automáticas do firmware do console"},
+
+      {name:"REMOTE PLAY",icon:"remote.png",detail:"REMOTE PLAY: <br> Ativa o recurso Remote Play para receber a imagem do console em um computador, dispositivo Android, etc."},
+
+      {name:"WEB - RTE ",icon:"rte.png",detail:"WEB - RTE 6.72 CHEATS: <br>Pré-requisitos para usar o gerenciador de cheats para os jogos<br> favor acesar o Ps4trainer.com para mais informações!"},
+
+      {name:"PS4 DEBUG",icon:"ps4debug.png",detail:"PS4 DEBUG: <br> É Utilizado para modificações no Sistema PS4 como no caso do <br>(PS4 Reaper, e  trofeis)"},
+
+      {name:"BLOQUEAR HISTORICO",icon:"history.png",detail:"BLOQUEAR HISTORICO: <br>Traduzido por CRONO_<br>Desative a abertura automática da última página usada no navegador PS4.<br>RE-ENVIE ESTE PEYLOAD CASO QUEIRA VOLTAR AO NORMAL!"},
+
+      {name:"TO - DEX",icon:"todex.png",detail:"TO - DEX: <br>Ativa o menu de depuração do console no modo (Test - Dev - Kit),<br> Que Habilita Algumas Opções Especiais <br> PARA USAR ESSE MODO ATIVE ANTES : <br> 1º - JAILBREAK <br>2º -  MIRA<br>3º - TO - DEX <br> NESSA ORDEM"},
+
+      {name:"BACKUP BD PS4",icon:"backup.png",detail:"BACKUP DO BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Faz backup do banco de dados e de todos os jogos instalados para um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+
+      {name:"RESTAURAR BD PS4",icon:"restore.png",detail:"RESTAURA O BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Restaura o backup feito anteriormente de um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+
+      {name:"BACKUP DOS SAVES",icon:"backup.png",detail:"BACKUP SAVE DATA PS4: <br> Para Realizar Backup dos Seus Saves para Armazenamento Externo USB <br>SIGA ESSES PASSOS:<br> 1- HEN 2.2 BETA 4<br> 2 - PS4 DEBUG<br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator for 6.72) para Ativar A sua Conta Offline"},
+
+      {name:"RESTAURAR OS SAVES",icon:"restore.png",detail:"RESTAURAR SAVE DATA PS4 <br> Para Restaurar os Dados Salvos no Armazenamento Externo USB Para o PS4 <br>SIGA ESSES PASSOS:<br> 1- HEN 2.2 BETA 4<br> 2 - PS4 DEBUG<br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator for 6.72) para Ativar A sua Conta Offline"},
+
+      {name:"DUMPER - JOGOS V1.8",icon:"dumper.png",detail:"DUMPER V1.8: <br>Atualizado por MUGIWARA, e Traduzido por CRONO_ <br> maior estabilidade para a 6.72, maior velocidade<br> Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console para um armazenemnto USB Muito mais Rapido na 6.72<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+
+      {name:"DUMPER - JOGOS V1.4",icon:"dumper.png",detail:"DUMPER V1.4:<br>Traduzido por CRONO_<br>Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console para um armazenemnto USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+
+      {name:"DUMPER - KERNEL",icon:"kdumper.png",detail:"DUMPER DE KERNEL: <br>Traduzido por CRONO_<br> Faz uma cópia do kernel do PS4 em um hd externo ou pendrive<br> sera criado um arquivo com o nome Dump.bin<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+
+      {name:"LINUX - LOADER",icon:"linux.png",detail:"LINUX - LOADER: <br> Carrega o Linux via porta USB com memória padrão de 2GB para gráficos"},
+
+     
+    
+
+    ],
+    themes:[
+     {url:"bgcrono_.jpg",selected:false},
+     
+    ],
+    themes4k:[
+     
+    ],
+    temp:tempC.value
+   },
+   methods:{
+    loadPlayload: function(key){
+
+      if(key==0){//Carregar Jailbreak
+      msgs.innerHTML="<div>Carregando jailbreak Aguarde ...</div>";
+      setTimeout(jailbreak,500);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==1){//Carregar Mira
+      msgs.innerHTML="<div>Carregando Mira Aguarde ...</div>";
+      LoadedMSG="Mira Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_mira.js";
+      setTimeout(jailbreak,500);
+       var script = document.createElement('script');script.src = "p/pl_mira.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==2){//Carregar Jailbreak + Mira Sem HB
+      msgs.innerHTML="<div>Carregando jailbreak + Mira sem HB Aguarde ...</div>";
+      LoadedMSG="Jailbreak + Mira sem HB Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_miranohb.js";
+      setTimeout(jailbreak,500);
+       var script = document.createElement('script');script.src = "p/pl_miranohb.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+     if(key==3){//Carregar Jailbreak + HEN 2.2.1 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.2.1 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.2.1BR.js";
+      setTimeout(jailbreak,500);
+      var script = document.createElement('script');script.src = "p/pl_HEN2.2.1BR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==4){//Carregar Jailbreak + HEN 2.2 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.2 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.2BR.js";
+      setTimeout(jailbreak,500);
+      var script = document.createElement('script');script.src = "p/pl_HEN2.2BR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==5){//Carregar Jailbreak + HEN 2.1.8 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.1.8 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.1.8 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.1.8BR.js";
+      setTimeout(jailbreak,500);
+      var script = document.createElement('script');script.src = "p/pl_HEN2.1.8BR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==6){//Carregar Jailbreak + hen 2.1.3 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.1.3 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.1.3 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.1.3.js";
+      setTimeout(jailbreak,500);
+      var script = document.createElement('script');script.src = "p/pl_HEN2.1.3.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+ 
+      if(key==7){//Carregar bin - loader
+      msgs.innerHTML="<div>Carregando BIN LOADER Aguarde ...</div>";
+      LoadedMSG="Carregado! Agora Envie o Payload desejado para a porta 9021";
+      var script = document.createElement('script');script.src = "p/exp_BinLoader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==8){//Carregar ftp
+      msgs.innerHTML="<div>Carregando FTP Aguarde ...</div>";
+      LoadedMSG="FTP Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_ftp.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==9){//Carregar app - to - usb
+      msgs.innerHTML="<div>Carregando APP - TO - USB Aguarde ...</div>";
+      LoadedMSG="APP - TO - USB Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_app2usbBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==10){//Carregar FAN
+      msgs.innerHTML="<div>Carregando Controle de Ventoinha (FAN) Aguarde ... </div>";
+      setTimeout(function(){
+       msgs.style.display="none";
+       temp.style.display="inline";
+      },1000);
+     }
+
+      if(key==11){//Carregar updates disable
+      msgs.innerHTML="<div>Carregando Desabilitar Updates Aguarde ...</div>";
+      LoadedMSG="Updates Desabilitados com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_updatesDisableBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==12){//Carregar updates enable
+      msgs.innerHTML="<div>Carregando Habilitar Updates Aguarde ...</div>";
+      LoadedMSG="Updates Habilitados com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_updatesEnableBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==13){//Carregar remote - play
+      msgs.innerHTML="<div> Carregando REMOTE - PLAY Aguarde ... </div>";
+      LoadedMSG="REMOTE - PLAY Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_remoteplay.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==14){//Carregar web - rte
+      msgs.innerHTML="<div>Carregando WEB - RTE 6.72 CHEATS Aguarde...</div>";
+      LoadedMSG="WEB - RTE 6.72 CHEATS Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_WebRTE.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+
+      if(key==15){//PS4 Debug
+      msgs.innerHTML="<div>Carregando PS4 Debug Aguarde ...</div>";
+      LoadedMSG=" PS4 Debug Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_ps4debug.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==16){//Carregar history block
+      msgs.innerHTML="<div>Carregando Bloquedor de Historico Aguarde ...</div>";
+      LoadedMSG="Bloquedor de Historico Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_historyBlockerBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==17) {// Carregar TO - DEX
+       msgs.innerHTML = "<div> Carregando modo TO - DEX Aguarde ... </div>";
+       LoadedMSG = " Modo TO - DEX Carregado com Sucesso ✔";
+       var script = document.createElement ('script'); script.src = "p/pl_ToDEX.js"; document.getElementsByTagName ('head') [0] .appendChild (script);
+       var script = document.createElement ('script'); script.src = "p/exp_loader.js"; document.getElementsByTagName ('head') [0] .appendChild (script);
+     }
+
+      if(key==18){//Carregar db Backup
+      msgs.innerHTML="<div>Carregando Backup do BD do PS4 Aguarde ...</div>";
+      LoadedMSG="Backup do BD Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_dbBackupBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==19){//Carregar db Restore
+      msgs.innerHTML="<div>Carregado Restaurador de BD do PS4 Aguarde ...</div>";
+      LoadedMSG="Restauração do BD Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_dbRestoreBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+     
+      if(key==20){//PS4 Save Data Backup
+      msgs.innerHTML="<div>Carregando PS4 Save Data Backup ...</div>";
+      LoadedMSG=" PS4 Save Data Backup Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_SD_Backup.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==21){//PS4 Save Data Restore
+      msgs.innerHTML="<div>Carregando PS4 Save Data Restore ...</div>";
+      LoadedMSG=" PS4 Save Data Restore Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_SD_Restore.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==22){//Carregar dumper pt-br
+      msgs.innerHTML="<div>Carregando Dumper V1.8 Aguarde ...</div>";
+      LoadedMSG="Dumper V1.8 Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_dumperv1.8BR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==23){//Carregar dumper
+      msgs.innerHTML="<div>Carregando Dumper V1.4 Aguarde ...</div>";
+      LoadedMSG="Dumper V1.4 Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_dumperv1.4BR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==24){//Carregar kernel dump
+      msgs.innerHTML="<div>Carregando Dumper de  Kernel Aguarde ...</div>";
+      LoadedMSG="Dumper de  Kernel Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_kernelDumperBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==25){//Carregar linux - loader
+      msgs.innerHTML="<div>Carregando Linux - Loader Aguarde ...</div>";
+      LoadedMSG="Linux - Loader Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_linux.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+    
+
+
+    },
+
+  showMain:function(){
+     this.isPayloadShow = true
+     this.isThemesShow = false
+     this.isAboutUsShow = false
+     this.isLoaderShow = true
+     this.is4kThemeShow = false
+    },
+    showTheme:function(){
+     this.isLoaderShow = false
+     this.isAboutUsShow = false
+     this.isThemesShow = true
+     this.isPayloadShow = false
+     this.is4kThemeShow = false
+    },
+    show4kTheme:function(){
+     this.isLoaderShow = false
+     this.isAboutUsShow = false
+     this.isThemesShow = false
+     this.isPayloadShow = false
+     this.is4kThemeShow = true
+    },
+    showAboutUs:function(){
+     this.isPayloadShow=false
+     this.isAboutUsShow = true
+     this.isLoaderShow = false
+     this.isThemesShow = false
+     this.is4kThemeShow = false
+    },
+    changeTheme:function(key,type){
+     if(type=="normal"){
+      this.themes[this.selectedTheme].selected=false
+      this.themes4k[this.selectedTheme].selected=false
+      localStorage.setItem("theme",(key))
+      localStorage.setItem("themeType","normal")
+      this.selectedTheme=localStorage.getItem("theme")
+      this.selectedThemeType=localStorage.getItem("themeType")
+      this.themes[this.selectedTheme].selected=true
+      document.getElementById("body").style.background="url(img/"+this.themes[localStorage.getItem("theme")].url+")";
+      document.getElementById("body").style.backgroundRepeat="no-repeat";
+      document.getElementById("body").style.backgroundSize="100%";
+     }else{
+      this.themes4k[this.selectedTheme].selected=false
+      this.themes[this.selectedTheme].selected=false
+      localStorage.setItem("theme",(key))
+      localStorage.setItem("themeType","4k")
+      this.selectedTheme=localStorage.getItem("theme")
+      this.selectedThemeType=localStorage.getItem("themeType")
+      this.themes4k[this.selectedTheme].selected=true
+      document.getElementById("body").style.background="url(img/4k/"+this.themes4k[localStorage.getItem("theme")].url+")";
+      document.getElementById("body").style.backgroundRepeat="no-repeat";
+      document.getElementById("body").style.backgroundSize="100%";
+     }
+    },
+    hover:function(key){
+     if(key !== undefined){
+      this.isDetailShow = true
+      document.getElementById("detail").innerHTML=this.payloads[key].detail
+     }else{
+      this.isDetailShow = false
+     }
+    },
+    setTemp:function(){
+     msgs.style.display="inline"
+     temp.style.display="none"
+     LoadedMSG="Controle de Ventoinha (FAN) ("+tempC.value+"&#176;C)Carregado com Sucesso ✔";fanTemp=tempC.value;
+     var script = document.createElement('script');script.src = "p/pl_fanthreshBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+     var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+    },
+   },
+   
+   created(){
+    if(localStorage.getItem("themeType")=="normal"){
+     this.themes[this.selectedTheme].selected=true
+    }else{
+     this.themes4k[this.selectedTheme].selected=true
+    }
+   },
+  })
+</script>
+
+
+ <script type="text/javascript">
+
+ if(localStorage.getItem("themeType")=="normal"){
+  document.getElementById("body").style.background="url(img/"+app.themes[localStorage.getItem("theme")].url+")";
+  document.getElementById("body").style.backgroundRepeat="no-repeat";
+  document.getElementById("body").style.backgroundSize="100%";
+ }else{
+  document.getElementById("body").style.background="url(img/4k/"+app.themes4k[localStorage.getItem("theme")].url+")";
+  document.getElementById("body").style.backgroundRepeat="no-repeat";
+  document.getElementById("body").style.backgroundSize="100%";
+ }
+
+ </script>
+ <script type="text/javascript">
+  function showdate() {
+  week= new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado");
+  months = new Array("Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "Janeiro", "Fevereiro", "Março");
+  a = new Date();
+  d= a.getDay();
+  Hour= a.getHours();
+  Minute= a.getMinutes();
+  Second= a.getSeconds();
+  if(Minute<10){
+  Minute="0"+Minute;
+  }
+  if(Second<10){
+  Second="0"+Second;
+  }
+  if(Hour<10){
+  Hour="0"+Hour;
+  }
+  day= a.getDate();
+  month = a.getMonth()+1;
+  year= a.getYear()-479;
+  year = (year== 0)?2000:year;
+  (year<1000)? (year += 3000):true;
+  year -= ( (month < 3) || ((month == 3) && (day < 21)) )? 622:621;
+  switch (month) {
+  case 1: (day<21)? (month=10, day+=10):(month=11, day-=20); break;
+  case 2: (day<20)? (month=11, day+=11):(month=12, day-=19); break;
+  case 3: (day<21)? (month=12, day+=9) :(month=1,  day-=20); break;
+  case 4: (day<21)? (month=1,  day+=11) :(month=2,  day-=20); break;
+  case 5:
+  case 6: (day<22)? (month-=3, day+=10):(month-=2, day-=21); break;
+  case 7:
+  case 8:
+  case 9: (day<23)? (month-=3, day+=9) :(month-=2, day-=22); break;
+  case 10:(day<23)? (month=7,  day+=8)  :(month=8,  day-=22); break;
+  case 11:
+  case 12:(day<22)? (month-=3, day+=9) :(month-=2, day-=21); break; 
+  default: break;
+  }
+  
+  function gregorian_to_jalali(gy,gm,gd){
+  var g_d_m,jy,jm,jd,gy2,days;
+  g_d_m=[0,31,59,90,120,151,181,212,243,273,304,334];
+  if(gy > 1600){
+  jy=979;
+  gy-=1600;
+  }else{
+  jy=0;
+  gy-=621;
+  }
+  gy2=(gm > 2)?(gy+1):gy;
+  days=(366*gy) +(parseInt((gy2+3)/4)) -(parseInt((gy2+870)/100)) +(parseInt((gy2+366)/400)) -80 +gd +g_d_m[gm-1];
+  jy+=33*(parseInt(days/12053)); 
+  days%=12053;
+  jy+=4*(parseInt(days/1461));
+  days%=1461;
+  if(days <= 366){
+  jy+=parseInt((days-1)/366);
+  days=(days-1)%366;
+  }
+  jm=(days < 186)?1+parseInt(days/31):7+parseInt((days-186)/30);
+  jd=1+((days < 186)?(days%31):((days-186)%30));
+  return [jy,jm,jd];
+  }
+  
+  ndt=new Date();
+  g_y=ndt.getFullYear();
+  g_m=ndt.getMonth()+1;
+  g_d=ndt.getDate();
+  shamsi=gregorian_to_jalali(g_y,g_m,g_d);
+  var nday = shamsi[2];
+  
+  document.getElementById("date").innerHTML=(week[d]+" "+nday+" "+months[month-1]+" "+ year);
+  document.getElementById("clock").innerHTML=(Hour+":"+Minute);
+  }
+  setInterval(showdate,0);
+ </script>
+</body>
+</html>
