@@ -36,10 +36,12 @@ PAYLOADS\mirausb.js
 PAYLOADS\ps4debug.js
 PAYLOADS\restoreDTB.js
 PAYLOADS\rifs.js
-PAYLOADS\todex.js
 PAYLOADS\WebRTE.js
 PAYLOADS\xmbcache.html
 PAYLOADS\xmbinstaller.html
+PAYLOADS\hen221.js
+PAYLOADS\hen222.js
+PAYLOADS\todex.js
 PAYLOADS\binloader\c-code.js
 PAYLOADS\mirahen\c-code.js
 PAYLOADS\mirahen\mugiwaramirahen.js
