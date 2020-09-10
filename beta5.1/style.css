@@ -1,0 +1,18 @@
+html, body {margin:0;padding:0;width:100%;height:100%;overflow:hidden;color:white;background-color:black;font-family:sans-serif; } .content {  margin:auto;  position:absolute;  left:0;  right:0;  width:875px;  height:90px;  padding:0px 0px;  background:transparent;  border:0 ;  z-index:20;  overflow:hidden; } .topmask {  margin:auto;  position:absolute;  left:0;  right:0;  width:100%;  height:100px;  background:transparent;  border:0 ; z-index:19; overflow:hidden; } .clock {  position:absolute;  top:4px;  right:0;  margin-right:1em;  font-size:25px;  z-index:21;  cursor:pointer; } .infoz {  position:absolute;  bottom:2em;  left:0;  margin-left:2em;  font-size:15px;  z-index:21;  cursor:default; } .hide {  position:absolute;  bottom:-4px;  left:0;  margin-left:1em;  font-size:15px;  z-index:21;  cursor:pointer; } .ident {  position:absolute;  bottom:4px;  right:0;  margin-right:1em;  font-size:27px;  z-index:21;  color:wihte;  cursor:pointer; } .selected {width:1110px;height:128px;padding:10px; } .titles {position:relative;top:-115px;left:80px;width:1000px;font-weight:bold;font-size:25px;text-align:left;line-height:28px; } .desc {position:relative;top:-115px;left:80px;width:1000px;font-size:20px;font-weight:bold;text-align:left;line-height:25px;cursor:pointer; } .subs {position:relative;top:-115px;left:80px;width:1000px;font-size:20px;font-weight:bold;text-align:left;line-height:25px; } .bg {position:absolute;left:0;right:0;top:0;bottom:0;border:0;width:100%;height:100%;z-index:-1; } .top {position:absolute;margin-left:1em;top:4px;left:0;font-size:25px;z-index:21;cursor:pointer; }
+#xmb-contain {width:70%;height:70%;display:flex;flex-direction:column;justify-content:center;align-items:center;background-color:rgba(0, 0, 0, 0.01); }
+#xmb {width:100px;position:relative;height:100px;flex-direction:column;justify-content:center;margin-bottom:100px;margin-right:200px;user-select:none; }
+#xmb > ul {display:flex;flex:1 1 auto;position:absolute;top:10%;flex-wrap:nowrap;flex-direction:row;justify-content:center;color:grey; }
+#xmb li,
+#xmb ul {margin:0;padding:0;list-style-type:none;position:absolute; }
+#xmb li.column > ul {position:relative;display:flex;flex-direction:column; }
+#xmb .cell {width:100px;height:100px;background-color:transparent;margin:10px;opacity:0.2;position:absolute;transition:all 0.3s;cursor:pointer; }
+#xmb .column:not(.active) .cell.submenu:not(.active) {display:none;opacity:0; }
+#xmb .column {transition:all 0.3s;flex:0 1 auto;margin:0 0; }
+#xmb .column.active {flex:1 1 auto;color:white; } .xmb-icon {text-align:center;width:100%;font-size:65px;text-shadow:0px 0px 15px rgba(0, 0, 0, 0.5); }
+#xmb label {display:block;text-align:center;text-shadow:0px 0px 5px #000000;font-size:30px;text-transform:capitalize;cursor:pointer; }
+#xmb .cell.submenu,
+#xmb .cell.submenu > * {line-height:100px; }
+#xmb .submenu label:not(.subtitle) {position:absolute;top:0;line-height:50px;margin-left:100px;font-size:30px;color:white; }
+#xmb .submenu label.subtitle {position:absolute;top:55px;margin-left:0;font-size:20px;line-height:0;color:grey; }
+#xmb .submenu label.desc {position:absolute;top:80px;margin-left:0;font-size:20px;line-height:0; } a {color:inherit;cursor:pointer;text-decoration:none; }
+#xmb .cell.active {opacity:1; }
