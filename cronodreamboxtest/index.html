@@ -1,116 +1,83 @@
 <!DOCTYPE html>
 <html manifest="cache.manifest">
 <head>
-   <title>CRONO_ DREAMBOX PS4 V7.5</title>
-    <meta charset="UTF-8" />
- <link rel="stylesheet" href="css/icon.css">
- <link rel="stylesheet" href="css/materialize.css">
- <link rel="stylesheet" href="css/main.css">
-
- <script>
-function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Instalando Cash Offline AGUARDE!!!: " + Percent + "%";}
-function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Cache Instalado com Sucesso !";},1000);setTimeout(function(){window.msgs.innerHTML="AGORA! Saia, Desligue a Internet e Abra o Navegador Novamente para executar os EXPLOITS!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
-</script>
+<title>CRONO_ DREAMBOX PS4 V11</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="css/icon.css">
+<link rel="stylesheet" href="css/materialize.css">
+<link rel="stylesheet" href="css/main.css">
 </head>
+<script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Instalando Cash Offline AGUARDE!!!: " + Percent + "%";}
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Cache Instalado com Sucesso !";},1500);setTimeout(function(){window.msgs.innerHTML="AGORA! Saia, Desligue a Internet e Abra o Navegador Novamente para executar os EXPLOITS!";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+  window.applicationCache.onnoupdate=function(){setTimeout(function(){load_JB(); }, 500);};
+  window.applicationCache.onerror=function(){setTimeout(function(){load_JB(); }, 500);};
+</script>
 <body id="body"  >
-<img class="icon" src="img/icon.png"/>
- <div id="app" ><!-- app start -->
- 
- <nav class="transparent" ><!-- navbar start -->
-  <div class="nav-wrapper">
-    <a class="brand-logo left">CRONO_ DREAMBOX PS4 V7.5</a>
-   <ul id="nav-mobile" class="right"><!-- navbar links -->
-
-        <!-- TEMAS DESABILITADOS PARA TESTE -->
-
-  <!--   <li class="waves-effect waves-light" v-if="!is4kThemeShow" @click="show4kTheme"><a> Trocar Tema 4K</a></li>
-    <li class="waves-effect waves-light" v-if="!isPayloadShow" @click="showMain"><a> Voltar </a></li>
-    <li class="waves-effect waves-light" v-if="!isThemesShow" @click="showTheme"><a> Trocar Tema </a></li> -->
-    <li class="waves-effect waves-light" v-if="!isAboutUsShow" @click="showAboutUs"><a> Sobre Nós </a></li>
-    
-   </ul>
-  </div>
- </nav><!-- navbar end -->
-  
+<a href="https://twitter.com/cronocardoso"><img class="icon" src="img/icon.png"/></a>
+<div id="app" ><!-- app start -->
+<nav class="transparent" ><!-- navbar start -->
+<div class="nav-wrapper">
+<a href="javascript:void(0)" class="brand-logo left">CRONO_ DREAMBOX PS4 V11</a>  
+<ul id="nav-mobile" class="right"><!-- navbar links -->   
+<li class="waves-effect waves-light" v-if="lang!=='br'" @click="changeLang('br')"><a>Português</a></li>
+<li class="waves-effect waves-light" v-if="lang!=='eng'" @click="changeLang('eng')"><a>English</a></li>
+<li class="waves-effect waves-light" v-if="lang!=='esp'" @click="changeLang('esp')"><a>Español</a></li>
+<li class="waves-effect waves-light" v-if="lang!=='fr'" @click="changeLang('fr')"><a>Français</a></li>
+<li class="waves-effect waves-light" v-if="!isPayloadShow" @click="showMain"><a>{{changeText(" Voltar "," Home "," Vuelve ","Reviens")}}</a></li>
+<li class="waves-effect waves-light" v-if="!isAboutUsShow" @click="showAboutUs"><a>{{changeText(" Sobre Nós ", " About Us "," Sobre Nosotros","À Propos de Nous")}}</a></li>
+</ul>
+</div>
+</nav><!-- navbar end -->
   <div class="loader" v-if="isLoaderShow">
    <span id="date" ></span>
-    <span id="msgs"> SELECIONE O EXPLOIT DESEJADO </span>
+   <span id="msgs">
+    {{changeText("SELECIONE O EXPLOIT QUE DESEJA ATIVAR!",
+    "SELECT THE EXPLOIT YOU WANT TO ACTIVATE!",
+    "¡SELECCIONE LA EXPLOTACIÓN QUE DESEA ACTIVAR!",
+    "SÉLECTIONNEZ L'EXPLOIT QUE VOUS VOULEZ ACTIVER!")}}
+  </span>
    <span id="temp" >
     <input type="range" id="tempC" min="40" @change="temp=tempC.value" value="60" step="1" max="79" />
     <span class="tempVal" >{{temp+"&#176;C"}}</span>
-    <button @click="setTemp()">Selecionar</button>
+    <button @click="setTemp()">{{changeText("Selecionar","Select","Seleccione","Sélectionner")}}</button>
    </span>
    <span id="clock" ></span>
   </div>
-
   <div class="payloads" v-show="isPayloadShow"><!-- payloads list start -->
    <div v-for="payload,key in payloads" @click="loadPlayload(key)" @mouseover="hover(key)" @mouseleave="hover()" class="tile">
     <img :src="'img/'+payload.icon" >
     <p class="white-text" >{{payload.name}}</p>
    </div>   
   </div><!-- payloads list end -->
-   
   <div class="detail" v-show="isDetailShow" ><!-- tozihat-->
    <span id="detail" ></span>
   </div>
-  
-  <div class="theme" v-show="isThemesShow"><!-- themes start -->
-    
-    <div class="card" v-for="theme,key in themes" @click="changeTheme(key,'normal')">
-     <div class="card-image">
-      <img :src="'img/'+theme.url">
-     </div>
-     <div class="card-action waves-effect waves-light" style="width:100%" >
-      <div class="center" :class="{ 'green-text': theme.selected, 'white-text': !theme.selected}">{{theme.selected? 'Tema Atual': 'Usar Esse!'}}</div>
-     </div>
-    </div>
-
-  </div><!-- 4k themes end -->
-
-<div class="theme" v-show="is4kThemeShow"><!-- themes start -->
-  
-  <div class="card" v-for="theme,key in themes4k" @click="changeTheme(key,'4k')">
-   <div class="card-image">
-    <img :src="'img/4k/'+theme.url">
-   </div>
-   <div class="card-action waves-effect waves-light" style="width:100%" >
-    <div class="center" :class="{ 'green-text': theme.selected, 'white-text': !theme.selected}">{{theme.selected? 'Tema Atual': 'Usar Esse!'}}</div>
-   </div>
-  </div>
-
-</div><!-- 4k themes end -->
-  
-   <div class="aboutUs"  v-show="isAboutUsShow"><!-- about us start -->
-    <h4><b>Sobre Nós</b></h4>
-    <p>CRONO_ DREAMBOX</p>
-    <p> É um projeto BASEADO no <b>Rei da Noite do SALT</b> meu amigo Persa ✔</p>
-    <p>✔ Um Agradecimento Especial para : Salt seu telegram(@Salt753194) ✔</p>
-    <p>✔ Karo Sharifi - AmirHossein Kianfard - Alireza - Alazif - Leeful - crono_  - Mugiwara(@84Ciss) ✔ </p>
-    <p> OBRIGADO! </p>
-    <br>
-    <h4><b>About Us</b></h4>
-    <p>CRONO_ DREAMBOX</p>
-    <p>It's a project based on the <b>SALT Night King</b> my friend Persian ✔</p>
-    <p>✔ Special thanks to: Salt your telegram (@ Salt753194) ✔ </p>
-    <p>✔ Karo Sharifi - AmirHossein Kianfard - Alireza - Alazif - Leeful - crono_ - Mugiwara(@84Ciss) ✔ </p>
-    <p> THANK YOU! </p>
-    <p></p>
+   <div class="aboutUs"  v-show="isAboutUsShow" :dir="changeText('rtl','ltr')" ><!-- about us start -->
+    <h4><b>{{changeText("Sobre o Projeto","About the Project","Sobre el Proyecto","À Propos Du Projet")}}</b></h4>
+    <p><h3>CRONO_ DREAMBOX</h3></p>
+     <p><h4>{{changeText("CRONO_ DREAMBOX Edição Internacional","CRONO_ DREAMBOX International Edition","CRONO_ DREAMBOX Edición internacional","CRONO_ DREAMBOX Édition internationale")}}</h4></p>
+    <p>{{changeText("É um projeto com o VISUAL BASEADO no HOST REI DA NOITE do SALT meu amigo Persa✔","It is a project with VISUAL BASED on the HOST KING OF THE NIGHT of SALT my friend Persian✔","Es un proyecto con VISUAL BASADO en el ANFITRIÓN REY DE LA NOCHE de SALT mi amigo Persa✔","C'est un projet avec VISUAL BASÉ sur le ROI HÔTE DE LA NUIT de SALT mon ami persan ✔")}}</p>
+    <p>{{changeText("✔Um Agradecimento Especial para : SALT seu telegram(@Salt753194)✔","✔Special thanks to: SALT your telegram (@Salt753194)✔","✔Un agradecimiento especial a: SALT su telegrama (@Salt753194)✔","✔Remerciements particuliers à: SALT votre télégramme (@Salt753194)✔")}}</p>
+   <p><h4>{{changeText("Um Agradecimento Especial","A Special Thanks","Un agradecimiento especial","Un merci spécial")}}<h4></p>
+    <p>✔Crono_ - Mugiwara(@84Ciss) - SALT - Karo Sharifi - Systro  - frangarcj - 84Ciss -  CTurt - wildcard✔</p>
+    <P>✔AmirHossein Kianfard - Alireza - Alazif - Leeful -sleirsgoevy - GamerHack93 - DefaultDNB - golde✔</p> 
+    <P>✔theorywrong - Seremo - z80 - balika011 - Zer0xFF - SpecterDev - flatz - xvortex  - 2much4u✔</p>
+    <P>✔bigboss - Rogero - AbkarinoMHM - fjtrujy - CelesteBlue - valentinbreiz - Joonie - AlexAltea - qwertyoruiop✔</p>
+    <P>✔m0rph3us1987 - eeply - zecoxao - aerosoul - maxton - ChendoChap - sugarleaf - kozarovv - LM - TheFlow - masterzorag - samsepi0l✔</p>
+    <p>{{changeText("OBRIGADO","THANK YOU!","¡GRACIAS!","MERCI!")}}</p>
    </div><!-- about us end -->
-   
-   
   </div><!-- app end -->
-  
-  
   <!-- js section  -->
+ <script src="p/functions.js"></script>
  <script src="p/exp_common.js"></script>
- <script src="p/exp_jailbreak.js"></script>  
  <script src="js/materialize.js"></script>
  <script type="text/javascript">
  if(localStorage.getItem("theme")==null){
   localStorage.setItem("theme",0)
  }
- if(localStorage.getItem("themeType")==null){
-  localStorage.setItem("themeType","normal")
+ if(localStorage.getItem("lang")==null){
+  localStorage.setItem("lang","br","eng","esp","fr")
  }
  </script>
  <script src="js/vue.js"></script>
@@ -123,133 +90,262 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Ca
     isThemesShow:false,
     isAboutUsShow:false,
     isDetailShow:false,
-    is4kThemeShow:false,
+    lang:localStorage.getItem("lang"),
     selectedTheme:localStorage.getItem("theme"),
-    selectedThemeType:localStorage.getItem("themeType"),
     payloads:[
-      {name:"1º - JAILBREAK",icon:"hen.png",detail:"1º - JAILBREAK - ATIVAÇÃO MANUAL:<br> Altamente Necessário para começar qualquer processo de Injeção de arquivos payloads e ou rodar jogos FPKG<br> CASO ATIVE ESSE EM SEGUIDA ATIVE O:<br> 2º -  MIRA"},
+     {name:"HEN + MIRA + TO - DEX",icon:"HenEnable.png",
+      br_detail:"HEN + MIRA + TO - DEX -  ATIVAÇÃO AUTOMATICA: <br>Feito por TEAM SGK, MUGIWARA e  Crono_<br>ATIVA TODAS AS FUÇOES DOS 3 EXPLOIT JUNTOS CORRIGINDO O ERRO CE-32875-5, CE-33116-4, entre outros.<br> POR SE TRATAR DE UM DESBLOQUEIO COMPLETO!<br> ELE PODE DEIXA O CONSOLE UM POUCO LENTO NAS EXECUÇÕES (JOGOS, REPOUSO, FECHAR JOGOS ETC..)<br>COM ISSO 0% DE ERRO ENCONTRADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + HEN + MIRA + TO - DEX",
+      eng_detail:"HEN + MIRA + TO - DEX - AUTOMATIC ACTIVATION: <br> Made by TEAM SGK, MUGIWARA and Crono_ <br> ACTIVATES ALL THE FUSES OF THE 3 EXPLOIT TOGETHER CORRECTING THE ERROR CE-32875-5, CE-33116-4 and others. OF A COMPLETE UNLOCK! <br> IT CAN LEAVE THE CONSOLE A LITTLE SLOW IN EXECUTIONS (GAMES, REST, CLOSE GAMES ETC ..) <br> WITH THIS 0% ERROR FOUND <br> ACTIVATING THAT NO NEED TO ACTIVATE ANYTHING ELSE ACTIVE JA: <br> JAILBREAK + HEN + MIRA + TO - DEX",
+      esp_detail:"HEN + MIRA + TO - DEX - ACTIVACIÓN AUTOMÁTICA: <br> Realizado por TEAM SGK, MUGIWARA y Crono_ <br> ACTIVA TODOS LOS FUSIBLES DE LOS 3 EXPLOIT JUNTOS CORREGIENDO EL ERROR CE-32875-5, CE-33116-4 y otros. DE UN DESBLOQUEO COMPLETO! <br> PUEDE DEJAR LA CONSOLA UN POCO LENTO EN LAS EJECUCIONES (JUEGOS, DESCANSO, CERRAR JUEGOS ETC ..) <br> CON ESTE ERROR 0% ENCONTRADO <br> ACTIVANDO QUE NO HAY NECESIDAD DE ACTIVAR NADA MÁS ACTIVO JA: <br> JAILBREAK + HEN + MIRA + TO - DEX",
+      fr_detail:"HEN + MIRA + TO - DEX - ACTIVATION AUTOMATIQUE: <br> Réalisé par TEAM SGK, MUGIWARA et Crono_ <br> ACTIVER TOUS LES FUSIBLES DES 3 EXPLOITER ENSEMBLE <br>CORRECTION DE L'ERREUR CE-32875-5, CE-33116-4 et autres. D'UN DÉVERROUILLAGE COMPLET! <br> IL PEUT LAISSER LA CONSOLE UN PEU DE LENT DANS LES EXÉCUTIONS (JEUX, REPOS, JEUX FERMÉS ETC.) <br> AVEC CETTE ERREUR À 0% TROUVÉE <br> ACTIVER QUE PAS BESOIN D'ACTIVER RIEN D'AUTRE ACTIVE JA: <br> JAILBREAK + HEN + MIRA + TO - DEX"
+   },
 
-      {name:"2º -  MIRA",icon:"hen.png",detail:"2º - MIRA - ATIVAÇÃO MANUAL:<br> Ativa a capacidade de executar payloads e jogos FPKG<br> PARA USAR ESSE MODO ATIVE ANTES O: <br> 1º - JAILBREAK"},
+     {name:"HEN 2.2.4",icon:"HenEnable.png",
+     br_detail:"JailBreak + HEN 2.2.4 V2 com funções TO - DEX - ATIVAÇÃO AUTOMATICA: <br>Feito por TEAM SGK, MUGIWARA e  Crono_<br>Mesmo Hen 2.2.3 OTIMIZADO<br> Funções de dessa Versão:<br> ERROS CE-32875-5, CE-33116-4, ERRO TROFEUS SEM DATA RESOLVIDOS!!<br> Debug Settings - TO - DEX - Instalação de FPKG - Instalação de FPKG Remoto<br> Copiar saves Para dispositivo Externo USB - UART -  Suporte VR - Suporte ao Modo Descanso <br> Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br>Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2.4 V2 COM AS FUNÇÕES DO TO - DEX! (TO - DEX DESATIVADAS POR ENQUANTO)!",      
+     eng_detail:"JailBreak + HEN 2.2.4 V2 with TO - DEX - AUTOMATIC ACTIVATION: <br> Made by TEAM SGK, MUGIWARA and Crono_ <br> Even Hen 2.2.3 OPTIMIZED <br> Features of this Version: <br> ERRORS CE -32875-5, CE-33116-4, TROPHY ERROR WITHOUT DATE RESOLVED !! <br> Debug Settings - TO - DEX - FPKG Installation - Remote FPKG Installation <br> Copy saves to External USB device - UART - VR Support - Rest Mode Support - Support for Trophies in Debug - Remote Play <br> SUPPORT TO - DEX - External HD Support 8.XX mode - Screen Capture Mode Always On <br> Spoofer for firmware 8.0 In Barking mode OPTIMIZED <br> ACTIVATING THIS DOESN'T NEED TO ACTIVATE ANYTHING IT ALREADY ACTIVES: <br> JAILBREAK + O HEN 2.2.4 V2 WITH THE FUNCTIONS OF TO - DEX!",
+     esp_detail:"JailBreak + HEN 2.2.4 V2 con TO - DEX - Funciones de ACTIVACIÓN AUTOMÁTICA: <br> Realizado por TEAM SGK, MUGIWARA y Crono_ <br>Mismo HEN 2.2.3 OPTIMIZADO<br> Funciones de esta versión: <br> ERRORS CE-32875-5, CE-33116-4, ERROR DE TROFEO SIN FECHA SOLVED !! <br> Configuración de depuración - TO - DEX - Instalación de FPKG - Instalación remota de FPKG <br> Copiar guardados en un dispositivo USB externo - UART - Soporte de VR - Soporte de modo de reposo <br> Soporte para trofeos de depuración - Uso a distancia - SOPORTE TO - DEX - Soporte HD externo Modo 8.XX <br> Modo de captura de pantalla Siempre activo <br> Spoofer para firmware 8.0 En modo de ladridos OPTIMIZADO <br> ACTIVANDO ESTO NO ES NECESARIO ACTIVAR NADA MÁS VIVO: <br> JAILBREAK + O HEN 2.2.4 V2 CON LAS FUNCIONES DE TO - DEX! (TO - DEX DESHABILITADO POR MIENTRAS)! ",    
+     fr_detail:"JailBreak + HEN 2.2.4 V2 avec TO - DEX - Fonctions ACTIVATION AUTOMATIQUE: <br> Réalisé par TEAM SGK, MUGIWARA et Crono_ <br>Even Hen 2.2.3 OPTIMISÉ<br> Fonctions de cette version: <br> LES ERREURS CE-32875-5, CE-33116-4, ERREUR DE TROPHÉE SANS DATE RESOLU !! <br> Paramètres de débogage - TO - DEX - Installation FPKG - Installation FPKG à distance <br> Copie enregistre sur un périphérique USB externe - UART - Prise en charge VR <br> Prise en charge du mode repos - Prise en charge des trophées de débogage - Lecture à distance <br> TO - SUPPORT DEX - Prise en charge HD externe Mode 8.XX - Mode de capture d'écran toujours actif <br> Spoofer pour le firmware 8.0 En mode aboiements OPTIMISÉ <br> ACTIVER CECI PAS BESOIN D'ACTIVER RIEN D'AUTRE VIVANT: <br> JAILBREAK + O HEN 2.2.4 V2 AVEC LES FONCTIONS DE TO - DEX! (TO - DEX DISABLED BY WHILE)! "
+   },
 
-      {name:"MIRA SEM HB",icon:"hen.png",detail:"JAILBREAK + MIRA SEM HB -  ATIVAÇÃO AUTOMATICA: <br>Ativa a capacidade de executar payloads e jogos FPKG<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br>  JAILBREAK + O MIRA SEM HB"},
+     {name:"HEN 2.2.3",icon:"HenEnable.png",
+     br_detail:"JailBreak + HEN 2.2.3 com funções TO - DEX - ATIVAÇÃO AUTOMATICA: <br>Feito por TEAM SGK, MUGIWARA e  Crono_<br>Funções de dessa Versão:<br> ERROS CE-32875-5, CE-33116-4 RESOLVIDO!!<br> Debug Settings - TO - DEX - Instalação de FPKG - Instalação de FPKG Remoto<br> Copiar saves Para dispositivo Externo USB - UART -  Suporte VR - Suporte ao Modo Descanso <br> Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br>Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2.3 COM AS FUNÇÕES DO TO - DEX! (TO - DEX DESATIVADAS POR ENQUANTO)!",     
+     eng_detail:"JailBreak + HEN 2.2.3 with TO - DEX - AUTOMATIC ACTIVATION functions: <br> Made by TEAM SGK, MUGIWARA and Crono_ <br> Functions of this version: <br> ERRORS CE-32875-5, CE-33116-4 SOLVED !! <br> Debug Settings - TO - DEX - FPKG Installation - Remote FPKG Installation <br> Copy saves To External USB device - UART - VR Support - Rest Mode Support - Support for Debug Trophies - Remote Play <br> TO - DEX SUPPORT - External HD support 8.XX mode - Screen Capture Mode Always Active <br> Spoofer for firmware 8.0 In OPTIMIZED Barking mode <br> ACTIVATING THIS NO NEED TO ACTIVATE ANYTHING ELSE IT ALIVE: <br> JAILBREAK + O HEN 2.2.3 WITH THE FUNCTIONS OF TO - DEX! (TO - DEX DISABLED BY WHILE)! ",
+     esp_detail:"JailBreak + HEN 2.2.3 con TO - DEX - Funciones de ACTIVACIÓN AUTOMÁTICA: <br> Realizado por TEAM SGK, MUGIWARA y Crono_ <br> Funciones de esta versión: <br> ERRORS CE-32875-5, CE-33116-4 SOLVED !! <br> Configuración de depuración - TO - DEX - Instalación de FPKG - Instalación remota de FPKG <br> Copiar guardados en un dispositivo USB externo - UART - Soporte de VR - Soporte de modo de reposo <br> Soporte para trofeos de depuración - Uso a distancia - SOPORTE TO - DEX - Soporte HD externo Modo 8.XX <br> Modo de captura de pantalla Siempre activo <br> Spoofer para firmware 8.0 En modo de ladridos OPTIMIZADO <br> ACTIVANDO ESTO NO ES NECESARIO ACTIVAR NADA MÁS VIVO: <br> JAILBREAK + O HEN 2.2.3 CON LAS FUNCIONES DE TO - DEX! (TO - DEX DESHABILITADO POR MIENTRAS)! ",
+     fr_detail:"JailBreak + HEN 2.2.3 avec TO - DEX - Fonctions ACTIVATION AUTOMATIQUE: <br> Réalisé par TEAM SGK, MUGIWARA et Crono_ <br> Fonctions de cette version: <br> LES ERREURS CE-32875-5, CE-33116-4 RESOLU !! <br> Paramètres de débogage - TO - DEX - Installation FPKG - Installation FPKG à distance <br> Copie enregistre sur un périphérique USB externe - UART - Prise en charge VR <br> Prise en charge du mode repos - Prise en charge des trophées de débogage - Lecture à distance <br> TO - SUPPORT DEX - Prise en charge HD externe Mode 8.XX - Mode de capture d'écran toujours actif <br> Spoofer pour le firmware 8.0 En mode aboiements OPTIMISÉ <br> ACTIVER CECI PAS BESOIN D'ACTIVER RIEN D'AUTRE VIVANT: <br> JAILBREAK + O HEN 2.2.3 AVEC LES FONCTIONS DE TO - DEX! (TO - DEX DISABLED BY WHILE)! "
+   },
 
-      {name:"HEN 2.2.1",icon:"HenEnable.png",detail:"JailBreak + HEN 2.2.1 com funções TO - DEX - ATIVAÇÃO AUTOMATICA: <br>Feito por Team SGK, MUGIWARA e  Crono_<br>Funções de dessa Versão:<br> Debug Settings - Funções (TO - DEX JA ATIVADA) - Instalação de FPKG - Instalação de FPKG Remoto - Copiar saves Para dispositivo Externo USB<br>UART -  Suporte VR - Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2.1 COM AS FUNÇÕES DO TO - DEX!"},
+     {name:"HEN 2.1.8",icon:"HenEnable.png",
+     br_detail:"JailBreak + HEN 2.1.8 - ATIVAÇÃO AUTOMATICA: <br>Feito por MUGIWARA e Crono_<br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.8",   
+     eng_detail:"JailBreak + HEN 2.1.8 - AUTOMATIC ACTIVATION: <br> Made by MUGIWARA and Crono_ <br> Features of this Version: <br> Debug Settings - Installation of FPKG - Installation of Remote FPKG - UART - Support VR <br> Support to Rest Mode - Support for Trophies in Debug - Remote Play <br> SUPPORT TO - DEX - External HD Support 8.XX mode - Screen Capture Mode Always On <br> Spoofer for firmware 8.0 In Barking mode <br> ACTIVATING THIS DOESN'T NEED TO ACTIVATE ANYTHING ELSE IT IS ACTIVE: <br> JAILBREAK + O HEN 2.1.8 ",
+    esp_detail:"JailBreak + HEN 2.1.8 - ACTIVACIÓN AUTOMÁTICA: <br> Hecho por MUGIWARA y Crono_ <br> Características de esta versión: Configuración de depuración de - Instalación de FPKG <br>Instalación de FPKG remoto - UART - Soporte VR <br> Soporte a modo de reposo - Soporte para trofeos en depuración - Juego remoto <br> APOYO A - DEX - Soporte de HD externo Modo 8.XX - Modo de captura de pantalla Siempre encendido <br> Spoofer para firmware 8.0 En modo Ladrido <br> ACTIVANDO ESTO NO NECESITA ACTIVAR NADA MÁS, ES ACTIVO: <br> JAILBREAK + O HEN 2.1.8 ",   
+     fr_detail:"JailBreak + HEN 2.1.8 - ACTIVATION AUTOMATIQUE: <br> Fabriqué par MUGIWARA et Crono_ <br> Caractéristiques de cette version: <br> Paramètres de débogage - Installation de FPKG - Installation de FPKG à distance - UART - Support VR <br> Support en mode repos - Prise en charge des trophées dans le débogage - Lecture à distance <br> SUPPORT TO - DEX - Prise en charge HD externe Mode 8.XX - Mode de capture d'écran toujours activé <br> Spoofer pour le firmware 8.0 En mode aboiement <br> ACTIVER CECI N'A PAS BESOIN D'ACTIVER RIEN D'AUTRE IL EST ACTIF: <br> JAILBREAK + O HEN 2.1.8 "
+   },
 
+     {name:"HEN 2.1.3",icon:"HenEnable.png",
+     br_detail:"JailBreak + HEN 2.1.3 - ATIVAÇÃO AUTOMATICA: <br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Spoofer para firmware 7.51 - Suporte para Trofeus em Debug - Remote Play - SUPORTE AO TO - DEX <br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.3",
+     eng_detail:"JailBreak + HEN 2.1.3 - AUTOMATIC ACTIVATION: <br> Features of this Version: <br> Debug Settings - Installation of FPKG - Installation of Remote FPKG - UART - Support VR - Support for Rest Mode <br> Spoofer for firmware 7.51 - Support for Trophies in Debug - Remote Play - SUPPORT TO - DEX <br> ACTIVATING THIS NO NEED TO ACTIVATE ANYTHING IT IS ALREADY ACTIVE: <br> JAILBREAK + O HEN 2.1.3 ",
+     esp_detail:"JailBreak + HEN 2.1.3 - ACTIVACIÓN AUTOMÁTICA: <br> Características de esta versión: <br> Configuración de depuración - Instalación de FPKG - Instalación de FPKG remoto - UART - Soporte VR - Soporte para modo de reposo <br> Spoofer para firmware 7.51 - Soporte para trofeos en Debug - Remote Play - APOYO A - DEX <br> ACTIVAR ESTO NO ES NECESARIO ACTIVAR NADA, YA ESTÁ ACTIVO: <br> JAILBREAK + O HEN 2.1.3 ",
+     fr_detail:"JailBreak + HEN 2.1.3 - ACTIVATION AUTOMATIQUE: <br> Caractéristiques de cette version: <br> Paramètres de débogage - Installation de FPKG - Installation de FPKG à distance - UART - Support VR - Support du mode repos <br> Spoofer pour le firmware 7.51 - Prise en charge des trophées dans le débogage - Lecture à distance - SOUTIEN À - DEX <br> ACTIVER CELA PAS BESOIN D'ACTIVER TOUT CE QUI EST DÉJÀ ACTIF: <br> JAILBREAK + O HEN 2.1.3 "
+   },
 
-      {name:"HEN 2.2",icon:"HenEnable.png",detail:"JailBreak + HEN 2.2 - ATIVAÇÃO AUTOMATICA: <br>Feito por MUGIWARA e Crono_<br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - Copiar saves Para dispositivo Externo USB -  UART -  Suporte VR<br>Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço OTIMIZADO<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.2"},
+     {name:"MIRA",icon:"hen.png",
+     br_detail:"JAILBREAK + MIRA -  ATIVAÇÃO AUTOMATICA: <br>Ativa a capacidade de executar payloads e jogos FPKG<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br>  JAILBREAK + O MIRA",  
+     eng_detail:"JAILBREAK + MIRA - AUTOMATIC ACTIVATION: <br> Activates the ability to execute payloads and FPKG games <br> ACTIVATING THIS NO NEED TO ACTIVATE ANYTHING IT ALREADY ACTIVES: <br> JAILBREAK + MIRA",   
+     esp_detail:"JAILBREAK + MIRA - AUTOMATIC ACTIVATION: <br> Activates the ability to execute payloads and FPKG games <br> ACTIVATING THIS NO NEED TO ACTIVATE ANYTHING IT ALREADY ACTIVES: <br> JAILBREAK + MIRA",
+     fr_detail:"JAILBREAK + MIRA - ACTIVATION AUTOMATIQUE: <br> Active la possibilité d'exécuter des charges utiles et des jeux FPKG <br> ACTIVER CELA PAS BESOIN D'ACTIVER TOUT CE QUI EST DÉJÀ ACTIVÉ: <br> JAILBREAK + MIRA"
+   },
 
-      {name:"HEN 2.1.8",icon:"HenEnable.png",detail:"JailBreak + HEN 2.1.8 - ATIVAÇÃO AUTOMATICA: <br>Feito por MUGIWARA e Crono_<br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Suporte para Trofeus em Debug - Remote Play <br> SUPORTE AO TO - DEX - Suporte ao HD Externo modo 8.XX - Modo Captura de tela Sempre Ativo <br> Spoofer para firmware 8.0 Em modo Descaço<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.8"},
+     {name:"MIRA SEM HB",icon:"hen.png",
+     br_detail:"JAILBREAK + MIRA SEM HB -  ATIVAÇÃO AUTOMATICA: <br>Ativa a capacidade de executar payloads e jogos FPKG<br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br>  JAILBREAK + O MIRA SEM HB",
+     eng_detail:"JAILBREAK + MIRA SEM HB - AUTOMATIC ACTIVATION: <br> Activates the ability to execute payloads and FPKG games <br> ACTIVATING THIS NO NEED TO ACTIVATE ANYTHING IT ALREADY ACTIVES: <br> JAILBREAK + MIRA SEM HB",    
+     esp_detail:"JAILBREAK MIRA SIN HB - ACTIVACIÓN AUTOMÁTICA: <br> Activa la capacidad de realizar payloads y juegos FPKG <br> ACTIVAR ESTE NO ES NECESARIO ACTIVAR NADA, YA ACTIVA: <br> JAILBREAK O MIRA SIN HB",
+     fr_detail:"JAILBREAK MIRA SANS HB - ACTIVATION AUTOMATIQUE: <br> Active la possibilité d'exécuter des charges utiles et des jeux FPKG <br> ACTIVER CELA PAS BESOIN D'ACTIVER TOUT CE QU'IL S'ACTIVE DÉJÀ: <br> JAILBREAK O MIRA SANS HB"
+   },
 
-      {name:"HEN 2.1.3",icon:"HenEnable.png",detail:"JailBreak + HEN 2.1.3 - ATIVAÇÃO AUTOMATICA: <br>Funções de dessa Versão:<br> Debug Settings - Instalação de FPKG - Instalação de FPKG Remoto - UART -  Suporte VR<br>Suporte ao Modo Descanço - Spoofer para firmware 7.51 - Suporte para Trofeus em Debug - Remote Play - SUPORTE AO TO - DEX - <br> ATIVANDO ESSE NAO PRECISA ATIVAR MAIS NADA ELE JA ATIVA:<br> JAILBREAK + O HEN 2.1.3"},
+     {name:"BIN LOADER",icon:"binloader.png",
+     br_detail:"BIN LOADER: <br>Após Ativo  Favor Enviar o arquivo .BIN desejado para a porta 9021",
+     eng_detail:"BIN LOADER: <br> After Active Please send the desired .BIN file to port 9021",
+     esp_detail:"CARGADOR BIN: <br> Después de Active Envíe el archivo .BIN deseado al puerto 9021",
+     fr_detail:"CHARGEUR DE BAC: <br> After Active Veuillez envoyer le fichier .BIN souhaité au port 9021"
+   },
 
-      {name:"BIN LOADER",icon:"binloader.png",detail:" BIN LOADER: <br>Após Ativo  Favor Enviar o arquivo .BIN desejado para a porta 9021"},
+     {name:"FTP",icon:"ftp.png",
+     br_detail:"FTP: <br>Habilita as ferramentas necessária para conseguir conectar seu computador ao PS4 para gerenciar arquivos <br> USAR O FILEZILLA!",
+     eng_detail:"FTP: <br>Enables the necessary tools to be able to connect your computer to the PS4 to manage files <br> USE FILEZILLA!",
+     esp_detail:"FTP: <br>Habilita las herramientas necesarias para poder conectar tu computadora a la PS4 para administrar archivos <br> ¡UTILIZA FILEZILLA!",
+     fr_detail:"FTP: <br>Active les outils nécessaires pour pouvoir connecter votre ordinateur à la PS4 pour gérer les fichiers <br> UTILISER FILEZILLA!"
+   },
 
-      {name:"FTP",icon:"ftp.png",detail:"FTP:<br>Traduzido por CRONO_<br>Habilita as ferramentas necessária para conseguir conectar seu computador ao PS4 para gerenciar arquivos <br> USAR O FILEZILLA!"},
+     {name:"APP - TO - USB",icon:"app2usb.png",
+     br_detail:"APP - TO - USB:<br>Traduzido por CRONO_<br>Transfira jogos instalados no console para um hd externo<br> PRECISA ESTAR EM EXFAT!",
+     eng_detail:"APP - TO - USB: <br> Translated by CRONO_ <br> Transfer games installed on the console to an external hard drive <br> YOU MUST BE IN EXFAT!",
+     esp_detail:"APP - TO - USB: <br> Traducido por CRONO_ <br> Transferir juegos instalados en la consola a un disco duro externo <br> ¡DEBES ESTAR EN EXFAT!",    
+     fr_detail:"APP - TO - USB: <br> Traduit par CRONO_ <br> Transférez les jeux installés sur la console vers un disque dur externe <br> VOUS DEVEZ ÊTRE EN EXFAT!"
+   },
 
-      {name:"APP - TO - USB",icon:"app2usb.png",detail:"APP - TO - USB:<br>Traduzido por CRONO_<br>Transfira jogos instalados no console para um hd externo<br> PRECISA ESTAR EM EXFAT!"},
+     {name:"CONTROLE DE FAN",icon:"FanControl.png",
+     br_detail:"CONTROLE DE VENTOINHA (FAN) DO PS4<br>Aplica uma Velocidade Escolhida Pelo Usuario ao FAN do PS4<br> Melhorando seu Desenpenho e Temperatura, Evitando Super Aquecimeno",
+     eng_detail:"PS4 FAN CONTROL (FAN) <br> Apply a Speed Chosen by the User to the PS4 FAN<br> Improving its Performance and Temperature, Avoiding Overheating",
+     esp_detail:"PS4 FAN CONTROL (FAN):<br> aplique una velocidad elegida por el usuario al PS4 FAN<br> mejorando el rendimiento y la temperatura, evitando el sobrecalentamiento", 
+     fr_detail:"CONTRÔLE DU VENTILATEUR PS4 (FAN) <br> Appliquer une vitesse choisie par l'utilisateur au FAN PS4<br> en améliorant ses performances et sa température, en évitant la surchauffe"
+   },
 
-      {name:"CONTROLE DE FAN",icon:"FanControl.png",detail:"CONTROLE DE VENTOINHA (FAN) DO PS4<br>Traduzido por CRONO_<br>Aplica uma Velocidade Escolhida Pelo Usuario ao FAN do PS4"},
+    {name:"DESABILITAR UPDATES",icon:"disableupdate.png",
+     br_detail:"DESABILITAR UPDATES:<br>Traduzido por CRONO_<br>Desativa as atualizações automáticas de firmware do console",
+     eng_detail:"DISABLE UPDATES: <br> Translated by CRONO_ <br> Disable automatic console firmware updates",
+     esp_detail:"DESHABILITAR ACTUALIZACIONES: <br> Traducido por CRONO_ <br> Deshabilitar las actualizaciones automáticas del firmware de la consola",
+     fr_detail:"DÉSACTIVER LES MISES À JOUR: <br> Traduit par CRONO_ <br> Désactiver les mises à jour automatiques du micrologiciel de la console"
+   },
 
-      {name:"DESABILITAR UPDATES",icon:"disableupdate.png",detail:"DESABILITAR UPDATES:<br>Traduzido por CRONO_<br>Desativa as atualizações automáticas de firmware do console"},
+     {name:"HABABILITAR UPDATES",icon:"enableupdate.png",
+     br_detail:"HABILITAR UPDATES: <br>Traduzido por CRONO_<br>Reativa as atualizações automáticas do firmware do console",
+     eng_detail:"ENABLE UPDATES: <br> Translated by CRONO_ <br> Reactivates automatic console firmware updates",
+     esp_detail:"HABILITAR ACTUALIZACIONES: <br> Traducido por CRONO_ <br> Reactiva las actualizaciones automáticas del firmware de la consola",
+     fr_detail:"ACTIVER LES MISES À JOUR: <br> Traduit par CRONO_ <br> Réactive les mises à jour automatiques du firmware de la console"
+   },
 
-      {name:"HABABILITAR UPDATES",icon:"enableupdate.png",detail:"HABILITAR UPDATES: <br>Traduzido por CRONO_<br>Reativa as atualizações automáticas do firmware do console"},
+     {name:"REMOTE PLAY",icon:"remote.png",    
+     br_detail:"REMOTE PLAY: <br> Ativa o recurso Remote Play<br> para receber a imagem do console em um computador, dispositivo Android, etc. podendo Jogar de Forma Remota",
+     eng_detail:"REMOTE PLAY: <br> Enables the Remote Play<br> feature to receive the console image on a computer, Android device, etc. and you can Play Remotely",
+     esp_detail:"REMOTE PLAY: <br> Habilita la función Remote Play<br> para recibir la imagen de la consola en una computadora, dispositivo Android, etc. y puedes jugar de forma remota",
+     fr_detail:"REMOTE PLAY: <br> Active la fonction de lecture à distance<br> pour recevoir l'image de la console sur un ordinateur, un appareil Android, etc. et vous pouvez jouer à distance"
+   },
 
-      {name:"REMOTE PLAY",icon:"remote.png",detail:"REMOTE PLAY: <br> Ativa o recurso Remote Play para receber a imagem do console em um computador, dispositivo Android, etc."},
+     {name:"WEB - RTE ",icon:"rte.png",
+     br_detail:"WEB - RTE 6.72 CHEATS: <br>Pré-requisitos para usar o gerenciador de cheats para os jogos<br> favor acesar o Ps4trainer.com para mais informações!",
+     eng_detail:"WEB - RTE 6.72 CHEATS: <br> Prerequisites for using the cheats manager for games<br> please access Ps4trainer.com for more information!",
+     esp_detail:"WEB - TRUCOS RTE 6.72: <br> Requisitos previos para usar el administrador de trucos para juegos<br> visite Ps4trainer.com para obtener más información",
+     fr_detail:"WEB - RTE 6.72 TRUCS: <br> Conditions préalables à l'utilisation du gestionnaire de triche pour les jeux<br> veuillez visiter Ps4trainer.com pour plus d'informations!"
+   },
 
-      {name:"WEB - RTE ",icon:"rte.png",detail:"WEB - RTE 6.72 CHEATS: <br>Pré-requisitos para usar o gerenciador de cheats para os jogos<br> favor acesar o Ps4trainer.com para mais informações!"},
+     {name:"AVATAR DUMPER ",icon:"avatarDumper.png",
+     br_detail:"Avatar Dumper: <br>Feito por Red-J e Traduzido por Crono_<br>Na RAIZ do seu Dipositivo externo USB CRIE uma PASTA com o nome (Avatar_Inject)<br>ele craiara uma pasta de Backup para cada USUARIO que voce tiver em seu PS4.<br>leias as informações contidas no changelog!<br> COMO FUCIONA:<br> PRIMEIRA ATIVAÇÃO BACKPUP DETRO DA PASTA,<br> SEGUNTA ATIVAÇÃO SUBSITUIÇÃO PELO PERSONALIZADO! ",
+     eng_detail:"Avatar Dumper: <br> Made by Red-J and Translated by Crono_ <br> On the ROOT of your external USB device CREATE a FOLDER with the name (Avatar_Inject) <br> it will create a Backup folder for each USER you have on your PS4. <br> read the information on the changelog! <br> HOW IT FUCKS:<br> FIRST BACKPUP ACTIVATION FROM BACK OF THE PASTE, <br> SECOND ACTIVATION SUBSITUTION BY PERSONALIZED! ",
+     esp_detail:"Avatar Dumper: <br> Hecho por Red-J y traducido por Crono_ <br> En la RAÍZ de su dispositivo USB externo CREA una CARPETA con el nombre (Avatar_Inject) <br> creará una carpeta de Respaldo para cada USUARIO que tengas en tu PS4. ¡Lee la información sobre el registro de cambios! <br> ¡CÓMO FOLLA:<br> PRIMERA ACTIVACIÓN DE BACKPUP DESDE LA PARTE POSTERIOR DE LA PASTA, <br> SEGUNDA ACTIVACIÓN SUSTITUCIÓN POR PERSONALIZADO! ",
+     fr_detail:"Dumper d'avatar <br> Fabriqué par Red-J et traduit par Crono_ <br> Sur la racine de votre périphérique USB externe CRÉER un DOSSIER avec le nom (Avatar_Inject) <br> il créera un dossier de sauvegarde pour chaque UTILISATEUR que vous avez sur votre PS4. <br> lire les informations sur le changelog! <br> COMMENT CELA BAISE:<br> PREMIÈRE ACTIVATION DE SAUVEGARDE À PARTIR DE LA PÂTE, <br> DEUXIÈME SUBSITUTION D'ACTIVATION PAR PERSONNALISÉ! "
+   },
 
-      {name:"PS4 DEBUG",icon:"ps4debug.png",detail:"PS4 DEBUG: <br> É Utilizado para modificações no Sistema PS4 como no caso do <br>(PS4 Reaper, e  trofeis)"},
+     {name:"PS4 DEBUG",icon:"ps4debug.png",
+     br_detail:"PS4 DEBUG: <br> É Utilizado para modificações no Sistema PS4 como no caso do <br>(PS4 Reaper, e  trofeis em Debug, dentre outros)",
+     eng_detail:"PS4 DEBUG: <br> It is used for modifications in the PS4 System as in the case of <br> (PS4 Reaper, and Debug trophies, among others)",
+     esp_detail:"PS4 DEBUG: <br> Se utiliza para modificaciones en el sistema PS4 como en el caso de <br> (trofeos de PS4 Reaper y Debug, entre otros)",
+     fr_detail:"PS4 DEBUG: <br> Il est utilisé pour les modifications du système PS4 comme dans le cas de <br> (trophées PS4 Reaper et Debug, entre autres)"
+   },
 
-      {name:"BLOQUEAR HISTORICO",icon:"history.png",detail:"BLOQUEAR HISTORICO: <br>Traduzido por CRONO_<br>Desative a abertura automática da última página usada no navegador PS4.<br>RE-ENVIE ESTE PEYLOAD CASO QUEIRA VOLTAR AO NORMAL!"},
+	 {name:"BLOQUEAR HISTORICO",icon:"history.png",
+   br_detail:"BLOQUEAR HISTORICO: <br>Traduzido por CRONO_<br>Desative a abertura automática da última página usada no navegador PS4.<br>RE-ENVIE ESTE PEYLOAD CASO QUEIRA VOLTAR AO NORMAL!",
+   eng_detail:"HISTORY BLOCKER : <br> Translated by CRONO_ <br> Disable automatic opening of the last page used in the PS4 browser. <br> RE-SEND THIS PEYLOAD IF YOU WANT TO RETURN TO NORMAL!",
+   esp_detail:"HISTORIAL DEL BLOQUE: <br> Traducido por CRONO_ <br> Deshabilita la apertura automática de la última página usada en el navegador de PS4. <br> ¡VUELVE A ENVIAR ESTE PEYLOAD SI QUIERES VOLVER A NORMAL!",
+   fr_detail:"HISTORIQUE DU BLOC: <br> Traduit par CRONO_ <br> Désactivez l'ouverture automatique de la dernière page utilisée dans le navigateur PS4. <br> RENVOYEZ CE PEYLOAD SI VOUS VOULEZ REVENIR AU NORMAL!"
+ },
 
-      {name:"TO - DEX",icon:"todex.png",detail:"TO - DEX: <br>Ativa o menu de depuração do console no modo (Test - Dev - Kit),<br> Que Habilita Algumas Opções Especiais <br> PARA USAR ESSE MODO ATIVE ANTES : <br> 1º - JAILBREAK <br>2º -  MIRA<br>3º - TO - DEX <br> NESSA ORDEM"},
+	 {name:"TO - DEX",icon:"todex.png",  
+   br_detail:"TO - DEX: <br>Ativa o menu de depuração do console no modo (Test - Dev - Kit),<br> Que Habilita Algumas Opções Especiais no menu dos Jogos <br> PARA USAR ESSE MODO ATIVE ANTES :<br> MIRA ou HEN",
+   eng_detail:"TO - DEX: <br> Activate the console debug menu in (Test - Dev - Kit) mode, <br> That Enables Some Special Options in the Games menu <br> TO USE THIS MODE ACTIVATE BEFORE: <br> MIRA or HEN",
+   esp_detail:"TO - DEX: <br> Activa el menú de depuración de la consola en modo (Test - Dev - Kit), <br> Lo que habilita algunas opciones especiales en el menú Juegos <br> PARA USAR ESTE MODO ACTIVAR ANTES: <br> MIRA o HEN",
+   fr_detail:"TO - DEX: <br> Activer le menu de débogage de la console en mode (Test - Dev - Kit), <br> qui active certaines options spéciales dans le menu Jeux <br> POUR UTILISER CE MODE ACTIVER AVANT: <br> MIRA ou HEN"
+ },
 
-      {name:"BACKUP BD PS4",icon:"backup.png",detail:"BACKUP DO BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Faz backup do banco de dados e de todos os jogos instalados para um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+     {name:"BACKUP BD PS4",icon:"backup.png",    
+     br_detail:"BACKUP DO BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Faz backup do banco de dados e de todos os jogos instalados para um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32",
+     eng_detail:"PS4 DATABASE BACKUP: <br> Translated by CRONO_ <br> Back up the database and all installed games to a USB storage device <br> YOU NEED TO BE IN EXFAT OR FAT32",
+     esp_detail:"COPIA DE SEGURIDAD DE LA BASE DE DATOS DE PS4: <br> Traducido por CRONO_ <br> Realice una copia de seguridad de la base de datos y de todos los juegos instalados en un dispositivo de almacenamiento USB <br> NECESITA ESTAR EN EXFAT O FAT32",
+     fr_detail:"SAUVEGARDE DE LA BASE DE DONNÉES PS4: <br> Traduit par CRONO_ <br> Sauvegardez la base de données et tous les jeux installés sur un périphérique de stockage USB <br> BESOIN D'ÊTRE EN EXFAT OU FAT32"
+   },
 
-      {name:"RESTAURAR BD PS4",icon:"restore.png",detail:"RESTAURA O BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Restaura o backup feito anteriormente de um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+     {name:"RESTAURAR BD PS4",icon:"restore.png",
+     br_detail:"RESTAURA O BANCO DE DADOS DO PS4: <br>Traduzido por CRONO_<br>Restaura o backup feito anteriormente de um dispositivo de armazenamento USB<br>PRECISA ESTAR EM EXFAT OU FAT32",
+     eng_detail:"RESTORE THE PS4 DATABASE: <br> Translated by CRONO_ <br> Restores the previously backed up USB storage device <br> YOU MUST BE IN EXFAT OR FAT32",
+     esp_detail:"RESTAURAR LA BASE DE DATOS DE PS4: <br> Traducido por CRONO_ <br> Restaura el dispositivo de almacenamiento USB con copia de seguridad anterior <br> DEBE ESTAR EN EXFAT O FAT32",
+     fr_detail:"RESTAURER LA BASE DE DONNÉES PS4: <br> Traduit par CRONO_ <br> Restaure le périphérique de stockage USB précédemment sauvegardé <br> VOUS DEVEZ ÊTRE EN EXFAT OU FAT32"
+   },
 
-      {name:"BACKUP DOS SAVES",icon:"backup.png",detail:"BACKUP SAVE DATA PS4: <br> Para Realizar Backup dos Seus Saves para Armazenamento Externo USB <br>SIGA ESSES PASSOS:<br> 1- HEN 2.2 BETA 4<br> 2 - PS4 DEBUG<br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator for 6.72) para Ativar A sua Conta Offline"},
+     {name:"BACKUP DOS SAVES",icon:"SaveGame.png",
+     br_detail:"BACKUP SAVE DATA PS4: <br> Para Realizar Backup dos Seus Saves para Armazenamento Externo USB <br>SIGA ESSES PASSOS:<br> 1- HEN <br> 2 - PS4 DEBUG <br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator para 6.72)<br> para Ativar A sua Conta Offline",
+     eng_detail:"BACKUP SAVE DATA PS4: <br> To Backup Your Saves to External USB Storage <br> FOLLOW THESE STEPS: <br> 1- HEN <br> 2 - PS4 DEBUG <br> 3 - Using the App From PC (PS4 Offline Account Activator for 6.72),<br> to Activate Your Offline Account ",
+     esp_detail:"COPIA DE SEGURIDAD DE LOS DATOS DE GUARDAR PS4: <br> para hacer una copia de seguridad de sus datos guardados en un almacenamiento USB externo <br> SIGA ESTOS PASOS: <br> 1- HEN <br> 2 - DEPURACIÓN DE PS4 <br> 3 - Uso de la aplicación Desde PC (Activador de cuenta sin conexión de PS4 para 6.72)<br> para activar su cuenta sin conexión ",
+     fr_detail:"SAUVEGARDER LES DONNÉES DE SAUVEGARDE PS4: <br> pour sauvegarder vos sauvegardes sur un stockage USB externe <br> SUIVEZ CES ÉTAPES: <br> 1- HEN<br> 2 - DÉBOGAGE PS4 <br> 3 - Utilisation de l'application Depuis PC (PS4 Offline Account Activator for 6.72)<br> pour activer votre compte hors ligne "
+   },
 
-      {name:"RESTAURAR OS SAVES",icon:"restore.png",detail:"RESTAURAR SAVE DATA PS4 <br> Para Restaurar os Dados Salvos no Armazenamento Externo USB Para o PS4 <br>SIGA ESSES PASSOS:<br> 1- HEN 2.2 BETA 4<br> 2 - PS4 DEBUG<br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator for 6.72) para Ativar A sua Conta Offline"},
+     {name:"RESTAURAR OS SAVES",icon:"RestaurarGame.png",    
+     br_detail:"RESTAURAR SAVE DATA PS4 <br> Para Restaurar os Dados Salvos no Armazenamento Externo USB Para o PS4 <br>SIGA ESSES PASSOS:<br> 1- HEN<br> 2 - PS4 DEBUG<br> 3 - Usar o Aplitivo De PC (PS4 Offline Account Activator para 6.72)<br> para Ativar A sua Conta Offline",
+     eng_detail:"RESTORE SAVE DATA PS4 <br> To Restore Data Saved to External USB Storage for PS4 <br> FOLLOW THESE STEPS: <br> 1- HEN<br> 2 - PS4 DEBUG <br> 3 - Use the PC App (PS4 Offline Account Activator for 6.72)<br> to Activate Your Offline Account ",
+     esp_detail:"RESTAURAR GUARDAR DATOS PS4 <br> Para restaurar datos guardados en almacenamiento USB externo para PS4 <br> SIGA ESTOS PASOS: <br> 1- HEN<br> 2 - DEPURACIÓN DE PS4 <br> 3 - Use el Aplicación para PC (Activador de cuenta sin conexión de PS4 para 6.72)<br> para activar su cuenta sin conexión ",
+     fr_detail:"RESTORE SAVE DATA PS4 <br> Pour restaurer les données enregistrées sur un stockage USB externe pour PS4 <br> SUIVEZ CES ÉTAPES: <br> 1- HEN<br> 2 - PS4 DEBUG <br> 3 - Utilisez le Application PC (PS4 Offline Account Activator for 6.72)<br> pour activer votre compte hors ligne "
+   },
 
-      {name:"DUMPER - JOGOS V1.8",icon:"dumper.png",detail:"DUMPER V1.8: <br>Atualizado por MUGIWARA, e Traduzido por CRONO_ <br> maior estabilidade para a 6.72, maior velocidade<br> Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console para um armazenemnto USB Muito mais Rapido na 6.72<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+     {name:"DUMPER - JOGOS V1.8",icon:"dumper.png",
+     br_detail:"DUMPER V1.8: <br>Atualizado por MUGIWARA, e Traduzido por CRONO_ <br> maior estabilidade para a 6.72, maior velocidade<br> Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console<br> para um armazenemnto USB Muito mais Rapido na 6.72<br>PRECISA ESTAR EM EXFAT OU FAT32",
+     eng_detail:"DUMPER V1.8: <br> Updated by MUGIWARA, and Translated by CRONO_ <br> greater stability for 6.72, greater speed <br> With this Payload, it is possible to perform the Dumper of physical discs or digital titles of the<br> console for a USB storage Much faster at 6.72 <br> YOU MUST BE IN EXFAT OR FAT32 ",
+     esp_detail:"DUMPER V1.8: <br> Actualizado por MUGIWARA, y Traducido por CRONO_ <br> mayor estabilidad para 6.72, mayor velocidad <br> Con este Payload, es posible realizar el Dumper de discos físicos o títulos digitales de la consola<br> por un Almacenamiento USB Mucho más rápido a 6.72 <br> DEBE ESTAR EN EXFAT O FAT32 ",
+     fr_detail:"DUMPER V1.8: <br> Mis à jour par MUGIWARA, et Traduit par CRONO_ <br> plus de stabilité pour 6.72, plus de vitesse <br> Avec cette Payload, il est possible d'effectuer le Dumper de disques physiques ou de titres numériques de la console<br> pour un Stockage USB Beaucoup plus rapide à 6,72 <br> VOUS DEVEZ ÊTRE EN EXFAT OU FAT32 "
+   },
 
-      {name:"DUMPER - JOGOS V1.4",icon:"dumper.png",detail:"DUMPER V1.4:<br>Traduzido por CRONO_<br>Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console para um armazenemnto USB<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+     {name:"DUMPER - JOGOS V1.4",icon:"dumper.png",     
+     br_detail:"DUMPER V1.4:<br>Traduzido por CRONO_<br>Com este Payload, é possível realizar o Dumper de discos fisicos ou títulos digitais do console para um armazenemnto USB<br>PRECISA ESTAR EM EXFAT OU FAT32",
+     eng_detail:"DUMPER V1.4: <br> Translated by CRONO_ <br> With this Payload, it is possible to make the Dumper of physical discs or digital titles of the console for a USB storage <br> YOU NEED TO BE IN EXFAT OR FAT32",
+     esp_detail:"DUMPER V1.4: <br> Traducido por CRONO_ <br> Con este Payload, es posible realizar el Dumper de discos físicos o títulos digitales de la consola para un almacenamiento USB <br> NECESITAS ESTAR EN EXFAT O FAT32",
+     fr_detail:"DUMPER V1.4: <br> Traduit par CRONO_ <br> Avec cette Payload, il est possible de faire le Dumper de disques physiques ou de titres numériques de la console pour un stockage USB <br> VOUS DEVEZ ÊTRE EN EXFAT OU FAT32"
+   },
 
-      {name:"DUMPER - KERNEL",icon:"kdumper.png",detail:"DUMPER DE KERNEL: <br>Traduzido por CRONO_<br> Faz uma cópia do kernel do PS4 em um hd externo ou pendrive<br> sera criado um arquivo com o nome Dump.bin<br>PRECISA ESTAR EM EXFAT OU FAT32"},
+	 {name:"DUMPER - KERNEL",icon:"kdumper.png",
+   br_detail:"DUMPER DE KERNEL: <br>Traduzido por CRONO_<br> Faz uma cópia do kernel do PS4 em um hd externo ou pendrive<br> sera criado um arquivo com o nome Dump.bin<br>PRECISA ESTAR EM EXFAT OU FAT32",
+   eng_detail:"KERNEL DUMPER: <br> Translated by CRONO_ <br> Make a copy of the PS4 kernel on an external hard drive or USB stick and a file will be created with the name Dump.bin <br> YOU MUST BE IN EXFAT OR FAT32",
+   esp_detail:"KERNEL DUMPER: <br> Traducido por CRONO_ <br> Haga una copia del kernel de PS4 en un disco duro externo o memoria USB y se creará un archivo con el nombre Dump.bin <br> DEBE ESTAR EN EXFAT O FAT32",
+   fr_detail:"KERNEL DUMPER: <br> Traduit par CRONO_ <br> Faites une copie du noyau PS4 sur un disque dur externe ou une clé USB et un fichier sera créé avec le nom Dump.bin <br> VOUS DEVEZ ÊTRE EN EXFAT OU FAT32"
+ },
 
-      {name:"LINUX - LOADER",icon:"linux.png",detail:"LINUX - LOADER: <br> Carrega o Linux via porta USB com memória padrão de 2GB para gráficos"},
+	 {name:"DUMPER - HD PS4",icon:"keydumper.png",
+   br_detail:"DUMPER DAS CHAVES DO HD DO PS4:<br>PARA USUARIOS AVANÇADOS!!!<br>Faz o Backup da Chave EAP KEY na Unidade Externa USB<br>Esta é a sua chave de descriptografia do HD do PS4 HDD<br> você podera usá-la para montar o HD do seu PS4 HDD em seu PC LINUX e descriptografá-la.<br>PRECISA TER UM CONHECIMENTO AVANÇADO EM LINUX",
+   eng_detail:"PS4 HD KEYS DUMPER: <br> FOR ADVANCED USERS !!! <br> Back up the EAP KEY to the USB External Drive <br> This is your PS4 HDD HD decryption key <br> you can use it to mount the HD of your PS4 HDD on your LINUX PC and decrypt it. <br> YOU NEED TO HAVE ADVANCED KNOWLEDGE IN LINUX ",
+   esp_detail:"PS4 HD KEYS DUMPER: <br> ¡PARA USUARIOS AVANZADOS! <br> Haga una copia de seguridad de la EAP KEY en la unidad externa USB <br> Esta es su clave de descifrado de PS4 HDD HD <br> puedes usarlo para montar el HD de tu PS4 HDD en tu PC LINUX y descifrarlo. <br> NECESITAS TENER CONOCIMIENTOS AVANZADOS EN LINUX ",
+   fr_detail:"PS4 HD KEY DUMPER: <br> POUR LES UTILISATEURS AVANCÉS !!! <br> Sauvegardez la CLÉ EAP sur le lecteur externe USB <br> Voici votre clé de déchiffrement PS4 HDD HD <br> vous pouvez l'utiliser pour monter le HD de votre disque dur PS4 sur votre PC LINUX et le déchiffrer. <br> VOUS DEVEZ AVOIR DES CONNAISSANCES AVANCÉES EN LINUX "
+ },
 
-     
-    
+   {name:"LINUX - LOADER",icon:"linux.png",
+   br_detail:"LINUX - LOADER: <br> Carrega o Linux via porta USB com memória padrão de 2GB para gráficos",
+   eng_detail:"LINUX - LOADER: <br> Load Linux via USB port with standard 2GB graphics memory",
+   esp_detail:"LINUX - LOADER: <br> Carga Linux a través del puerto USB con memoria gráfica estándar de 2GB",
+   fr_detail:"LINUX - LOADER: <br> Chargez Linux via un port USB avec une mémoire graphique standard de 2 Go"
+ },
 
-    ],
+],
     themes:[
-     {url:"bgcrono_.jpg",selected:false},
-     
-    ],
-    themes4k:[
-     
+     {url:"bgcrono_.jpg",selected:false},   
     ],
     temp:tempC.value
    },
    methods:{
     loadPlayload: function(key){
+      if(key==0){//Carregar Jailbreak + HEN + MIRA + TO - DEX para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN + MIRA + TO - DEX Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN + MIRA + TO - DEX Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_MIRA-HEN-TODEX.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     } 
 
-      if(key==0){//Carregar Jailbreak
-      msgs.innerHTML="<div>Carregando jailbreak Aguarde ...</div>";
-      setTimeout(jailbreak,500);
+      if(key==1){//Carregar Jailbreak + HEN 2.2.4 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2.4 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.2.4 Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_HEN2.2.4BR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==1){//Carregar Mira
-      msgs.innerHTML="<div>Carregando Mira Aguarde ...</div>";
-      LoadedMSG="Mira Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_mira.js";
-      setTimeout(jailbreak,500);
-       var script = document.createElement('script');script.src = "p/pl_mira.js";document.getElementsByTagName('head')[0].appendChild(script);
+      if(key==2){//Carregar Jailbreak + HEN 2.2.3 para 6.72
+      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2.3 Aguarde ...</div>";
+      LoadedMSG="Jailbreak + HEN 2.2.3 Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_HEN2.2.3BR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==2){//Carregar Jailbreak + Mira Sem HB
-      msgs.innerHTML="<div>Carregando jailbreak + Mira sem HB Aguarde ...</div>";
-      LoadedMSG="Jailbreak + Mira sem HB Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_miranohb.js";
-      setTimeout(jailbreak,500);
-       var script = document.createElement('script');script.src = "p/pl_miranohb.js";document.getElementsByTagName('head')[0].appendChild(script);
-      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
-     }
-
-     if(key==3){//Carregar Jailbreak + HEN 2.2.1 para 6.72
-      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2 Aguarde ...</div>";
-      LoadedMSG="Jailbreak + HEN 2.2.1 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.2.1BR.js";
-      setTimeout(jailbreak,500);
-      var script = document.createElement('script');script.src = "p/pl_HEN2.2.1BR.js";document.getElementsByTagName('head')[0].appendChild(script);
-      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
-     }
-
-      if(key==4){//Carregar Jailbreak + HEN 2.2 para 6.72
-      msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.2 Aguarde ...</div>";
-      LoadedMSG="Jailbreak + HEN 2.2 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.2BR.js";
-      setTimeout(jailbreak,500);
-      var script = document.createElement('script');script.src = "p/pl_HEN2.2BR.js";document.getElementsByTagName('head')[0].appendChild(script);
-      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
-     }
-
-      if(key==5){//Carregar Jailbreak + HEN 2.1.8 para 6.72
+      if(key==3){//Carregar Jailbreak + HEN 2.1.8 para 6.72
       msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.1.8 Aguarde ...</div>";
-      LoadedMSG="Jailbreak + HEN 2.1.8 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.1.8BR.js";
-      setTimeout(jailbreak,500);
+      LoadedMSG="Jailbreak + HEN 2.1.8 Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_HEN2.1.8BR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==6){//Carregar Jailbreak + hen 2.1.3 para 6.72
+      if(key==4){//Carregar Jailbreak + hen 2.1.3 para 6.72
       msgs.innerHTML="<div>Carregando Jailbreak + HEN 2.1.3 Aguarde ...</div>";
-      LoadedMSG="Jailbreak + HEN 2.1.3 Carregado com Sucesso ✔";ExploitMira="yes";MiraSRC="p/pl_HEN2.1.3.js";
-      setTimeout(jailbreak,500);
+      LoadedMSG="Jailbreak + HEN 2.1.3 Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_HEN2.1.3.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
- 
+
+      if(key==5){//Carregar Mira
+      msgs.innerHTML="<div>Carregando Mira Aguarde ...</div>";
+      LoadedMSG="Mira Carregado com Sucesso ✔";
+       var script = document.createElement('script');script.src = "p/pl_mira.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==6){//Carregar Jailbreak + Mira Sem HB
+      msgs.innerHTML="<div>Carregando jailbreak + Mira sem HB Aguarde ...</div>";
+      LoadedMSG="Jailbreak + Mira sem HB Carregado com Sucesso ✔";
+       var script = document.createElement('script');script.src = "p/pl_miranohb.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
       if(key==7){//Carregar bin - loader
       msgs.innerHTML="<div>Carregando BIN LOADER Aguarde ...</div>";
       LoadedMSG="Carregado! Agora Envie o Payload desejado para a porta 9021";
@@ -306,146 +402,165 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Ca
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
+     if(key==15){//Carregar Avatar Dumper
+      msgs.innerHTML="<div>Carregando Dumper de Avatar ...</div>";
+      LoadedMSG="Injetor do Avatar Dumper Carregado com Sucesso ✔ ✔";
+      var script = document.createElement('script');script.src = "p/AvatarDumperBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
 
-      if(key==15){//PS4 Debug
+      if(key==16){//PS4 Debug
       msgs.innerHTML="<div>Carregando PS4 Debug Aguarde ...</div>";
       LoadedMSG=" PS4 Debug Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_ps4debug.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==16){//Carregar history block
+      if(key==17){//Carregar history block
       msgs.innerHTML="<div>Carregando Bloquedor de Historico Aguarde ...</div>";
       LoadedMSG="Bloquedor de Historico Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_historyBlockerBR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==17) {// Carregar TO - DEX
+      if(key==18) {// Carregar TO - DEX
        msgs.innerHTML = "<div> Carregando modo TO - DEX Aguarde ... </div>";
        LoadedMSG = " Modo TO - DEX Carregado com Sucesso ✔";
        var script = document.createElement ('script'); script.src = "p/pl_ToDEX.js"; document.getElementsByTagName ('head') [0] .appendChild (script);
        var script = document.createElement ('script'); script.src = "p/exp_loader.js"; document.getElementsByTagName ('head') [0] .appendChild (script);
      }
 
-      if(key==18){//Carregar db Backup
+      if(key==19){//Carregar db Backup
       msgs.innerHTML="<div>Carregando Backup do BD do PS4 Aguarde ...</div>";
       LoadedMSG="Backup do BD Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_dbBackupBR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==19){//Carregar db Restore
+      if(key==20){//Carregar db Restore
       msgs.innerHTML="<div>Carregado Restaurador de BD do PS4 Aguarde ...</div>";
       LoadedMSG="Restauração do BD Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_dbRestoreBR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
-     }
-     
-      if(key==20){//PS4 Save Data Backup
+     } 
+
+      if(key==21){//PS4 Save Data Backup
       msgs.innerHTML="<div>Carregando PS4 Save Data Backup ...</div>";
       LoadedMSG=" PS4 Save Data Backup Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_SD_Backup.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==21){//PS4 Save Data Restore
+      if(key==22){//PS4 Save Data Restore
       msgs.innerHTML="<div>Carregando PS4 Save Data Restore ...</div>";
       LoadedMSG=" PS4 Save Data Restore Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_SD_Restore.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==22){//Carregar dumper pt-br
+      if(key==23){//Carregar dumper pt-br
       msgs.innerHTML="<div>Carregando Dumper V1.8 Aguarde ...</div>";
       LoadedMSG="Dumper V1.8 Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_dumperv1.8BR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==23){//Carregar dumper
+      if(key==24){//Carregar dumper
       msgs.innerHTML="<div>Carregando Dumper V1.4 Aguarde ...</div>";
       LoadedMSG="Dumper V1.4 Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_dumperv1.4BR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==24){//Carregar kernel dump
+      if(key==25){//Carregar kernel dump
       msgs.innerHTML="<div>Carregando Dumper de  Kernel Aguarde ...</div>";
       LoadedMSG="Dumper de  Kernel Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_kernelDumperBR.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
 
-      if(key==25){//Carregar linux - loader
+     if(key==26){//Carregar key hd ps4 dump
+      msgs.innerHTML="<div>Carregando Dumper das Chaves do HD do PS4 Aguarde ...</div>";
+      LoadedMSG="Dumper das Chaves do HD do PS4 Carregado com Sucesso ✔";
+      var script = document.createElement('script');script.src = "p/pl_EAP-KEY-DUMPER.js";document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
+     }
+
+      if(key==27){//Carregar linux - loader
       msgs.innerHTML="<div>Carregando Linux - Loader Aguarde ...</div>";
       LoadedMSG="Linux - Loader Carregado com Sucesso ✔";
       var script = document.createElement('script');script.src = "p/pl_linux.js";document.getElementsByTagName('head')[0].appendChild(script);
       var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
      }
-
-    
-
-
     },
 
-  showMain:function(){
+    showMain:function(){
      this.isPayloadShow = true
      this.isThemesShow = false
      this.isAboutUsShow = false
-     this.isLoaderShow = true
-     this.is4kThemeShow = false
+     this.isLoaderShow = true 
     },
     showTheme:function(){
      this.isLoaderShow = false
      this.isAboutUsShow = false
      this.isThemesShow = true
      this.isPayloadShow = false
-     this.is4kThemeShow = false
-    },
-    show4kTheme:function(){
-     this.isLoaderShow = false
-     this.isAboutUsShow = false
-     this.isThemesShow = false
-     this.isPayloadShow = false
-     this.is4kThemeShow = true
     },
     showAboutUs:function(){
      this.isPayloadShow=false
      this.isAboutUsShow = true
      this.isLoaderShow = false
      this.isThemesShow = false
-     this.is4kThemeShow = false
     },
-    changeTheme:function(key,type){
-     if(type=="normal"){
-      this.themes[this.selectedTheme].selected=false
-      this.themes4k[this.selectedTheme].selected=false
-      localStorage.setItem("theme",(key))
-      localStorage.setItem("themeType","normal")
-      this.selectedTheme=localStorage.getItem("theme")
-      this.selectedThemeType=localStorage.getItem("themeType")
-      this.themes[this.selectedTheme].selected=true
-      document.getElementById("body").style.background="url(img/"+this.themes[localStorage.getItem("theme")].url+")";
-      document.getElementById("body").style.backgroundRepeat="no-repeat";
-      document.getElementById("body").style.backgroundSize="100%";
-     }else{
-      this.themes4k[this.selectedTheme].selected=false
-      this.themes[this.selectedTheme].selected=false
-      localStorage.setItem("theme",(key))
-      localStorage.setItem("themeType","4k")
-      this.selectedTheme=localStorage.getItem("theme")
-      this.selectedThemeType=localStorage.getItem("themeType")
-      this.themes4k[this.selectedTheme].selected=true
-      document.getElementById("body").style.background="url(img/4k/"+this.themes4k[localStorage.getItem("theme")].url+")";
-      document.getElementById("body").style.backgroundRepeat="no-repeat";
-      document.getElementById("body").style.backgroundSize="100%";
+    showDonation:function(){
+     this.isPayloadShow=false
+     this.isAboutUsShow = false
+     this.isLoaderShow = false
+     this.isThemesShow = false 
+    },
+    changeTheme:function(key){
+     this.themes[this.selectedTheme].selected=false
+     localStorage.setItem("theme",(key))
+     this.selectedTheme=localStorage.getItem("theme")
+     this.themes[this.selectedTheme].selected=true
+     document.getElementById("body").style.background="url(img/"+this.themes[localStorage.getItem("theme")].url+")";
+     document.getElementById("body").style.backgroundRepeat="no-repeat";
+     document.getElementById("body").style.backgroundSize="100%";
+    },
+    changeLang:function(lang){
+     localStorage.setItem("lang",lang)
+     this.lang=localStorage.getItem("lang")
+    },
+    changeText:function(tbr,teng,tesp,tfr){
+     if(this.lang=="br"){
+      return tbr;
      }
+     if(this.lang=="eng"){
+      return teng;
+     }
+     if(this.lang=="esp"){
+      return tesp;
+
+     }if(this.lang=="fr"){
+      return tfr;
+     }
+     return "error to change lang";
     },
     hover:function(key){
      if(key !== undefined){
       this.isDetailShow = true
-      document.getElementById("detail").innerHTML=this.payloads[key].detail
+      if(this.lang=="br"){
+       document.getElementById("detail").innerHTML=this.payloads[key].br_detail
+      }
+      if(this.lang=="eng"){
+       document.getElementById("detail").innerHTML=this.payloads[key].eng_detail
+      }
+      if(this.lang=="esp"){
+       document.getElementById("detail").innerHTML=this.payloads[key].esp_detail
+      }
+      if(this.lang=="fr"){
+       document.getElementById("detail").innerHTML=this.payloads[key].fr_detail
+      }
      }else{
       this.isDetailShow = false
      }
@@ -453,35 +568,24 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Ca
     setTemp:function(){
      msgs.style.display="inline"
      temp.style.display="none"
-     LoadedMSG="Controle de Ventoinha (FAN) ("+tempC.value+"&#176;C)Carregado com Sucesso ✔";fanTemp=tempC.value;
-     var script = document.createElement('script');script.src = "p/pl_fanthreshBR.js";document.getElementsByTagName('head')[0].appendChild(script);
+     LoadedMSG="Controle de Ventoinha (FAN) ✔("+tempC.value+"&#176;C)Carregado com Sucesso ✔";fanTemp=tempC.value;
+     var script = document.createElement('script');script.src = "p/pl_fanthresh.js";document.getElementsByTagName('head')[0].appendChild(script);
      var script = document.createElement('script');script.src = "p/exp_loader.js";document.getElementsByTagName('head')[0].appendChild(script);
     },
-   },
-   
-   created(){
-    if(localStorage.getItem("themeType")=="normal"){
-     this.themes[this.selectedTheme].selected=true
-    }else{
-     this.themes4k[this.selectedTheme].selected=true
+    retLang:function(){
+     return this.lang;
     }
+   }, 
+   created(){
+    this.themes[this.selectedTheme].selected=true
+    fetch('counter.php')
    },
   })
-</script>
-
-
+ </script>
  <script type="text/javascript">
-
- if(localStorage.getItem("themeType")=="normal"){
   document.getElementById("body").style.background="url(img/"+app.themes[localStorage.getItem("theme")].url+")";
   document.getElementById("body").style.backgroundRepeat="no-repeat";
   document.getElementById("body").style.backgroundSize="100%";
- }else{
-  document.getElementById("body").style.background="url(img/4k/"+app.themes4k[localStorage.getItem("theme")].url+")";
-  document.getElementById("body").style.backgroundRepeat="no-repeat";
-  document.getElementById("body").style.backgroundSize="100%";
- }
-
  </script>
  <script type="text/javascript">
   function showdate() {
@@ -522,7 +626,6 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Ca
   case 12:(day<22)? (month-=3, day+=9) :(month-=2, day-=21); break; 
   default: break;
   }
-  
   function gregorian_to_jalali(gy,gm,gd){
   var g_d_m,jy,jm,jd,gy2,days;
   g_d_m=[0,31,59,90,120,151,181,212,243,273,304,334];
@@ -534,29 +637,40 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML=" Ca
   gy-=621;
   }
   gy2=(gm > 2)?(gy+1):gy;
-  days=(366*gy) +(parseInt((gy2+3)/4)) -(parseInt((gy2+870)/100)) +(parseInt((gy2+366)/400)) -80 +gd +g_d_m[gm-1];
+  days=(365*gy) +(parseInt((gy2+3)/4)) -(parseInt((gy2+870)/100)) +(parseInt((gy2+366)/400)) -80 +gd +g_d_m[gm-1];
   jy+=33*(parseInt(days/12053)); 
   days%=12053;
   jy+=4*(parseInt(days/1461));
   days%=1461;
   if(days <= 366){
   jy+=parseInt((days-1)/366);
-  days=(days-1)%366;
+  days=(days-2)%366;
   }
   jm=(days < 186)?1+parseInt(days/31):7+parseInt((days-186)/30);
   jd=1+((days < 186)?(days%31):((days-186)%30));
   return [jy,jm,jd];
-  }
-  
+  } 
   ndt=new Date();
   g_y=ndt.getFullYear();
   g_m=ndt.getMonth()+1;
   g_d=ndt.getDate();
   shamsi=gregorian_to_jalali(g_y,g_m,g_d);
   var nday = shamsi[2];
-  
-  document.getElementById("date").innerHTML=(week[d]+" "+nday+" "+months[month-1]+" "+ year);
+  document.getElementById("date").innerHTML=(week[d]+" "+nday+" "+months[month-1]+" "+year);
   document.getElementById("clock").innerHTML=(Hour+":"+Minute);
+  if(app.retLang()=="eng" || app.retLang()=="esp" || app.retLang()=="fr"){//for English
+   mDay=a.getDate();
+   mMonth=a.getMonth()+1;
+   mYear=a.getFullYear();
+   if(mDay<10){
+    mDay="0"+mDay;
+   }
+   if(mMonth<10){
+    mMonth="0"+mMonth;
+   }
+   document.getElementById("date").innerHTML=(mDay+"/"+mMonth+"/"+mYear);
+   msgs.style.marginLeft="80px"
+  }
   }
   setInterval(showdate,0);
  </script>
